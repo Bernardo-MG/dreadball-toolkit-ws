@@ -2,8 +2,6 @@
 
 JSON web service handling Dreadball and Dreadball Extreme team creation and data query.
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.wandrell.tabletop.dreadball.ws/toolkit.svg)][maven-repo]
-
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
 
@@ -45,13 +43,7 @@ All other dependencies are handled through Maven, and noted in the included POM 
 
 ### Installing
 
-The recommended way to install the project is by setting up your preferred dependencies manager. To get the configuration information for this check the [Bintray repository][bintray-repo], or the [Maven Central Repository][maven-repo].
-
-If for some reason manual installation is necessary, just use the following Maven command:
-
-```
-$ mvn install
-```
+The project can be installed by creating the war file and deploying it into a server.
 
 ## Collaborate
 
@@ -72,8 +64,6 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 The project has been released under version 2.0 of the [Apache License][license].
 
-[bintray-repo]: https://bintray.com/bernardo-mg/maven
-[maven-repo]: http://mvnrepository.com/artifact/com.wandrell.tabletop.dreadball.ws/toolkit
 [issues]: https://github.com/bernardo-mg/toolkit/issues
 [javadoc-develop]: http://docs.wandrell.com/development/maven/toolkit/apidocs
 [javadoc-release]: http://docs.wandrell.com/maven/toolkit/apidocs
