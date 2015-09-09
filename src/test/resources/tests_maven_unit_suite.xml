@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="toolkitUnit" parallel="instances" thread-count="4">
+
+	<test name="toolkit_unit">
+		<packages>
+			<package name="com.wandrell.tabletop.dreadball.ws.toolkit.testing.test.unit.*" />
+		</packages>
+	</test>
+
+</suite>

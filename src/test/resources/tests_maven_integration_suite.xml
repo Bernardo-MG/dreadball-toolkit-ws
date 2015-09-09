@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="toolkitIntegration" parallel="instances"
+	thread-count="4">
+
+	<test name="toolkit_integration">
+		<packages>
+			<package name="com.wandrell.tabletop.dreadball.ws.toolkit.testing.test.integration.*" />
+		</packages>
+	</test>
+
+</suite>
