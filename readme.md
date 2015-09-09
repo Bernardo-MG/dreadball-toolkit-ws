@@ -64,10 +64,10 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 The project has been released under version 2.0 of the [Apache License][license].
 
-[issues]: https://github.com/bernardo-mg/toolkit/issues
-[javadoc-develop]: http://docs.wandrell.com/development/maven/toolkit/apidocs
-[javadoc-release]: http://docs.wandrell.com/maven/toolkit/apidocs
+[issues]: https://github.com/bernardo-mg/dreadball-toolkit-ws/issues
+[javadoc-develop]: http://docs.wandrell.com/development/maven/dreadball-toolkit-ws/apidocs
+[javadoc-release]: http://docs.wandrell.com/maven/dreadball-toolkit-ws/apidocs
 [license]: http://www.apache.org/licenses/LICENSE-2.0
-[scm]: https://github.com/bernardo-mg/toolkit
-[site-develop]: http://docs.wandrell.com/development/maven/toolkit
-[site-release]: http://docs.wandrell.com/maven/toolkit
+[scm]: https://github.com/Bernardo-MG/dreadball-toolkit-ws
+[site-develop]: http://docs.wandrell.com/development/maven/dreadball-toolkit-ws
+[site-release]: http://docs.wandrell.com/maven/dreadball-toolkit-ws
