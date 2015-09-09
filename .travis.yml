@@ -1,0 +1,23 @@
+language: java
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+  - openjdk7
+env:
+  - DEPLOY=false DEPLOY_DOCS=false
+# Setting the JDK which will do the deployment
+matrix:
+  exclude:
+    - jdk: oraclejdk8
+  include:
+    - jdk: oraclejdk8
+      env: DEPLOY_DOCS=true PULL_REQUEST=$TRAVIS_PULL_REQUEST SCM_BRANCH=$TRAVIS_BRANCH
+    
+before_install:
+  - chmod +x ./.scripts/create-maven-settings.sh
+  - chmod +x ./.scripts/deploy-site.sh
+  - ./.scripts/create-maven-settings.sh
+script:
+  - mvn clean verify
+after_success:
+  - ./.scripts/deploy-site.sh
