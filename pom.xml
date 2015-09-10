@@ -120,7 +120,7 @@
 		<jersey.version>2.21</jersey.version>
 		<jersey.contrib.spring.version>1.19</jersey.contrib.spring.version>
 		<mockito.version>1.10.19</mockito.version>
-		<tabletop.dreadball.model.default.version>0.1.0</tabletop.dreadball.model.default.version>
+		<tabletop.dreadball.model.default.version>0.1.1</tabletop.dreadball.model.default.version>
 		<tabletop.dreadball.model.json.version>0.1.1</tabletop.dreadball.model.json.version>
 		<tabletop.dreadball.model.persistence.version>0.1.0</tabletop.dreadball.model.persistence.version>
 		<slf4j.version>1.7.12</slf4j.version>
@@ -197,6 +197,12 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-annotations</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<!-- Jersey Server -->

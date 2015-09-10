@@ -45,6 +45,14 @@ All other dependencies are handled through Maven, and noted in the included POM 
 
 The project can be installed by creating the war file and deploying it into a server.
 
+### Running
+
+To just run the web service, useful for testing, the following command can be used:
+
+```
+mvn tomcat7:run
+```
+
 ## Collaborate
 
 Any kind of help with the project will be well received, and there are two main ways to give such help:
