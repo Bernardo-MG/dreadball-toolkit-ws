@@ -29,7 +29,8 @@ public class AbilityResource {
     public AbilityResource(final AbilityRepository repository) {
         super();
 
-        checkNotNull(repository, "Received a null pointer as repository");
+        checkNotNull(repository,
+                "Received a null pointer as abilities repository");
 
         this.repository = repository;
     }

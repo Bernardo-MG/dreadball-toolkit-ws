@@ -18,7 +18,7 @@ import com.wandrell.tabletop.dreadball.model.persistence.unit.stats.JPAAbility;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.repository.AbilityRepository;
 
-@Component
+@Component("abilityRepository")
 public class WSAbilityRepository
         implements AbilityRepository, FilteredRepository<Ability, QueryData> {
 
