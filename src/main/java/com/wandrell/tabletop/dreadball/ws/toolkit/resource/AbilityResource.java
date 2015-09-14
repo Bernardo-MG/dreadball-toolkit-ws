@@ -17,22 +17,21 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.repository.AbilityRepository;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.AbilityService;
 
 @Component
 @Path("/ability")
 public class AbilityResource {
 
-    private final AbilityRepository repository;
+    private final AbilityService service;
 
     @Autowired
-    public AbilityResource(final AbilityRepository repository) {
+    public AbilityResource(final AbilityService service) {
         super();
 
-        checkNotNull(repository,
-                "Received a null pointer as abilities repository");
+        checkNotNull(service, "Received a null pointer as abilities service");
 
-        this.repository = repository;
+        this.service = service;
     }
 
     @GET
@@ -45,7 +44,7 @@ public class AbilityResource {
         mapper = new ObjectMapper();
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
 
-        abilities = getAbilityRepository().getAll();
+        abilities = getAbilityService().getAllAbilities();
 
         return Response.status(201)
                 .entity(mapper.writer().writeValueAsString(abilities)).build();
@@ -58,7 +57,7 @@ public class AbilityResource {
         final Collection<Ability> abilities;
         String result;
 
-        abilities = getAbilityRepository().getAll();
+        abilities = getAbilityService().getAllAbilities();
 
         result = "";
         for (final Ability ability : abilities) {
@@ -68,8 +67,8 @@ public class AbilityResource {
         return Response.status(200).entity(result).build();
     }
 
-    private final AbilityRepository getAbilityRepository() {
-        return repository;
+    private final AbilityService getAbilityService() {
+        return service;
     }
 
 }
