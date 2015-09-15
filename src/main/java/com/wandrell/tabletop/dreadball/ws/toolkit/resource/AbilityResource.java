@@ -35,9 +35,8 @@ public class AbilityResource {
     }
 
     @GET
-    @Path("/json")
     @Produces({ MediaType.APPLICATION_JSON })
-    public Response getAbilitiesJSON() throws JsonProcessingException {
+    public final Response getAbilitiesJSON() throws JsonProcessingException {
         final ObjectMapper mapper;
         final Collection<Ability> abilities;
 
@@ -46,14 +45,13 @@ public class AbilityResource {
 
         abilities = getAbilityService().getAllAbilities();
 
-        return Response.status(201)
-                .entity(mapper.writer().writeValueAsString(abilities)).build();
+        return Response.ok().entity(mapper.writerWithDefaultPrettyPrinter()
+                .writeValueAsString(abilities)).build();
     }
 
     @GET
-    @Path("/text")
     @Produces({ MediaType.TEXT_PLAIN })
-    public Response getAbilitiesText() {
+    public final Response getAbilitiesText() {
         final Collection<Ability> abilities;
         String result;
 
@@ -61,10 +59,13 @@ public class AbilityResource {
 
         result = "";
         for (final Ability ability : abilities) {
-            result += " " + ability.getAbilityName();
+            if (!result.isEmpty()) {
+                result += "\n";
+            }
+            result += ability.getAbilityName();
         }
 
-        return Response.status(200).entity(result).build();
+        return Response.ok().entity(result).build();
     }
 
     private final AbilityService getAbilityService() {
