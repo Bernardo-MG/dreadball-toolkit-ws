@@ -35,6 +35,65 @@ public class AbilityResource {
     }
 
     @GET
+    @Produces({ MediaType.TEXT_HTML })
+    public final Response getAbilitiesHTML() {
+        final Collection<Ability> abilities;
+        final String title;
+        String table;
+        String html;
+
+        title = "Abilities list";
+
+        html = "<!DOCTYPE html>";
+        html += "\n";
+        html += "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\">";
+        html += "\n";
+        html += "<head>";
+        html += "\n";
+        html += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>";
+        html += "\n";
+        html += "<meta charset='utf-8'>";
+        html += "\n";
+        html += "<title>" + title + "</title>";
+        html += "\n";
+        html += "</head>";
+
+        abilities = getAbilityService().getAllAbilities();
+
+        table = "<table border=\"1\">";
+        table += "\n";
+        table += "<thead>";
+        table += "\n";
+        table += "<tr>";
+        table += "\n";
+        table += "<th>Name</th>";
+        table += "\n";
+        table += "</tr>";
+        table += "\n";
+        table += "</thead>";
+        for (final Ability ability : abilities) {
+            table += "\n";
+            table += "<tr>";
+            table += "\n";
+            table += "<td>" + ability.getAbilityName() + "</td>";
+            table += "\n";
+            table += "</tr>";
+        }
+        table += "</table>";
+
+        html += "\n";
+        html += "<body>";
+        html += "\n";
+        html += "<h1>" + title + "</h1>";
+        html += "\n";
+        html += table;
+        html += "\n";
+        html += "</body>";
+
+        return Response.ok().entity(html).build();
+    }
+
+    @GET
     @Produces({ MediaType.APPLICATION_JSON })
     public final Response getAbilitiesJSON() throws JsonProcessingException {
         final ObjectMapper mapper;
