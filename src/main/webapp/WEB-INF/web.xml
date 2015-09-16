@@ -16,7 +16,7 @@
 	</listener>
 
 	<servlet>
-		<servlet-name>jersey-servlet</servlet-name>
+		<servlet-name>dreadball-servlet</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
@@ -30,8 +30,8 @@
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>jersey-servlet</servlet-name>
-		<url-pattern>/rest/*</url-pattern>
+		<servlet-name>dreadball-servlet</servlet-name>
+		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 
 </web-app>

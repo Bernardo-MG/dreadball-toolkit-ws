@@ -16,15 +16,14 @@ import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.repository.JPARepository;
 import com.wandrell.tabletop.dreadball.model.persistence.unit.stats.JPAAbility;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.repository.AbilityRepository;
 
 @Component("abilityRepository")
-public class WSAbilityRepository
+public class JPAAbilityRepository
         implements AbilityRepository, FilteredRepository<Ability, QueryData> {
 
     private FilteredRepository<JPAAbility, QueryData> repository;
 
-    public WSAbilityRepository() {
+    public JPAAbilityRepository() {
         super();
     }
 

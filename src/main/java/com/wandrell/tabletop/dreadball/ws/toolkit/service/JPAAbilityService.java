@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.repository.AbilityRepository;
+import com.wandrell.tabletop.dreadball.ws.toolkit.repository.AbilityRepository;
 
 @Component("abilityService")
 public final class JPAAbilityService implements AbilityService {
