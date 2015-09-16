@@ -39,58 +39,62 @@ public class AbilityResource {
     public final Response getAbilitiesHTML() {
         final Collection<Ability> abilities;
         final String title;
-        String table;
-        String html;
+        final StringBuilder table;
+        final StringBuilder html;
 
         title = "Abilities list";
 
-        html = "<!DOCTYPE html>";
-        html += "\n";
-        html += "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\">";
-        html += "\n";
-        html += "<head>";
-        html += "\n";
-        html += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>";
-        html += "\n";
-        html += "<meta charset='utf-8'>";
-        html += "\n";
-        html += "<title>" + title + "</title>";
-        html += "\n";
-        html += "</head>";
+        html = new StringBuilder();
+        html.append("<!DOCTYPE html>");
+        html.append("\n");
+        html.append(
+                "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\">");
+        html.append("\n");
+        html.append("<head>");
+        html.append("\n");
+        html.append(
+                "<meta http-equiv=\"Content-Type\" content=\"text/html); charset=utf-8\"/>");
+        html.append("\n");
+        html.append("<meta charset='utf-8'>");
+        html.append("\n");
+        html.append("<title>" + title + "</title>");
+        html.append("\n");
+        html.append("</head>");
 
         abilities = getAbilityService().getAllAbilities();
 
-        table = "<table border=\"1\">";
-        table += "\n";
-        table += "<thead>";
-        table += "\n";
-        table += "<tr>";
-        table += "\n";
-        table += "<th>Name</th>";
-        table += "\n";
-        table += "</tr>";
-        table += "\n";
-        table += "</thead>";
+        table = new StringBuilder();
+        table.append("<table border=\"1\">");
+        table.append("\n");
+        table.append("<thead>");
+        table.append("\n");
+        table.append("<tr>");
+        table.append("\n");
+        table.append("<th>Name</th>");
+        table.append("\n");
+        table.append("</tr>");
+        table.append("\n");
+        table.append("</thead>");
         for (final Ability ability : abilities) {
-            table += "\n";
-            table += "<tr>";
-            table += "\n";
-            table += "<td>" + ability.getAbilityName() + "</td>";
-            table += "\n";
-            table += "</tr>";
+            table.append("\n");
+            table.append("<tr>");
+            table.append("\n");
+            table.append("<td>" + ability.getAbilityName() + "</td>");
+            table.append("\n");
+            table.append("</tr>");
         }
-        table += "</table>";
+        table.append("</table>");
 
-        html += "\n";
-        html += "<body>";
-        html += "\n";
-        html += "<h1>" + title + "</h1>";
-        html += "\n";
-        html += table;
-        html += "\n";
-        html += "</body>";
+        html.append("\n");
+        html.append("<body>");
+        html.append("\n");
+        html.append("<h1>" + title + "</h1>");
+        html.append("\n");
+        html.append(table);
+        html.append("\n");
+        html.append("</body>");
 
-        return Response.ok().entity(html).build();
+        return Response.ok().entity(html.toString()).build();
     }
 
     @GET
@@ -112,19 +116,19 @@ public class AbilityResource {
     @Produces({ MediaType.TEXT_PLAIN })
     public final Response getAbilitiesText() {
         final Collection<Ability> abilities;
-        String result;
+        final StringBuilder result;
 
         abilities = getAbilityService().getAllAbilities();
 
-        result = "";
+        result = new StringBuilder();
         for (final Ability ability : abilities) {
-            if (!result.isEmpty()) {
-                result += "\n";
+            if (result.length() > 0) {
+                result.append("\n");
             }
-            result += ability.getAbilityName();
+            result.append(ability.getAbilityName());
         }
 
-        return Response.ok().entity(result).build();
+        return Response.ok().entity(result.toString()).build();
     }
 
     private final AbilityService getAbilityService() {
