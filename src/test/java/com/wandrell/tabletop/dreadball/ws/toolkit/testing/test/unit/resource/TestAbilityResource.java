@@ -22,6 +22,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import org.mockito.Mockito;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -29,8 +30,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.resource.AbilityResource;
 import com.wandrell.tabletop.dreadball.ws.toolkit.service.AbilityService;
-
-import junit.framework.Assert;
 
 public final class TestAbilityResource {
 

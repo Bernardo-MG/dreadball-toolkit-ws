@@ -73,7 +73,7 @@ public class JPAAbilityRepository
     }
 
     @PersistenceContext
-    public void setEntityManager(final EntityManager entityManager) {
+    public final void setEntityManager(final EntityManager entityManager) {
         repository = new JPARepository<JPAAbility>(entityManager,
                 new DefaultQueryData("SELECT ability FROM Ability ability"));
     }
