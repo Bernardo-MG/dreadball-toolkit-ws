@@ -22,10 +22,6 @@
 			<param-name>javax.ws.rs.Application</param-name>
 			<param-value>com.wandrell.tabletop.dreadball.ws.toolkit.ToolkitApplication</param-value>
 		</init-param>
-		<init-param>
-			<param-name>jersey.config.server.provider.packages</param-name>
-			<param-value>com.wandrell.tabletop.dreadball.ws.toolkit.provider</param-value>
-		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
