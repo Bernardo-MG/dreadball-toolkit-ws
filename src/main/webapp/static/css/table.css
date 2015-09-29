@@ -1,0 +1,34 @@
+/*!
+ * Dreadball Toolkit WS table styles
+ * Copyright 2015 Bernardo Martínez Garrido
+ * Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
+ *
+ * This file contains styles for tables.
+ */
+
+
+/* Gives the header a background color */
+th {
+    background-color: #cccccc;
+	border: 1px solid black;
+}
+
+/* Sets the borders */
+table {
+	border: 1px solid black;
+}
+
+.table > tbody > tr > td, 
+.table > tbody > tr > th, 
+.table > tfoot > tr > td, 
+.table > tfoot > tr > th, 
+.table > thead > tr > td, 
+.table > thead > tr > th {
+	border: 1px solid black;
+}
+
+/* Centers columns data */
+table:not(.table-striped) td , 
+table:not(.table-striped) th  {
+    text-align: center;
+}

@@ -282,6 +282,18 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<!-- Jersey MVC Freemarker -->
+			<groupId>org.glassfish.jersey.ext</groupId>
+			<artifactId>jersey-mvc-freemarker</artifactId>
+			<version>${jersey.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
 			<!-- Jettison -->
 			<groupId>org.codehaus.jettison</groupId>
 			<artifactId>jettison</artifactId>

@@ -25,6 +25,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.glassfish.jersey.server.mvc.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -35,7 +36,7 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.service.AbilityService;
 
 @Component
-@Path("/ability")
+@Path("/abilities")
 public class AbilityResource {
 
     private final AbilityService service;
@@ -51,65 +52,9 @@ public class AbilityResource {
 
     @GET
     @Produces({ MediaType.TEXT_HTML })
-    public final Response getAbilitiesHTML() {
-        final Collection<Ability> abilities;
-        final String title;
-        final StringBuilder table;
-        final StringBuilder html;
-
-        title = "Abilities list";
-
-        html = new StringBuilder();
-        html.append("<!DOCTYPE html>");
-        html.append("\n");
-        html.append(
-                "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\">");
-        html.append("\n");
-        html.append("<head>");
-        html.append("\n");
-        html.append(
-                "<meta http-equiv=\"Content-Type\" content=\"text/html); charset=utf-8\"/>");
-        html.append("\n");
-        html.append("<meta charset='utf-8'>");
-        html.append("\n");
-        html.append("<title>" + title + "</title>");
-        html.append("\n");
-        html.append("</head>");
-
-        abilities = getAbilityService().getAllAbilities();
-
-        table = new StringBuilder();
-        table.append("<table border=\"1\">");
-        table.append("\n");
-        table.append("<thead>");
-        table.append("\n");
-        table.append("<tr>");
-        table.append("\n");
-        table.append("<th>Name</th>");
-        table.append("\n");
-        table.append("</tr>");
-        table.append("\n");
-        table.append("</thead>");
-        for (final Ability ability : abilities) {
-            table.append("\n");
-            table.append("<tr>");
-            table.append("\n");
-            table.append("<td>" + ability.getAbilityName() + "</td>");
-            table.append("\n");
-            table.append("</tr>");
-        }
-        table.append("</table>");
-
-        html.append("\n");
-        html.append("<body>");
-        html.append("\n");
-        html.append("<h1>" + title + "</h1>");
-        html.append("\n");
-        html.append(table);
-        html.append("\n");
-        html.append("</body>");
-
-        return Response.ok().entity(html.toString()).build();
+    @Template(name = "/ability/list")
+    public final Collection<Ability> getAbilitiesHTML() {
+        return getAbilityService().getAllAbilities();
     }
 
     @GET

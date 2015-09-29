@@ -72,14 +72,7 @@ public final class TestAbilityResource {
 
     @Test
     public final void testAbilitiesHTML() {
-        final Response response;
-        final String html;
-
-        html = "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\">\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html); charset=utf-8\"/>\n<meta charset='utf-8'>\n<title>Abilities list</title>\n</head>\n<body>\n<h1>Abilities list</h1>\n<table border=\"1\">\n<thead>\n<tr>\n<th>Name</th>\n</tr>\n</thead>\n<tr>\n<td>ability1</td>\n</tr>\n<tr>\n<td>ability2</td>\n</tr></table>\n</body>";
-
-        response = resource.getAbilitiesHTML();
-        Assert.assertEquals(Status.OK.getStatusCode(), response.getStatus());
-        Assert.assertEquals(html, response.getEntity());
+        // TODO: This probably needs an integration test
     }
 
     @Test
