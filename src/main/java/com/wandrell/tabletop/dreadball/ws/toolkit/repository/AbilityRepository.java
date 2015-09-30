@@ -19,6 +19,7 @@ import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 
-public interface AbilityRepository extends FilteredRepository<Ability, QueryData> {
+public interface AbilityRepository
+        extends FilteredRepository<Ability, QueryData> {
 
 }

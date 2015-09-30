@@ -36,6 +36,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.service.AbilityService;
+import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
 
 @Component
 @Path("/abilities")
@@ -51,7 +52,7 @@ public class AbilityResource {
 
         this.service = service;
     }
-    
+
     @GET
     @Produces({ MediaType.TEXT_HTML })
     @Template(name = "/ability/list-html")
@@ -95,11 +96,11 @@ public class AbilityResource {
     @Produces({ MediaType.TEXT_HTML })
     @Template(name = "/ability/detail-html")
     @ErrorTemplate(name = "/errors/404")
-    public Ability getAbilityHtml(@PathParam("id") final String id) {
+    public Ability getAbilityHtml(@ValidId @PathParam("id") final String id) {
         final Ability ability;
-        
+
         ability = getAbilityService().getAbilityById(Integer.parseInt(id));
-        
+
         return ability;
     }
 

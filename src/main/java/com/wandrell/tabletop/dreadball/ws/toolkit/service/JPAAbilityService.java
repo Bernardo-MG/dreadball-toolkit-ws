@@ -45,10 +45,11 @@ public final class JPAAbilityService implements AbilityService {
     @Override
     public final Ability getAbilityById(final Integer id) {
         final QueryData filter;
-        
-        filter = new DefaultQueryData("SELECT ability FROM Ability ability WHERE id = :id");
-        filter.addParameter("id", id);        
-        
+
+        filter = new DefaultQueryData(
+                "SELECT ability FROM Ability ability WHERE id = :id");
+        filter.addParameter("id", id);
+
         return getRepository().getEntity(filter);
     }
 

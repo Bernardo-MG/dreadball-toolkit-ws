@@ -18,6 +18,8 @@ package com.wandrell.tabletop.dreadball.ws.toolkit;
 import javax.ws.rs.ApplicationPath;
 
 import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.server.ServerProperties;
+import org.glassfish.jersey.server.mvc.beanvalidation.MvcBeanValidationFeature;
 import org.glassfish.jersey.server.mvc.freemarker.FreemarkerMvcFeature;
 
 @ApplicationPath("/")
@@ -28,7 +30,12 @@ public final class ToolkitApplication extends ResourceConfig {
 
         packages("com.wandrell.tabletop.dreadball.ws.toolkit.resource");
 
+        // Propagate validation errors to client
+        property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
+
+        // Enable MVC FreeMarker templating engine
         register(FreemarkerMvcFeature.class);
+        register(MvcBeanValidationFeature.class);
     }
 
 }

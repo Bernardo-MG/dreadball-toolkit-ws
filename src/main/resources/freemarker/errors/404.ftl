@@ -23,34 +23,35 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="./static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./static/css/theme.css" rel="stylesheet">
+    <link href="/dreadball-toolkit-ws/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/dreadball-toolkit-ws/static/css/theme.css" rel="stylesheet">
 </head>
 <body>
 <section class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-6 col-md-offset-2">
             <header class="page-header">
                 <h1>404 - Not Found</h1>
             </header>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-6 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">The requested resource does not exist.</h3>
                 </div>
                 <div class="panel-body">
                 <#list model as error>
-                    ${error.message} "<strong>${error.invalidValue}</strong>"<br/>
+                    <p>${error.message}</p>
+                    <p>Received id <strong>${error.invalidValue}</strong></p>
                 </#list>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<script src="./static/lib/jquery/jquery-1.11.3.min.js"></script>
-<script src="./static/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/dreadball-toolkit-ws/static/lib/jquery/jquery-1.11.3.min.js"></script>
+<script src="/dreadball-toolkit-ws/static/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

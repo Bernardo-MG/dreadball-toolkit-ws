@@ -294,6 +294,12 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<!-- Jersey MVC Bean Validation -->
+			<groupId>org.glassfish.jersey.ext</groupId>
+			<artifactId>jersey-mvc-bean-validation</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
 			<!-- Jettison -->
 			<groupId>org.codehaus.jettison</groupId>
 			<artifactId>jettison</artifactId>
