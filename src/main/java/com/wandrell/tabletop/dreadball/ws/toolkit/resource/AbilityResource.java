@@ -52,7 +52,7 @@ public class AbilityResource {
 
     @GET
     @Produces({ MediaType.TEXT_HTML })
-    @Template(name = "/ability/list")
+    @Template(name = "/ability/list-html")
     public final Collection<Ability> getAbilitiesHTML() {
         return getAbilityService().getAllAbilities();
     }

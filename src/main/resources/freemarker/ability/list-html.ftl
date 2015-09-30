@@ -54,6 +54,7 @@
         </div>
     </div>
 </section>
+<script src="./static/lib/jquery/jquery-1.11.3.min.js"></script>
 <script src="./static/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
