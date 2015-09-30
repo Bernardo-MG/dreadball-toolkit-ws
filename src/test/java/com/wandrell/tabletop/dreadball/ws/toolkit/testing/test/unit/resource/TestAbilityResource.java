@@ -90,11 +90,11 @@ public final class TestAbilityResource {
 
     @Test
     public final void testAbilitiesText() {
-        final Response response;
+        final String response;
 
         response = resource.getAbilitiesText();
-        Assert.assertEquals(Status.OK.getStatusCode(), response.getStatus());
-        Assert.assertEquals("ability1\nability2", response.getEntity());
+
+        Assert.assertEquals("ability1\nability2\n", response);
     }
 
 }

@@ -74,7 +74,7 @@ public class AbilityResource {
 
     @GET
     @Produces({ MediaType.TEXT_PLAIN })
-    public final Response getAbilitiesText() {
+    public final String getAbilitiesText() {
         final Collection<Ability> abilities;
         final StringBuilder result;
 
@@ -82,13 +82,10 @@ public class AbilityResource {
 
         result = new StringBuilder();
         for (final Ability ability : abilities) {
-            if (result.length() > 0) {
-                result.append("\n");
-            }
-            result.append(ability.getAbilityName());
+            result.append(ability.getAbilityName()).append('\n');
         }
 
-        return Response.ok().entity(result.toString()).build();
+        return result.toString();
     }
 
     private final AbilityService getAbilityService() {
