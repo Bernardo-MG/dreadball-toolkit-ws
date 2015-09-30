@@ -21,10 +21,12 @@ import java.util.Collection;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.glassfish.jersey.server.mvc.ErrorTemplate;
 import org.glassfish.jersey.server.mvc.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -49,7 +51,7 @@ public class AbilityResource {
 
         this.service = service;
     }
-
+    
     @GET
     @Produces({ MediaType.TEXT_HTML })
     @Template(name = "/ability/list-html")
@@ -86,6 +88,19 @@ public class AbilityResource {
         }
 
         return result.toString();
+    }
+
+    @GET
+    @Path("{id}")
+    @Produces({ MediaType.TEXT_HTML })
+    @Template(name = "/ability/detail-html")
+    @ErrorTemplate(name = "/errors/404")
+    public Ability getAbilityHtml(@PathParam("id") final String id) {
+        final Ability ability;
+        
+        ability = getAbilityService().getAbilityById(Integer.parseInt(id));
+        
+        return ability;
     }
 
     private final AbilityService getAbilityService() {

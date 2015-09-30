@@ -22,6 +22,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.wandrell.pattern.repository.DefaultQueryData;
+import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.repository.AbilityRepository;
 
@@ -38,6 +40,16 @@ public final class JPAAbilityService implements AbilityService {
                 "Received a null pointer as abilities repository");
 
         this.repository = repository;
+    }
+
+    @Override
+    public final Ability getAbilityById(final Integer id) {
+        final QueryData filter;
+        
+        filter = new DefaultQueryData("SELECT ability FROM Ability ability WHERE id = :id");
+        filter.addParameter("id", id);        
+        
+        return getRepository().getEntity(filter);
     }
 
     @Override

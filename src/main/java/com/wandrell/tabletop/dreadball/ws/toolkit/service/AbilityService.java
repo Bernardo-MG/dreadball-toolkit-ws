@@ -21,6 +21,8 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 
 public interface AbilityService {
 
+    public Ability getAbilityById(final Integer id);
+    
     public Collection<Ability> getAllAbilities();
 
 }

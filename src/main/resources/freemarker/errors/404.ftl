@@ -19,7 +19,7 @@
     <meta http-equiv="Content-Type" content="text/html); charset=utf-8"/>
     <meta charset='utf-8'>
     
-    <title>Abilities list</title>
+    <title>404 - Not Found</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -31,28 +31,22 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <header class="page-header">
-                <h1>Abilities list</h1>
+                <h1>404 - Not Found</h1>
             </header>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Details</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <#list model as ability>
-                <tr>
-                    <td>${ability.abilityName}</td>
-                    <td><a href="./abilities/${ability.id}">Check details</a></td>
-                </tr>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">The requested resource does not exist.</h3>
+                </div>
+                <div class="panel-body">
+                <#list model as error>
+                    ${error.message} "<strong>${error.invalidValue}</strong>"<br/>
                 </#list>
-                </tbody>
-            </table>
+                </div>
+            </div>
         </div>
     </div>
 </section>
