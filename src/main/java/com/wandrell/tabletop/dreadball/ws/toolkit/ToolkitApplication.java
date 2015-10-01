@@ -21,6 +21,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.ServerProperties;
 import org.glassfish.jersey.server.mvc.beanvalidation.MvcBeanValidationFeature;
 import org.glassfish.jersey.server.mvc.freemarker.FreemarkerMvcFeature;
+import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
 
 @ApplicationPath("/")
 public final class ToolkitApplication extends ResourceConfig {
@@ -28,6 +29,10 @@ public final class ToolkitApplication extends ResourceConfig {
     public ToolkitApplication() {
         super();
 
+        // Spring configuration
+        register(RequestContextFilter.class);
+
+        // Resource packages
         packages("com.wandrell.tabletop.dreadball.ws.toolkit.resource");
 
         // Propagate validation errors to client
