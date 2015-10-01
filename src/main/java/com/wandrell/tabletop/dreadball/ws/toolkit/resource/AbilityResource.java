@@ -25,7 +25,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.server.mvc.ErrorTemplate;
 import org.glassfish.jersey.server.mvc.Template;
@@ -33,8 +32,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.service.AbilityService;
 import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
@@ -64,17 +61,13 @@ public final class AbilityResource {
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON })
-    public final Response getAbilitiesJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
+    public final Collection<Ability> getAbilitiesJSON()
+            throws JsonProcessingException {
         final Collection<Ability> abilities;
-
-        mapper = new ObjectMapper();
-        mapper.addMixIn(Ability.class, AbilityMixIn.class);
 
         abilities = getAbilityService().getAllAbilities();
 
-        return Response.ok().entity(mapper.writerWithDefaultPrettyPrinter()
-                .writeValueAsString(abilities)).build();
+        return abilities;
     }
 
     @GET
@@ -110,19 +103,14 @@ public final class AbilityResource {
     @GET
     @Path("{id}")
     @Produces({ MediaType.APPLICATION_JSON })
-    public final Response
+    public final Ability
             getAbilityJSON(@ValidId @PathParam("id") final String id)
                     throws JsonProcessingException {
-        final ObjectMapper mapper;
         final Ability ability;
-
-        mapper = new ObjectMapper();
-        mapper.addMixIn(Ability.class, AbilityMixIn.class);
 
         ability = getAbilityService().getAbilityById(Integer.parseInt(id));
 
-        return Response.ok().entity(mapper.writerWithDefaultPrettyPrinter()
-                .writeValueAsString(ability)).build();
+        return ability;
     }
 
     @GET

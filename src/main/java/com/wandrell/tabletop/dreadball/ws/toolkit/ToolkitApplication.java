@@ -17,11 +17,14 @@ package com.wandrell.tabletop.dreadball.ws.toolkit;
 
 import javax.ws.rs.ApplicationPath;
 
+import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.ServerProperties;
 import org.glassfish.jersey.server.mvc.beanvalidation.MvcBeanValidationFeature;
 import org.glassfish.jersey.server.mvc.freemarker.FreemarkerMvcFeature;
 import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
+
+import com.wandrell.tabletop.dreadball.ws.toolkit.provider.DreadballJSONProvider;
 
 @ApplicationPath("/")
 public final class ToolkitApplication extends ResourceConfig {
@@ -41,6 +44,10 @@ public final class ToolkitApplication extends ResourceConfig {
         // Enable MVC FreeMarker templating engine
         register(FreemarkerMvcFeature.class);
         register(MvcBeanValidationFeature.class);
+
+        // Enable JSON through Jackson
+        register(JacksonFeature.class);
+        register(DreadballJSONProvider.class);
     }
 
 }

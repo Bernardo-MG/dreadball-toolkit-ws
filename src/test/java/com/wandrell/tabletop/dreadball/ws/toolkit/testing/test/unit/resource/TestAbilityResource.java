@@ -18,9 +18,6 @@ package com.wandrell.tabletop.dreadball.ws.toolkit.testing.test.unit.resource;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-
 import org.mockito.Mockito;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -77,15 +74,7 @@ public final class TestAbilityResource {
 
     @Test
     public final void testAbilitiesJSON() throws JsonProcessingException {
-        final Response response;
-        final String json;
-
-        json = String.format(
-                "[ {%n  \"name\" : \"ability1\"%n}, {%n  \"name\" : \"ability2\"%n} ]");
-
-        response = resource.getAbilitiesJSON();
-        Assert.assertEquals(Status.OK.getStatusCode(), response.getStatus());
-        Assert.assertEquals(json, response.getEntity());
+        // TODO: This probably needs an integration test
     }
 
     @Test
