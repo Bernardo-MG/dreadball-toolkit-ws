@@ -40,7 +40,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
 
 @Component
 @Path("/abilities")
-public class AbilityResource {
+public final class AbilityResource {
 
     private final AbilityService service;
 
@@ -96,12 +96,43 @@ public class AbilityResource {
     @Produces({ MediaType.TEXT_HTML })
     @Template(name = "/ability/detail-html")
     @ErrorTemplate(name = "/errors/404")
-    public Ability getAbilityHtml(@ValidId @PathParam("id") final String id) {
+    public final Ability
+            getAbilityHtml(@ValidId @PathParam("id") final String id) {
         final Ability ability;
 
         ability = getAbilityService().getAbilityById(Integer.parseInt(id));
 
         return ability;
+    }
+
+    @GET
+    @Path("{id}")
+    @Produces({ MediaType.APPLICATION_JSON })
+    public final Response
+            getAbilityJSON(@ValidId @PathParam("id") final String id)
+                    throws JsonProcessingException {
+        final ObjectMapper mapper;
+        final Ability ability;
+
+        mapper = new ObjectMapper();
+        mapper.addMixIn(Ability.class, AbilityMixIn.class);
+
+        ability = getAbilityService().getAbilityById(Integer.parseInt(id));
+
+        return Response.ok().entity(mapper.writerWithDefaultPrettyPrinter()
+                .writeValueAsString(ability)).build();
+    }
+
+    @GET
+    @Path("{id}")
+    @Produces({ MediaType.TEXT_PLAIN })
+    public final String
+            getAbilityText(@ValidId @PathParam("id") final String id) {
+        final Ability ability;
+
+        ability = getAbilityService().getAbilityById(Integer.parseInt(id));
+
+        return ability.getAbilityName();
     }
 
     private final AbilityService getAbilityService() {
