@@ -63,11 +63,7 @@ public final class AbilityResource {
     @Produces({ MediaType.APPLICATION_JSON })
     public final Collection<Ability> getAbilitiesJSON()
             throws JsonProcessingException {
-        final Collection<Ability> abilities;
-
-        abilities = getAbilityService().getAllAbilities();
-
-        return abilities;
+        return getAbilityService().getAllAbilities();
     }
 
     @GET
@@ -93,11 +89,7 @@ public final class AbilityResource {
     @ErrorTemplate(name = "/errors/404")
     public final Ability
             getAbilityHtml(@ValidId @PathParam("id") final String id) {
-        final Ability ability;
-
-        ability = getAbilityService().getAbilityById(Integer.parseInt(id));
-
-        return ability;
+        return getAbilityService().getAbilityById(Integer.parseInt(id));
     }
 
     @GET
@@ -106,11 +98,7 @@ public final class AbilityResource {
     public final Ability
             getAbilityJSON(@ValidId @PathParam("id") final String id)
                     throws JsonProcessingException {
-        final Ability ability;
-
-        ability = getAbilityService().getAbilityById(Integer.parseInt(id));
-
-        return ability;
+        return getAbilityService().getAbilityById(Integer.parseInt(id));
     }
 
     @GET
