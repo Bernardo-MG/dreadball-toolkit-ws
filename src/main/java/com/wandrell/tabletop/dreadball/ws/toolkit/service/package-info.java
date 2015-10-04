@@ -13,18 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.repository;
-
-import com.wandrell.pattern.repository.FilteredRepository;
-import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-
 /**
- * Interface representing the repository for the {@code Ability} instances.
- * 
- * @author Bernardo Martínez Garrido
+ * Provides service interfaces and implementations.
  */
-public interface AbilityRepository
-        extends FilteredRepository<Ability, QueryData> {
-
-}
+package com.wandrell.tabletop.dreadball.ws.toolkit.service;

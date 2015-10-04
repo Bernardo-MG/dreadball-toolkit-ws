@@ -26,10 +26,22 @@ import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
 
 import com.wandrell.tabletop.dreadball.ws.toolkit.provider.DreadballJSONProvider;
 
+/**
+ * {@link ResourceConfig} defining the Dreadball Toolkit web service
+ * application.
+ * <p>
+ * Contains most of the configuration options required for the web service. Any
+ * additional setup should be done on the web.xml file.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 @ApplicationPath("/")
-public final class ToolkitApplication extends ResourceConfig {
+public final class DreadballToolkitApplication extends ResourceConfig {
 
-    public ToolkitApplication() {
+    /**
+     * Constructs a {@code DreadballToolkitApplication}, and sets it up.
+     */
+    public DreadballToolkitApplication() {
         super();
 
         // Spring configuration

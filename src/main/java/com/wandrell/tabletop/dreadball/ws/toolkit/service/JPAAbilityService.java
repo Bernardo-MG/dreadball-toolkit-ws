@@ -19,27 +19,47 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Collection;
 
+import javax.inject.Singleton;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.repository.AbilityRepository;
 
-@Component("abilityService")
+/**
+ * Implementation of {@link AbilityService} working behind the scenes with JPA.
+ * <p>
+ * This is prepared to be used with Spring, as part of the dependency injection
+ * process.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
+@Singleton
+@Service("abilityService")
 public final class JPAAbilityService implements AbilityService {
 
-    private final AbilityRepository repository;
+    /**
+     * Repository for the {@code Ability} instances.
+     */
+    private final AbilityRepository abilityRepository;
 
+    /**
+     * Constructs a {@code JPAAbilityService} with the specified repository.
+     * <p>
+     * Said repository is meant to be injected through Spring.
+     * 
+     * @param repository
+     *            the repository to be used by the service
+     */
     @Autowired
     public JPAAbilityService(final AbilityRepository repository) {
         super();
 
-        checkNotNull(repository,
+        abilityRepository = checkNotNull(repository,
                 "Received a null pointer as abilities repository");
-
-        this.repository = repository;
     }
 
     @Override
@@ -58,8 +78,13 @@ public final class JPAAbilityService implements AbilityService {
         return getRepository().getAll();
     }
 
+    /**
+     * Returns the repository being used by the service.
+     * 
+     * @return the repository being used by the service
+     */
     private final AbilityRepository getRepository() {
-        return repository;
+        return abilityRepository;
     }
 
 }

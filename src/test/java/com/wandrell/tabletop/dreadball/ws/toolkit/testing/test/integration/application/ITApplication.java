@@ -22,7 +22,7 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.wandrell.tabletop.dreadball.ws.toolkit.ToolkitApplication;
+import com.wandrell.tabletop.dreadball.ws.toolkit.DreadballToolkitApplication;
 
 public final class ITApplication extends JerseyTest {
 
@@ -38,7 +38,7 @@ public final class ITApplication extends JerseyTest {
 
     @Override
     protected Application configure() {
-        return new ToolkitApplication();
+        return new DreadballToolkitApplication();
     }
 
 }

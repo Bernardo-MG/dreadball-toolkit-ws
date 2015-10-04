@@ -31,27 +31,49 @@ import org.glassfish.jersey.server.mvc.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.service.AbilityService;
 import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
 
+/**
+ * Web service resource for querying Dreadball abilities.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 @Singleton
 @Path("/abilities")
 @Service
 public final class AbilityResource {
 
-    private final AbilityService service;
+    /**
+     * Service being used by the resource to handle the {@code Ability}
+     * instances.
+     */
+    private final AbilityService abilityService;
 
+    /**
+     * Constructs a {@code AbilityResource} with the specified service.
+     * 
+     * @param service
+     *            the service to be used by the resource.
+     */
     @Autowired
     public AbilityResource(final AbilityService service) {
         super();
 
-        checkNotNull(service, "Received a null pointer as abilities service");
-
-        this.service = service;
+        abilityService = checkNotNull(service,
+                "Received a null pointer as abilities service");
     }
 
+    /**
+     * Returns the abilities to be transformed into an HTML response.
+     * <p>
+     * These will be transformed into HTML by using the Freemarker template in
+     * the path '/ability/list-html'.
+     * 
+     * @return the abilities to be transformed into an HTML response through a
+     *         Freemarker template
+     */
     @GET
     @Produces({ MediaType.TEXT_HTML })
     @Template(name = "/ability/list-html")
@@ -59,13 +81,25 @@ public final class AbilityResource {
         return getAbilityService().getAllAbilities();
     }
 
+    /**
+     * Returns the abilities to be transformed into a JSON response.
+     * <p>
+     * These will be transformed into JSON through the use of a JSON provider.
+     * 
+     * @return the abilities to be transformed into a JSON response through a
+     *         JSON provider
+     */
     @GET
     @Produces({ MediaType.APPLICATION_JSON })
-    public final Collection<Ability> getAbilitiesJSON()
-            throws JsonProcessingException {
+    public final Collection<Ability> getAbilitiesJSON() {
         return getAbilityService().getAllAbilities();
     }
 
+    /**
+     * Returns a string with all the abilities.
+     * 
+     * @return a string with all the abilities
+     */
     @GET
     @Produces({ MediaType.TEXT_PLAIN })
     public final String getAbilitiesText() {
@@ -82,6 +116,17 @@ public final class AbilityResource {
         return result.toString();
     }
 
+    /**
+     * Returns the {@code Ability} with the specified id, to be transformed into
+     * an HTML response.
+     * <p>
+     * This will be transformed into HTML by using the Freemarker template in
+     * the path '/ability/detail-html'.
+     * 
+     * @param id
+     *            id of the queried {@code Ability}
+     * @return {@code Ability} to transform into an HTML response
+     */
     @GET
     @Path("{id}")
     @Produces({ MediaType.TEXT_HTML })
@@ -92,15 +137,31 @@ public final class AbilityResource {
         return getAbilityService().getAbilityById(Integer.parseInt(id));
     }
 
+    /**
+     * Returns the {@code Ability} with the specified id, to be transformed into
+     * a JSON response.
+     * <p>
+     * This will be transformed into JSON by using a JSON provider.
+     * 
+     * @param id
+     *            id of the queried {@code Ability}
+     * @return {@code Ability} to transform into a JSON response
+     */
     @GET
     @Path("{id}")
     @Produces({ MediaType.APPLICATION_JSON })
     public final Ability
-            getAbilityJSON(@ValidId @PathParam("id") final String id)
-                    throws JsonProcessingException {
+            getAbilityJSON(@ValidId @PathParam("id") final String id) {
         return getAbilityService().getAbilityById(Integer.parseInt(id));
     }
 
+    /**
+     * Returns a string representing the {@code Ability} with the specified id.
+     * 
+     * @param id
+     *            id of the queried {@code Ability}
+     * @return string representing the queried {@code Ability}
+     */
     @GET
     @Path("{id}")
     @Produces({ MediaType.TEXT_PLAIN })
@@ -113,8 +174,13 @@ public final class AbilityResource {
         return ability.getAbilityName();
     }
 
+    /**
+     * Returns the service being used by the resource.
+     * 
+     * @return the service being used by the resource
+     */
     private final AbilityService getAbilityService() {
-        return service;
+        return abilityService;
     }
 
 }

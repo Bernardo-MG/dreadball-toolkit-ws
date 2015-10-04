@@ -15,31 +15,41 @@
  */
 package com.wandrell.tabletop.dreadball.ws.toolkit.resource;
 
+import javax.inject.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+/**
+ * Web service resource for querying the application version.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
+@Singleton
 @Path("/version")
-public class VersionInfoResource {
+@Service
+public final class VersionInfoResource {
 
+    /**
+     * Constructs a {@code VersionInfoResource}.
+     */
     public VersionInfoResource() {
         super();
     }
 
+    /**
+     * Returns the web service version as a plain text.
+     * 
+     * @return the web service version as a plain text
+     */
     @GET
     @Path("/")
     @Produces({ MediaType.TEXT_PLAIN })
-    public Response getVersion() {
-        final String version;
-
-        version = "test";
-
-        return Response.status(200).entity(version).build();
+    public final String getVersion() {
+        return "test";
     }
 
 }

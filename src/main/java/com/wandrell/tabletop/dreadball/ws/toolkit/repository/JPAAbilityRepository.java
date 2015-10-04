@@ -20,10 +20,11 @@ import static com.google.common.base.Preconditions.checkArgument;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import javax.inject.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
@@ -32,12 +33,24 @@ import com.wandrell.persistence.repository.JPARepository;
 import com.wandrell.tabletop.dreadball.model.persistence.unit.stats.JPAAbility;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 
-@Component("abilityRepository")
-public class JPAAbilityRepository
+/**
+ * JPA-based implementation of {@link AbilityRepository}.
+ * 
+ * @author Bernardo
+ */
+@Singleton
+@Repository("abilityRepository")
+public final class JPAAbilityRepository
         implements AbilityRepository, FilteredRepository<Ability, QueryData> {
 
+    /**
+     * Base repository for applying inheritance through composition.
+     */
     private FilteredRepository<JPAAbility, QueryData> repository;
 
+    /**
+     * Constructs a {@code JPAAbilityRepository}.
+     */
     public JPAAbilityRepository() {
         super();
     }
@@ -72,6 +85,12 @@ public class JPAAbilityRepository
         getBaseRepository().remove((JPAAbility) entity);
     }
 
+    /**
+     * Setter for injecting the {@code EntityManager}.
+     * 
+     * @param entityManager
+     *            {@code EntityManager} for the repository
+     */
     @PersistenceContext
     public final void setEntityManager(final EntityManager entityManager) {
         repository = new JPARepository<JPAAbility>(entityManager,
@@ -85,6 +104,12 @@ public class JPAAbilityRepository
         getBaseRepository().update((JPAAbility) entity);
     }
 
+    /**
+     * Returns the base repository, being used for applying inheritance through
+     * composition.
+     * 
+     * @return the base repository
+     */
     private final FilteredRepository<JPAAbility, QueryData>
             getBaseRepository() {
         return repository;
