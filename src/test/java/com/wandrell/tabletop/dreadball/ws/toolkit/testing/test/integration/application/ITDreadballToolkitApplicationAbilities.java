@@ -66,7 +66,7 @@ public final class ITDreadballToolkitApplicationAbilities {
 
         header = html.select("h1").first();
 
-        cell = html.select("td").first();
+        cell = html.select("td").get(1);
 
         Assert.assertEquals(header.text(), "Abilities list");
         Assert.assertEquals(cell.text(), "360_vision");
