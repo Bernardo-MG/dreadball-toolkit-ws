@@ -19,41 +19,44 @@
     <meta http-equiv="Content-Type" content="text/html); charset=utf-8"/>
     <meta charset='utf-8'>
     
-    <title>Ability ${model.id} detailed information</title>
+    <title>Affinity Groups list</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/theme.css" rel="stylesheet">
+    <link href="./static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./static/css/theme.css" rel="stylesheet">
 </head>
 <body>
 <section class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <header class="page-header">
-                <h1>Ability detailed information</h1>
+                <h1>Affinity Groups list</h1>
             </header>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Ability ${model.id}</h3>
-                </div>
-                <div class="panel-body">
-                    <dl class="dl-horizontal">
-                        <dt>Id</dt>
-                        <dd>${model.id}</dd>
-                        <dt>Name</dt>
-                        <dd>${model.abilityName}</dd>
-                    </dl>
-                </div>
-            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <#list model as affinity>
+                <tr>
+                    <td>${affinity.affinityGroupName}</td>
+                    <td><a href="./affinities/${affinity.id}">Check details</a></td>
+                </tr>
+                </#list>
+                </tbody>
+            </table>
         </div>
     </div>
 </section>
-<script src="../static/lib/jquery/jquery-1.11.3.min.js"></script>
-<script src="../static/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./static/lib/jquery/jquery-1.11.3.min.js"></script>
+<script src="./static/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -30,8 +30,8 @@ import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.repository.JPARepository;
-import com.wandrell.tabletop.dreadball.model.persistence.unit.stats.JPAAbility;
-import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
+import com.wandrell.tabletop.dreadball.model.persistence.unit.JPAAffinityGroup;
+import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
 /**
  * JPA-based implementation of {@link AbilityRepository}.
@@ -39,52 +39,53 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Repository("abilityRepository")
-public final class JPAAbilityRepository
-        implements AbilityRepository, FilteredRepository<Ability, QueryData> {
+@Repository("affinityGroupRepository")
+public final class JPAAffinityGroupRepository implements
+        AffinityGroupRepository, FilteredRepository<AffinityGroup, QueryData> {
 
     /**
      * Base repository for applying inheritance through composition.
      */
-    private FilteredRepository<JPAAbility, QueryData> repository;
+    private FilteredRepository<JPAAffinityGroup, QueryData> repository;
 
     /**
-     * Constructs a {@code JPAAbilityRepository}.
+     * Constructs a {@code JPAAffinityGroupRepository}.
      */
-    public JPAAbilityRepository() {
+    public JPAAffinityGroupRepository() {
         super();
     }
 
     @Override
-    public final void add(final Ability entity) {
-        checkArgument(entity instanceof JPAAbility,
-                "The entity should be an instance of JPAAbility");
+    public final void add(final AffinityGroup entity) {
+        checkArgument(entity instanceof JPAAffinityGroup,
+                "The entity should be an instance of JPAAffinityGroup");
 
-        getBaseRepository().add((JPAAbility) entity);
+        getBaseRepository().add((JPAAffinityGroup) entity);
     }
 
     @Override
-    public final Collection<Ability> getAll() {
-        return new LinkedList<Ability>(getBaseRepository().getAll());
+    public final Collection<AffinityGroup> getAll() {
+        return new LinkedList<AffinityGroup>(getBaseRepository().getAll());
     }
 
     @Override
-    public final Collection<Ability> getCollection(final QueryData filter) {
-        return new LinkedList<Ability>(
+    public final Collection<AffinityGroup>
+            getCollection(final QueryData filter) {
+        return new LinkedList<AffinityGroup>(
                 getBaseRepository().getCollection(filter));
     }
 
     @Override
-    public final Ability getEntity(final QueryData filter) {
+    public final AffinityGroup getEntity(final QueryData filter) {
         return getBaseRepository().getEntity(filter);
     }
 
     @Override
-    public final void remove(final Ability entity) {
-        checkArgument(entity instanceof JPAAbility,
-                "The entity should be an instance of JPAAbility");
+    public final void remove(final AffinityGroup entity) {
+        checkArgument(entity instanceof JPAAffinityGroup,
+                "The entity should be an instance of JPAAffinityGroup");
 
-        getBaseRepository().remove((JPAAbility) entity);
+        getBaseRepository().remove((JPAAffinityGroup) entity);
     }
 
     /**
@@ -95,16 +96,17 @@ public final class JPAAbilityRepository
      */
     @PersistenceContext
     public final void setEntityManager(final EntityManager entityManager) {
-        repository = new JPARepository<JPAAbility>(entityManager,
-                new DefaultQueryData("SELECT ability FROM Ability ability"));
+        repository = new JPARepository<JPAAffinityGroup>(entityManager,
+                new DefaultQueryData(
+                        "SELECT affinity FROM AffinityGroup affinity"));
     }
 
     @Override
-    public final void update(final Ability entity) {
-        checkArgument(entity instanceof JPAAbility,
-                "The entity should be an instance of JPAAbility");
+    public final void update(final AffinityGroup entity) {
+        checkArgument(entity instanceof JPAAffinityGroup,
+                "The entity should be an instance of JPAAffinityGroup");
 
-        getBaseRepository().update((JPAAbility) entity);
+        getBaseRepository().update((JPAAffinityGroup) entity);
     }
 
     /**
@@ -113,7 +115,7 @@ public final class JPAAbilityRepository
      * 
      * @return the base repository
      */
-    private final FilteredRepository<JPAAbility, QueryData>
+    private final FilteredRepository<JPAAffinityGroup, QueryData>
             getBaseRepository() {
         return repository;
     }

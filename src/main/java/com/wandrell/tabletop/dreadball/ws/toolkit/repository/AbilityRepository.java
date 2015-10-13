@@ -20,7 +20,7 @@ import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 
 /**
- * Interface representing the repository for the {@code Ability} instances.
+ * Interface representing the repository for the {@link Ability} instances.
  * 
  * @author Bernardo Martínez Garrido
  */

@@ -17,29 +17,29 @@ package com.wandrell.tabletop.dreadball.ws.toolkit.service;
 
 import java.util.Collection;
 
-import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
+import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
 /**
- * Interface for a service which handles {@link Ability} instances.
+ * Interface for a service which handles {@link AffinityGroup} instances.
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface AbilityService {
+public interface AffinityGroupService {
 
     /**
-     * Acquires an {@code Ability} based on its id.
+     * Acquires an {@code AffinityGroup} based on its id.
      * 
      * @param id
-     *            the {@code Ability} id
-     * @return the {@code Ability} with that id
+     *            the {@code AffinityGroup} id
+     * @return the {@code AffinityGroup} with that id
      */
-    public Ability getAbilityById(final Integer id);
+    public AffinityGroup getAffinityGroupById(final Integer id);
 
     /**
-     * Returns all {@code Ability} instances.
+     * Returns all {@code AffinityGroup} instances.
      * 
-     * @return all {@code Ability} instances
+     * @return all {@code AffinityGroup} instances
      */
-    public Collection<Ability> getAllAbilities();
+    public Collection<AffinityGroup> getAllAffinityGroups();
 
 }

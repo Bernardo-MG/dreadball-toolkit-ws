@@ -1,3 +1,6 @@
+
+-- Abilities
+
 INSERT INTO abilities (id, name) VALUES (1, '360_vision');
 INSERT INTO abilities (id, name) VALUES (2, 'adaptable');
 INSERT INTO abilities (id, name) VALUES (3, 'a_safe_pair_of_hands');
@@ -79,3 +82,33 @@ INSERT INTO abilities (id, name) VALUES (78, 'trail_blazer');
 INSERT INTO abilities (id, name) VALUES (79, 'toxic');
 INSERT INTO abilities (id, name) VALUES (80, 'uncontrolled');
 INSERT INTO abilities (id, name) VALUES (81, 'vigour');
+
+-- Affinity groups
+
+INSERT INTO affinity_groups (id, name) VALUES (1, 'alien');
+INSERT INTO affinity_groups (id, name) VALUES (2, 'asterian');
+INSERT INTO affinity_groups (id, name) VALUES (3, 'big_picture');
+INSERT INTO affinity_groups (id, name) VALUES (4, 'convict');
+INSERT INTO affinity_groups (id, name) VALUES (5, 'cunning');
+INSERT INTO affinity_groups (id, name) VALUES (6, 'dreadball');
+INSERT INTO affinity_groups (id, name) VALUES (7, 'forge_father');
+INSERT INTO affinity_groups (id, name) VALUES (8, 'greedy');
+INSERT INTO affinity_groups (id, name) VALUES (9, 'guard');
+INSERT INTO affinity_groups (id, name) VALUES (10, 'hunter');
+INSERT INTO affinity_groups (id, name) VALUES (11, 'insectoid');
+INSERT INTO affinity_groups (id, name) VALUES (12, 'jack');
+INSERT INTO affinity_groups (id, name) VALUES (13, 'machine-mind');
+INSERT INTO affinity_groups (id, name) VALUES (14, 'mr_roboto');
+INSERT INTO affinity_groups (id, name) VALUES (15, 'outcast');
+INSERT INTO affinity_groups (id, name) VALUES (16, 'pirate');
+INSERT INTO affinity_groups (id, name) VALUES (17, 'plant');
+INSERT INTO affinity_groups (id, name) VALUES (18, 'proud');
+INSERT INTO affinity_groups (id, name) VALUES (19, 'psycho');
+INSERT INTO affinity_groups (id, name) VALUES (20, 'rebel');
+INSERT INTO affinity_groups (id, name) VALUES (21, 'reluctant');
+INSERT INTO affinity_groups (id, name) VALUES (22, 'striker');
+INSERT INTO affinity_groups (id, name) VALUES (23, 'tech_guys');
+INSERT INTO affinity_groups (id, name) VALUES (24, 'vat_brothers');
+INSERT INTO affinity_groups (id, name) VALUES (25, 'vicious');
+INSERT INTO affinity_groups (id, name) VALUES (26, 'weird_science');
+INSERT INTO affinity_groups (id, name) VALUES (27, 'worker');

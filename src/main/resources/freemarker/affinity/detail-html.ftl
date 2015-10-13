@@ -19,7 +19,7 @@
     <meta http-equiv="Content-Type" content="text/html); charset=utf-8"/>
     <meta charset='utf-8'>
     
-    <title>Ability ${model.id} detailed information</title>
+    <title>Affinity Group ${model.id} detailed information</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <header class="page-header">
-                <h1>Ability detailed information</h1>
+                <h1>Affinity Group detailed information</h1>
             </header>
         </div>
     </div>
@@ -39,14 +39,14 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Ability ${model.id}</h3>
+                    <h3 class="panel-title">Affinity Group ${model.id}</h3>
                 </div>
                 <div class="panel-body">
                     <dl class="dl-horizontal">
                         <dt>Id</dt>
                         <dd>${model.id}</dd>
                         <dt>Name</dt>
-                        <dd>${model.abilityName}</dd>
+                        <dd>${model.affinityGroupName}</dd>
                     </dl>
                 </div>
             </div>

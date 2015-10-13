@@ -13,33 +13,19 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.service;
+package com.wandrell.tabletop.dreadball.ws.toolkit.repository;
 
-import java.util.Collection;
-
-import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
+import com.wandrell.pattern.repository.FilteredRepository;
+import com.wandrell.pattern.repository.QueryData;
+import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
 /**
- * Interface for a service which handles {@link Ability} instances.
+ * Interface representing the repository for the {@link AffinityGroup}
+ * instances.
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface AbilityService {
-
-    /**
-     * Acquires an {@code Ability} based on its id.
-     * 
-     * @param id
-     *            the {@code Ability} id
-     * @return the {@code Ability} with that id
-     */
-    public Ability getAbilityById(final Integer id);
-
-    /**
-     * Returns all {@code Ability} instances.
-     * 
-     * @return all {@code Ability} instances
-     */
-    public Collection<Ability> getAllAbilities();
+public interface AffinityGroupRepository
+        extends FilteredRepository<AffinityGroup, QueryData> {
 
 }

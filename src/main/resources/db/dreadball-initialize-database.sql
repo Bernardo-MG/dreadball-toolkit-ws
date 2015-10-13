@@ -1,3 +1,6 @@
+
+-- Tables are dropped if they already exist
+
 DROP TABLE abilities IF EXISTS;
 DROP TABLE sponsors IF EXISTS;
 DROP TABLE team_rules IF EXISTS;
@@ -29,6 +32,8 @@ DROP TABLE sponsor_affinity_avas_affinity_groups IF EXISTS;
 
 DROP TABLE team_type_asset_avas IF EXISTS;
 DROP TABLE sponsor_asset_avas IF EXISTS;
+
+-- Tables are created
 
 CREATE TABLE abilities (
 	id				INTEGER IDENTITY PRIMARY KEY,
