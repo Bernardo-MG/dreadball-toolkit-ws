@@ -91,7 +91,8 @@ public final class ITDreadballToolkitApplicationAbilities {
                 new InputStreamReader(httpResponse.getEntity().getContent()),
                 token);
 
-        Assert.assertEquals("360_vision", abilities.iterator().next().getAbilityName());
+        Assert.assertEquals("360_vision",
+                abilities.iterator().next().getAbilityName());
     }
 
     @Test
