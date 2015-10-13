@@ -52,7 +52,7 @@ public final class ITDreadballToolkitApplicationAbilities {
         final Element header;
         final Element cell;
 
-        request = new HttpGet("http://localhost:11080/abilities");
+        request = new HttpGet("http://localhost:8080/abilities");
         request.addHeader("Accept", "text/html");
 
         httpResponse = HttpClientBuilder.create().build().execute(request);
@@ -77,7 +77,7 @@ public final class ITDreadballToolkitApplicationAbilities {
         final HttpResponse httpResponse;
         final String result;
 
-        request = new HttpGet("http://localhost:11080/abilities");
+        request = new HttpGet("http://localhost:8080/abilities");
         request.addHeader("Accept", "text/plain");
 
         httpResponse = HttpClientBuilder.create().build().execute(request);
@@ -86,6 +86,28 @@ public final class ITDreadballToolkitApplicationAbilities {
                 new InputStreamReader(httpResponse.getEntity().getContent()));
 
         Assert.assertTrue(result.startsWith("360_vision\n"));
+    }
+
+    @Test
+    public final void testGetAbilities_JSON()
+            throws ClientProtocolException, IOException {
+        final HttpUriRequest request;
+        final HttpResponse httpResponse;
+        final String result;
+
+        request = new HttpGet("http://localhost:8080/abilities");
+        request.addHeader("Accept", "application/json");
+
+        httpResponse = HttpClientBuilder.create().build().execute(request);
+
+        result = CharStreams.toString(
+                new InputStreamReader(httpResponse.getEntity().getContent()));
+
+        System.out.println("************************************");
+        System.out.println(result);
+        System.out.println("************************************");
+
+        Assert.assertTrue(result.startsWith("[{\"name\":\"360_vision\"}"));
     }
 
 }

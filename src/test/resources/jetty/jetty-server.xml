@@ -11,7 +11,7 @@
 				</Set>
 				<Set name="port">
 					<Property name="jetty.http.port" deprecated="jetty.port"
-						default="11080" />
+						default="8080" />
 				</Set>
 				<Set name="idleTimeout">
 					<Property name="jetty.http.idleTimeout" deprecated="http.timeout"
