@@ -29,6 +29,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.google.common.io.CharStreams;
+import com.google.gson.Gson;
+import com.wandrell.tabletop.dreadball.model.persistence.unit.stats.JPAAbility;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 
 public final class ITDreadballToolkitApplicationAbility {
 
@@ -71,17 +74,18 @@ public final class ITDreadballToolkitApplicationAbility {
             throws ClientProtocolException, IOException {
         final HttpUriRequest request;
         final HttpResponse httpResponse;
-        final String result;
+        final Ability ability;
 
         request = new HttpGet(PATH);
         request.addHeader("Accept", "application/json");
 
         httpResponse = HttpClientBuilder.create().build().execute(request);
 
-        result = CharStreams.toString(
-                new InputStreamReader(httpResponse.getEntity().getContent()));
+        ability = new Gson().fromJson(
+                new InputStreamReader(httpResponse.getEntity().getContent()),
+                JPAAbility.class);
 
-        Assert.assertEquals("{\"name\":\"360_vision\"}", result);
+        Assert.assertEquals("360_vision", ability.getAbilityName());
     }
 
     @Test

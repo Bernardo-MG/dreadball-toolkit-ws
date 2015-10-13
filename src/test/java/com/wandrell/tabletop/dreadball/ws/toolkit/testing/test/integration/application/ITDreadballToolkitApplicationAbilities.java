@@ -17,6 +17,8 @@ package com.wandrell.tabletop.dreadball.ws.toolkit.testing.test.integration.appl
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.util.Collection;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -29,6 +31,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.google.common.io.CharStreams;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
+import com.wandrell.tabletop.dreadball.model.persistence.unit.stats.JPAAbility;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 
 public final class ITDreadballToolkitApplicationAbilities {
 
@@ -66,22 +72,26 @@ public final class ITDreadballToolkitApplicationAbilities {
         Assert.assertEquals(cell.text(), "360_vision");
     }
 
+    @SuppressWarnings("serial")
     @Test
     public final void testGetAbilities_JSON()
             throws ClientProtocolException, IOException {
         final HttpUriRequest request;
         final HttpResponse httpResponse;
-        final String result;
+        final Collection<Ability> abilities;
+        final Type token;
 
         request = new HttpGet(PATH);
         request.addHeader("Accept", "application/json");
 
         httpResponse = HttpClientBuilder.create().build().execute(request);
 
-        result = CharStreams.toString(
-                new InputStreamReader(httpResponse.getEntity().getContent()));
+        token = new TypeToken<Collection<JPAAbility>>() {}.getType();
+        abilities = new Gson().fromJson(
+                new InputStreamReader(httpResponse.getEntity().getContent()),
+                token);
 
-        Assert.assertTrue(result.startsWith("[{\"name\":\"360_vision\"}"));
+        Assert.assertEquals("360_vision", abilities.iterator().next().getAbilityName());
     }
 
     @Test

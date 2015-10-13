@@ -112,6 +112,7 @@
 		<!-- Manifest data -->
 		<manifest.name>com/wandrell/tabletop/dreadball/ws/toolkit</manifest.name>
 		<!-- Dependencies versions -->
+		<gson.version>2.4</gson.version>
 		<guava.version>18.0</guava.version>
 		<h2.version>1.4.188</h2.version>
 		<hibernate.version>4.3.11.Final</hibernate.version>
@@ -170,12 +171,6 @@
 
 	<dependencies>
 		<dependency>
-			<!-- Guava -->
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>${guava.version}</version>
-		</dependency>
-		<dependency>
 			<!-- Dreadball Default Model -->
 			<groupId>com.wandrell.tabletop.dreadball</groupId>
 			<artifactId>dreadball-model-default</artifactId>
@@ -202,6 +197,19 @@
 					<artifactId>spring-orm</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<!-- GSON -->
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<!-- Guava -->
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
 		</dependency>
 		<dependency>
 			<!-- H2 Database -->
