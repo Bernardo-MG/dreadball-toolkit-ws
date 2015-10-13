@@ -11,7 +11,7 @@
 
 	<name>Dreadball Toolkit Web Service</name>
 	<description>A JSON web service for Dreadball, capable of handling team creation and data querying.</description>
-	<url>https://github.com/bernardo-mg/dreadball-toolkit-ws</url>
+	<url>https://github.com/Bernardo-MG/dreadball-toolkit-ws</url>
 	<inceptionYear>2015</inceptionYear>
 
 	<licenses>
@@ -23,20 +23,20 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:https://github.com/bernardo-mg/dreadball-toolkit-ws.git</connection>
-		<developerConnection>scm:git:https://github.com/bernardo-mg/dreadball-toolkit-ws.git</developerConnection>
+		<connection>scm:git:https://github.com/Bernardo-MG/dreadball-toolkit-ws.git</connection>
+		<developerConnection>scm:git:https://github.com/Bernardo-MG/dreadball-toolkit-ws.git</developerConnection>
 		<tag>head</tag>
-		<url>https://www.github.com/bernardo-mg/dreadball-toolkit-ws</url>
+		<url>https://www.github.com/Bernardo-MG/dreadball-toolkit-ws</url>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/bernardo-mg/dreadball-toolkit-ws/issues</url>
+		<url>https://github.com/Bernardo-MG/dreadball-toolkit-ws/issues</url>
 	</issueManagement>
 
 	<ciManagement>
 		<system>Travis CI</system>
-		<url>https://travis-ci.org/bernardo-mg/dreadball-toolkit-ws</url>
+		<url>https://travis-ci.org/Bernardo-MG/dreadball-toolkit-ws</url>
 		<notifiers />
 	</ciManagement>
 
@@ -45,7 +45,7 @@
 			<uniqueVersion>false</uniqueVersion>
 			<id>releases</id>
 			<name>Releases Repository</name>
-			<url>https://api.bintray.com/maven/bernardo-mg/maven/dreadball-toolkit-ws</url>
+			<url>https://api.bintray.com/maven/Bernardo-MG/maven/dreadball-toolkit-ws</url>
 		</repository>
 		<snapshotRepository>
 			<uniqueVersion>false</uniqueVersion>
@@ -119,7 +119,6 @@
 		<httpclient.version>4.5.1</httpclient.version>
 		<jackson.version>2.6.1</jackson.version>
 		<jersey.version>2.22.1</jersey.version>
-		<jettison.version>1.3.7</jettison.version>
 		<jsoup.version>1.8.3</jsoup.version>
 		<mockito.version>1.10.19</mockito.version>
 		<slf4j.version>1.7.12</slf4j.version>
@@ -128,7 +127,6 @@
 		<tabletop.dreadball.model.json.version>0.1.1</tabletop.dreadball.model.json.version>
 		<tabletop.dreadball.model.persistence.version>0.1.1</tabletop.dreadball.model.persistence.version>
 		<testng.version>6.9.6</testng.version>
-		<tomcat.jdbc.version>7.0.64</tomcat.jdbc.version>
 		<wandrell.persistence.version>0.1.3</wandrell.persistence.version>
 		<!-- Plugins versions -->
 		<plugin.ant.version>1.8</plugin.ant.version>
@@ -319,12 +317,6 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<!-- Jersey Multipart entity module -->
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-multipart</artifactId>
-			<version>${jersey.version}</version>
-		</dependency>
-		<dependency>
 			<!-- Jersey Entity Data Filtering module -->
 			<groupId>org.glassfish.jersey.ext</groupId>
 			<artifactId>jersey-entity-filtering</artifactId>
@@ -347,13 +339,6 @@
 			<groupId>org.glassfish.jersey.ext</groupId>
 			<artifactId>jersey-mvc-bean-validation</artifactId>
 			<version>${jersey.version}</version>
-		</dependency>
-		<dependency>
-			<!-- Jettison -->
-			<groupId>org.codehaus.jettison</groupId>
-			<artifactId>jettison</artifactId>
-			<version>${jettison.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<!-- Java Persistence Utils -->
@@ -450,13 +435,6 @@
 					<artifactId>junit</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<!-- Tomcat JDBC -->
-			<groupId>org.apache.tomcat</groupId>
-			<artifactId>tomcat-jdbc</artifactId>
-			<version>${tomcat.jdbc.version}</version>
-			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 

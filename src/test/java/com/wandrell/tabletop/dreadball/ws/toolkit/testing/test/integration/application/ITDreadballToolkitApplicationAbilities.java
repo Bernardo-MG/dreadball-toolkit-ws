@@ -34,12 +34,6 @@ public final class ITDreadballToolkitApplicationAbilities {
 
     public ITDreadballToolkitApplicationAbilities() {
         super();
-        // https://github.com/Hylke1982/jersey2-spring-test-example
-        // https://vikashazrati.wordpress.com/2011/03/07/testing-rest-with-grizzly/
-        // http://www.hascode.com/2011/09/rest-assured-vs-jersey-test-framework-testing-your-restful-web-services/
-        // http://www.hascode.com/2011/10/testing-restful-web-services-made-easy-using-the-rest-assured-framework/
-        // http://ameethpaatil.blogspot.com.es/2011/09/restful-webservice-jersey-spring-30x.html
-        // https://github.com/amacoder/demo-restWS-spring-jersey-tomcat-mybatis
     }
 
     @Test
@@ -71,6 +65,24 @@ public final class ITDreadballToolkitApplicationAbilities {
     }
 
     @Test
+    public final void testGetAbilities_JSON()
+            throws ClientProtocolException, IOException {
+        final HttpUriRequest request;
+        final HttpResponse httpResponse;
+        final String result;
+
+        request = new HttpGet("http://localhost:8080/abilities");
+        request.addHeader("Accept", "application/json");
+
+        httpResponse = HttpClientBuilder.create().build().execute(request);
+
+        result = CharStreams.toString(
+                new InputStreamReader(httpResponse.getEntity().getContent()));
+
+        Assert.assertTrue(result.startsWith("[{\"name\":\"360_vision\"}"));
+    }
+
+    @Test
     public final void testGetAbilities_String()
             throws ClientProtocolException, IOException {
         final HttpUriRequest request;
@@ -86,28 +98,6 @@ public final class ITDreadballToolkitApplicationAbilities {
                 new InputStreamReader(httpResponse.getEntity().getContent()));
 
         Assert.assertTrue(result.startsWith("360_vision\n"));
-    }
-
-    @Test
-    public final void testGetAbilities_JSON()
-            throws ClientProtocolException, IOException {
-        final HttpUriRequest request;
-        final HttpResponse httpResponse;
-        final String result;
-
-        request = new HttpGet("http://localhost:8080/abilities");
-        request.addHeader("Accept", "application/json");
-
-        httpResponse = HttpClientBuilder.create().build().execute(request);
-
-        result = CharStreams.toString(
-                new InputStreamReader(httpResponse.getEntity().getContent()));
-
-        System.out.println("************************************");
-        System.out.println(result);
-        System.out.println("************************************");
-
-        Assert.assertTrue(result.startsWith("[{\"name\":\"360_vision\"}"));
     }
 
 }
