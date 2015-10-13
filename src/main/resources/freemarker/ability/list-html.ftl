@@ -40,6 +40,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Name</th>
                         <th>Details</th>
                     </tr>
@@ -47,6 +48,7 @@
                 <tbody>
                 <#list model as ability>
                 <tr>
+                    <td>${ability.id}</td>
                     <td>${ability.abilityName}</td>
                     <td><a href="./abilities/${ability.id}">Check details</a></td>
                 </tr>

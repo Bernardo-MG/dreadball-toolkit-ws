@@ -40,6 +40,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Name</th>
                         <th>Details</th>
                     </tr>
@@ -47,6 +48,7 @@
                 <tbody>
                 <#list model as affinity>
                 <tr>
+                    <td>${affinity.id}</td>
                     <td>${affinity.affinityGroupName}</td>
                     <td><a href="./affinities/${affinity.id}">Check details</a></td>
                 </tr>

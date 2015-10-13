@@ -30,13 +30,6 @@
 <section class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <header class="page-header">
-                <h1>Ability detailed information</h1>
-            </header>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Ability ${model.id}</h3>

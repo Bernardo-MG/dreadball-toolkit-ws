@@ -1,0 +1,13 @@
+/*!
+ * Dreadball Toolkit WS Bootstrap panels styles
+ * Copyright 2015 Bernardo Martínez Garrido
+ * Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
+ *
+ * This file contains styles for tables.
+ */
+
+
+/* Gives the header a background color */
+.panel {
+    margin-top: 2em;
+}

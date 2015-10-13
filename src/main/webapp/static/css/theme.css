@@ -6,3 +6,4 @@
  * This file combines all the CSS files being used on the template.
  */
 @import url('table.css');
+@import url('panel.css');
