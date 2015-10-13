@@ -30,23 +30,23 @@ import org.testng.annotations.Test;
 
 import com.google.common.io.CharStreams;
 
-public final class ITDreadballToolkitApplicationAbilities {
+public final class ITDreadballToolkitApplicationAbility {
 
-    private static final String PATH = "http://localhost:8080/abilities";
+    private static final String PATH = "http://localhost:8080/abilities/1";
 
-    public ITDreadballToolkitApplicationAbilities() {
+    public ITDreadballToolkitApplicationAbility() {
         super();
     }
 
     @Test
-    public final void testGetAbilities_HTML()
+    public final void testGetAbility_HTML()
             throws ClientProtocolException, IOException {
         final HttpUriRequest request;
         final HttpResponse httpResponse;
         final String result;
         final Element html;
         final Element header;
-        final Element cell;
+        final Element name;
 
         request = new HttpGet(PATH);
         request.addHeader("Accept", "text/html");
@@ -58,16 +58,16 @@ public final class ITDreadballToolkitApplicationAbilities {
 
         html = Jsoup.parse(result).body();
 
-        header = html.select("h1").first();
+        header = html.select("h3").first();
 
-        cell = html.select("td").first();
+        name = html.select("dd").get(1);
 
-        Assert.assertEquals(header.text(), "Abilities list");
-        Assert.assertEquals(cell.text(), "360_vision");
+        Assert.assertEquals(header.text(), "Ability 1");
+        Assert.assertEquals(name.text(), "360_vision");
     }
 
     @Test
-    public final void testGetAbilities_JSON()
+    public final void testGetAbility_JSON()
             throws ClientProtocolException, IOException {
         final HttpUriRequest request;
         final HttpResponse httpResponse;
@@ -81,11 +81,11 @@ public final class ITDreadballToolkitApplicationAbilities {
         result = CharStreams.toString(
                 new InputStreamReader(httpResponse.getEntity().getContent()));
 
-        Assert.assertTrue(result.startsWith("[{\"name\":\"360_vision\"}"));
+        Assert.assertEquals("{\"name\":\"360_vision\"}", result);
     }
 
     @Test
-    public final void testGetAbilities_String()
+    public final void testGetAbility_String()
             throws ClientProtocolException, IOException {
         final HttpUriRequest request;
         final HttpResponse httpResponse;
@@ -99,7 +99,7 @@ public final class ITDreadballToolkitApplicationAbilities {
         result = CharStreams.toString(
                 new InputStreamReader(httpResponse.getEntity().getContent()));
 
-        Assert.assertTrue(result.startsWith("360_vision\n"));
+        Assert.assertEquals("360_vision", result);
     }
 
 }

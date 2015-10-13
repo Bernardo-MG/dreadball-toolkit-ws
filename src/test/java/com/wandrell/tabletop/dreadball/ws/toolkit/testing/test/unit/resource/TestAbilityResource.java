@@ -23,7 +23,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.resource.AbilityResource;
 import com.wandrell.tabletop.dreadball.ws.toolkit.service.AbilityService;
@@ -69,12 +68,12 @@ public final class TestAbilityResource {
 
     @Test
     public final void testAbilitiesHTML() {
-        // TODO: This probably needs an integration test
+        Assert.assertEquals(2, resource.getAbilitiesHTML().size());
     }
 
     @Test
-    public final void testAbilitiesJSON() throws JsonProcessingException {
-        // TODO: This probably needs an integration test
+    public final void testAbilitiesJSON() {
+        Assert.assertEquals(2, resource.getAbilitiesHTML().size());
     }
 
     @Test
