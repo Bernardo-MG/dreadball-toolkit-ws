@@ -552,12 +552,10 @@
 					<stopKey>STOP</stopKey>
 					<stopPort>11079</stopPort>
 					<stopWait>5</stopWait>
-					<httpConnector>
-						<port>11080</port>
-					</httpConnector>
 					<webApp>
 						<contextPath>/</contextPath>
 					</webApp>
+					<jettyXml>${project.build.testOutputDirectory}/jetty/jetty.xml</jettyXml>
 				</configuration>
 				<executions>
 					<execution>
