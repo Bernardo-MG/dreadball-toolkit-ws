@@ -1,5 +1,7 @@
 
--- Abilities
+-- ****************************************
+--                ABILITIES
+-- ****************************************
 
 INSERT INTO abilities (id, name) VALUES (1, '360_vision');
 INSERT INTO abilities (id, name) VALUES (2, 'adaptable');
@@ -83,7 +85,9 @@ INSERT INTO abilities (id, name) VALUES (79, 'toxic');
 INSERT INTO abilities (id, name) VALUES (80, 'uncontrolled');
 INSERT INTO abilities (id, name) VALUES (81, 'vigour');
 
--- Affinity groups
+-- ****************************************
+--               AFFINITIES
+-- ****************************************
 
 INSERT INTO affinity_groups (id, name) VALUES (1, 'alien');
 INSERT INTO affinity_groups (id, name) VALUES (2, 'asterian');
@@ -113,11 +117,73 @@ INSERT INTO affinity_groups (id, name) VALUES (25, 'vicious');
 INSERT INTO affinity_groups (id, name) VALUES (26, 'weird_science');
 INSERT INTO affinity_groups (id, name) VALUES (27, 'worker');
 
--- Units
+-- ****************************************
+--                 UNITS
+-- ****************************************
 
+-- Humans
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
 	VALUES (1, 'human_guard', 10, 4, 5, 4, 4, 4, 'GUARD', false);
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
 	VALUES (2, 'human_jack', 8, 4, 5, 4, 4, 4, 'JACK', false);
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
 	VALUES (3, 'human_striker', 10, 5, 5, 4, 4, 4, 'STRIKER', false);
+
+-- Orx/Goblins
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (4, 'orx_guard', 13, 4, 5, 5, 4, 3, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (5, 'goblin_jack', 9, 4, 5, 4, 3, 5, 'STRIKER', false);
+
+-- Veer-Myn
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (6, 'veer-myn_guard', 12, 4, 6, 5, 3, 4, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (7, 'veer-myn_striker', 11, 5, 6, 5, 3, 4, 'STRIKER', false);
+
+-- Forge fathers
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (8, 'forge_father_guard', 13, 4, 4, 4, 5, 3, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (9, 'forge_father_jack', 9, 4, 4, 4, 5, 3, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (10, 'forge_father_striker', 9, 5, 4, 4, 5, 3, 'STRIKER', false);
+
+-- Robots
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (11, 'robot_guard', 0, 5, 4, 4, 5, 3, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (12, 'robot_jack', 14, 6, 4, 4, 4, 4, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (13, 'robot_striker', 0, 5, 5, 4, 3, 5, 'STRIKER', false);
+
+-- Z'zor
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (14, 'zzor_guard', 17, 5, 4, 5, 4, 3, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (15, 'zzor_jack', 9, 5, 4, 4, 4, 4, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (16, 'zzor_striker', 11, 6, 5, 5, 4, 4, 'STRIKER', false);
+
+-- --------------
+-- Unit abilities
+-- --------------
+
+-- Forge father guard: steady
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (8, 68);
+
+-- Robots: quick change artist
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (11, 49);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (12, 49);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (13, 49);
+
+-- Z'zor: can't feel a thing
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (14, 8);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (15, 8);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (16, 8);
+
+-- Z'zor guard: steady
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (14, 68);
+
+-- Z'zor jack: slide
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (15, 64);

@@ -55,7 +55,11 @@
                         <dt>Basic cost</dt>
                         <dd>${model.cost}</dd>
                         <dt>Abilities</dt>
-                        <dd>${model.abilities?join(", ")}</dd>
+                    	<#assign abilitiesList = []>
+                		<#list model.abilities as ability>
+                        	<#assign abilitiesList = abilitiesList + [ability.abilityName]>
+                		</#list>
+                        <dd>${abilitiesList?join(", ")}</dd>
                     </dl>
                 </div>
             </div>
