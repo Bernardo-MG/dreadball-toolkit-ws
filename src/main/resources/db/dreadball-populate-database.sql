@@ -32,7 +32,6 @@ INSERT INTO abilities (id, name) VALUES (11, 'crowd_puller');
 INSERT INTO abilities (id, name) VALUES (12, 'dirty_tricks');
 INSERT INTO abilities (id, name) VALUES (13, 'does_this_hurt');
 INSERT INTO abilities (id, name) VALUES (14, 'driller');
-INSERT INTO abilities (id, name) VALUES (15, 'crowd_puller');
 INSERT INTO abilities (id, name) VALUES (16, 'duck_and_weave');
 INSERT INTO abilities (id, name) VALUES (17, 'even_the_odds');
 INSERT INTO abilities (id, name) VALUES (18, 'explosive_collar');
