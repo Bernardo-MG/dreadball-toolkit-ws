@@ -24,7 +24,7 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface AbilityService {
+public interface AbilityAccessService {
 
     /**
      * Acquires an {@code Ability} based on its id.

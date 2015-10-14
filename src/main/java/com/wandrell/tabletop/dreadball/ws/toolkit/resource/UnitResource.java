@@ -32,7 +32,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wandrell.tabletop.dreadball.model.unit.Unit;
-import com.wandrell.tabletop.dreadball.ws.toolkit.service.UnitService;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.UnitAccessService;
 import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
 
 /**
@@ -48,7 +48,7 @@ public final class UnitResource {
     /**
      * Service being used by the resource to handle the {@code Unit} instances.
      */
-    private final UnitService unitService;
+    private final UnitAccessService unitService;
 
     /**
      * Constructs a {@code UnitResource} with the specified service.
@@ -57,7 +57,7 @@ public final class UnitResource {
      *            the service to be used by the resource.
      */
     @Autowired
-    public UnitResource(final UnitService service) {
+    public UnitResource(final UnitAccessService service) {
         super();
 
         unitService = checkNotNull(service,
@@ -175,7 +175,7 @@ public final class UnitResource {
      * 
      * @return the service being used by the resource
      */
-    private final UnitService getUnitService() {
+    private final UnitAccessService getUnitService() {
         return unitService;
     }
 

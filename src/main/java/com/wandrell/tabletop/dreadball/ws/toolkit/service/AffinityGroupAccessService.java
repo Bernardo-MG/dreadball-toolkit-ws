@@ -24,7 +24,7 @@ import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface AffinityGroupService {
+public interface AffinityGroupAccessService {
 
     /**
      * Acquires an {@code AffinityGroup} based on its id.

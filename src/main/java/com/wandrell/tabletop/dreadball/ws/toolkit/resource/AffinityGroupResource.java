@@ -32,7 +32,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
-import com.wandrell.tabletop.dreadball.ws.toolkit.service.AffinityGroupService;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.AffinityGroupAccessService;
 import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
 
 /**
@@ -49,7 +49,7 @@ public final class AffinityGroupResource {
      * Service being used by the resource to handle the {@code AffinityGroup}
      * instances.
      */
-    private final AffinityGroupService affinitiesService;
+    private final AffinityGroupAccessService affinitiesService;
 
     /**
      * Constructs a {@code AffinityGroupResource} with the specified service.
@@ -58,7 +58,7 @@ public final class AffinityGroupResource {
      *            the service to be used by the resource.
      */
     @Autowired
-    public AffinityGroupResource(final AffinityGroupService service) {
+    public AffinityGroupResource(final AffinityGroupAccessService service) {
         super();
 
         affinitiesService = checkNotNull(service,
@@ -183,7 +183,7 @@ public final class AffinityGroupResource {
      * 
      * @return the service being used by the resource
      */
-    private final AffinityGroupService getAffinityGroupService() {
+    private final AffinityGroupAccessService getAffinityGroupService() {
         return affinitiesService;
     }
 

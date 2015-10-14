@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.repository;
+package com.wandrell.tabletop.dreadball.ws.toolkit.repository.jpa;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
@@ -30,8 +30,9 @@ import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.repository.JPARepository;
-import com.wandrell.tabletop.dreadball.model.persistence.unit.JPAUnit;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.persistence.unit.stats.JPAAbility;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
+import com.wandrell.tabletop.dreadball.ws.toolkit.repository.AbilityRepository;
 
 /**
  * JPA-based implementation of {@link AbilityRepository}.
@@ -39,51 +40,52 @@ import com.wandrell.tabletop.dreadball.model.unit.Unit;
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Repository("unitRepository")
-public final class JPAUnitRepository
-        implements UnitRepository, FilteredRepository<Unit, QueryData> {
+@Repository("abilityRepository")
+public final class JPAAbilityRepository
+        implements AbilityRepository, FilteredRepository<Ability, QueryData> {
 
     /**
      * Base repository for applying inheritance through composition.
      */
-    private FilteredRepository<JPAUnit, QueryData> repository;
+    private FilteredRepository<JPAAbility, QueryData> repository;
 
     /**
-     * Constructs a {@code JPAUnitRepository}.
+     * Constructs a {@code JPAAbilityRepository}.
      */
-    public JPAUnitRepository() {
+    public JPAAbilityRepository() {
         super();
     }
 
     @Override
-    public final void add(final Unit entity) {
-        checkArgument(entity instanceof JPAUnit,
-                "The entity should be an instance of JPAUnit");
+    public final void add(final Ability entity) {
+        checkArgument(entity instanceof JPAAbility,
+                "The entity should be an instance of JPAAbility");
 
-        getBaseRepository().add((JPAUnit) entity);
+        getBaseRepository().add((JPAAbility) entity);
     }
 
     @Override
-    public final Collection<Unit> getAll() {
-        return new LinkedList<Unit>(getBaseRepository().getAll());
+    public final Collection<Ability> getAll() {
+        return new LinkedList<Ability>(getBaseRepository().getAll());
     }
 
     @Override
-    public final Collection<Unit> getCollection(final QueryData filter) {
-        return new LinkedList<Unit>(getBaseRepository().getCollection(filter));
+    public final Collection<Ability> getCollection(final QueryData filter) {
+        return new LinkedList<Ability>(
+                getBaseRepository().getCollection(filter));
     }
 
     @Override
-    public final Unit getEntity(final QueryData filter) {
+    public final Ability getEntity(final QueryData filter) {
         return getBaseRepository().getEntity(filter);
     }
 
     @Override
-    public final void remove(final Unit entity) {
-        checkArgument(entity instanceof JPAUnit,
-                "The entity should be an instance of JPAUnit");
+    public final void remove(final Ability entity) {
+        checkArgument(entity instanceof JPAAbility,
+                "The entity should be an instance of JPAAbility");
 
-        getBaseRepository().remove((JPAUnit) entity);
+        getBaseRepository().remove((JPAAbility) entity);
     }
 
     /**
@@ -94,16 +96,16 @@ public final class JPAUnitRepository
      */
     @PersistenceContext
     public final void setEntityManager(final EntityManager entityManager) {
-        repository = new JPARepository<JPAUnit>(entityManager,
-                new DefaultQueryData("SELECT unit FROM Unit unit"));
+        repository = new JPARepository<JPAAbility>(entityManager,
+                new DefaultQueryData("SELECT ability FROM Ability ability"));
     }
 
     @Override
-    public final void update(final Unit entity) {
-        checkArgument(entity instanceof JPAUnit,
-                "The entity should be an instance of JPAUnit");
+    public final void update(final Ability entity) {
+        checkArgument(entity instanceof JPAAbility,
+                "The entity should be an instance of JPAAbility");
 
-        getBaseRepository().update((JPAUnit) entity);
+        getBaseRepository().update((JPAAbility) entity);
     }
 
     /**
@@ -112,7 +114,8 @@ public final class JPAUnitRepository
      * 
      * @return the base repository
      */
-    private final FilteredRepository<JPAUnit, QueryData> getBaseRepository() {
+    private final FilteredRepository<JPAAbility, QueryData>
+            getBaseRepository() {
         return repository;
     }
 

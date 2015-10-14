@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.repository;
+package com.wandrell.tabletop.dreadball.ws.toolkit.repository.jpa;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
@@ -30,8 +30,10 @@ import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.repository.JPARepository;
-import com.wandrell.tabletop.dreadball.model.persistence.unit.JPAAffinityGroup;
-import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
+import com.wandrell.tabletop.dreadball.model.persistence.unit.JPAUnit;
+import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.ws.toolkit.repository.AbilityRepository;
+import com.wandrell.tabletop.dreadball.ws.toolkit.repository.UnitRepository;
 
 /**
  * JPA-based implementation of {@link AbilityRepository}.
@@ -39,53 +41,51 @@ import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Repository("affinityGroupRepository")
-public final class JPAAffinityGroupRepository implements
-        AffinityGroupRepository, FilteredRepository<AffinityGroup, QueryData> {
+@Repository("unitRepository")
+public final class JPAUnitRepository
+        implements UnitRepository, FilteredRepository<Unit, QueryData> {
 
     /**
      * Base repository for applying inheritance through composition.
      */
-    private FilteredRepository<JPAAffinityGroup, QueryData> repository;
+    private FilteredRepository<JPAUnit, QueryData> repository;
 
     /**
-     * Constructs a {@code JPAAffinityGroupRepository}.
+     * Constructs a {@code JPAUnitRepository}.
      */
-    public JPAAffinityGroupRepository() {
+    public JPAUnitRepository() {
         super();
     }
 
     @Override
-    public final void add(final AffinityGroup entity) {
-        checkArgument(entity instanceof JPAAffinityGroup,
-                "The entity should be an instance of JPAAffinityGroup");
+    public final void add(final Unit entity) {
+        checkArgument(entity instanceof JPAUnit,
+                "The entity should be an instance of JPAUnit");
 
-        getBaseRepository().add((JPAAffinityGroup) entity);
+        getBaseRepository().add((JPAUnit) entity);
     }
 
     @Override
-    public final Collection<AffinityGroup> getAll() {
-        return new LinkedList<AffinityGroup>(getBaseRepository().getAll());
+    public final Collection<Unit> getAll() {
+        return new LinkedList<Unit>(getBaseRepository().getAll());
     }
 
     @Override
-    public final Collection<AffinityGroup>
-            getCollection(final QueryData filter) {
-        return new LinkedList<AffinityGroup>(
-                getBaseRepository().getCollection(filter));
+    public final Collection<Unit> getCollection(final QueryData filter) {
+        return new LinkedList<Unit>(getBaseRepository().getCollection(filter));
     }
 
     @Override
-    public final AffinityGroup getEntity(final QueryData filter) {
+    public final Unit getEntity(final QueryData filter) {
         return getBaseRepository().getEntity(filter);
     }
 
     @Override
-    public final void remove(final AffinityGroup entity) {
-        checkArgument(entity instanceof JPAAffinityGroup,
-                "The entity should be an instance of JPAAffinityGroup");
+    public final void remove(final Unit entity) {
+        checkArgument(entity instanceof JPAUnit,
+                "The entity should be an instance of JPAUnit");
 
-        getBaseRepository().remove((JPAAffinityGroup) entity);
+        getBaseRepository().remove((JPAUnit) entity);
     }
 
     /**
@@ -96,17 +96,16 @@ public final class JPAAffinityGroupRepository implements
      */
     @PersistenceContext
     public final void setEntityManager(final EntityManager entityManager) {
-        repository = new JPARepository<JPAAffinityGroup>(entityManager,
-                new DefaultQueryData(
-                        "SELECT affinity FROM AffinityGroup affinity"));
+        repository = new JPARepository<JPAUnit>(entityManager,
+                new DefaultQueryData("SELECT unit FROM Unit unit"));
     }
 
     @Override
-    public final void update(final AffinityGroup entity) {
-        checkArgument(entity instanceof JPAAffinityGroup,
-                "The entity should be an instance of JPAAffinityGroup");
+    public final void update(final Unit entity) {
+        checkArgument(entity instanceof JPAUnit,
+                "The entity should be an instance of JPAUnit");
 
-        getBaseRepository().update((JPAAffinityGroup) entity);
+        getBaseRepository().update((JPAUnit) entity);
     }
 
     /**
@@ -115,8 +114,7 @@ public final class JPAAffinityGroupRepository implements
      * 
      * @return the base repository
      */
-    private final FilteredRepository<JPAAffinityGroup, QueryData>
-            getBaseRepository() {
+    private final FilteredRepository<JPAUnit, QueryData> getBaseRepository() {
         return repository;
     }
 

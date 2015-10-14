@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.service;
+package com.wandrell.tabletop.dreadball.ws.toolkit.service.jpa;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -26,11 +26,13 @@ import org.springframework.stereotype.Service;
 
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
-import com.wandrell.tabletop.dreadball.ws.toolkit.repository.UnitRepository;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
+import com.wandrell.tabletop.dreadball.ws.toolkit.repository.AbilityRepository;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.AbilityAccessService;
 
 /**
- * Implementation of {@link UnitService} working behind the scenes with JPA.
+ * Implementation of {@link AbilityAccessService} working behind the scenes with
+ * JPA.
  * <p>
  * This is prepared to be used with Spring, as part of the dependency injection
  * process.
@@ -38,16 +40,16 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.repository.UnitRepository;
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Service("unitService")
-public final class JPAUnitService implements UnitService {
+@Service("abilityService")
+public final class JPAAbilityAccessService implements AbilityAccessService {
 
     /**
-     * Repository for the {@code Unit} instances.
+     * Repository for the {@code Ability} instances.
      */
-    private final UnitRepository unitRepository;
+    private final AbilityRepository abilityRepository;
 
     /**
-     * Constructs a {@code JPAUnitService} with the specified repository.
+     * Constructs a {@code JPAAbilityService} with the specified repository.
      * <p>
      * Said repository is meant to be injected through Spring.
      * 
@@ -55,27 +57,27 @@ public final class JPAUnitService implements UnitService {
      *            the repository to be used by the service
      */
     @Autowired
-    public JPAUnitService(final UnitRepository repository) {
+    public JPAAbilityAccessService(final AbilityRepository repository) {
         super();
 
-        unitRepository = checkNotNull(repository,
+        abilityRepository = checkNotNull(repository,
                 "Received a null pointer as abilities repository");
     }
 
     @Override
-    public final Collection<Unit> getAllUnits() {
-        return getRepository().getAll();
-    }
-
-    @Override
-    public final Unit getUnitById(final Integer id) {
+    public final Ability getAbilityById(final Integer id) {
         final QueryData filter;
 
         filter = new DefaultQueryData(
-                "SELECT unit FROM Unit unit WHERE id = :id");
+                "SELECT ability FROM Ability ability WHERE id = :id");
         filter.addParameter("id", id);
 
         return getRepository().getEntity(filter);
+    }
+
+    @Override
+    public final Collection<Ability> getAllAbilities() {
+        return getRepository().getAll();
     }
 
     /**
@@ -83,8 +85,8 @@ public final class JPAUnitService implements UnitService {
      * 
      * @return the repository being used by the service
      */
-    private final UnitRepository getRepository() {
-        return unitRepository;
+    private final AbilityRepository getRepository() {
+        return abilityRepository;
     }
 
 }

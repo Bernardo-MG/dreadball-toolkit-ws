@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.service;
+package com.wandrell.tabletop.dreadball.ws.toolkit.service.jpa;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -26,11 +26,12 @@ import org.springframework.stereotype.Service;
 
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
-import com.wandrell.tabletop.dreadball.ws.toolkit.repository.AffinityGroupRepository;
+import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.ws.toolkit.repository.UnitRepository;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.UnitAccessService;
 
 /**
- * Implementation of {@link AffinityGroupService} working behind the scenes with
+ * Implementation of {@link UnitAccessService} working behind the scenes with
  * JPA.
  * <p>
  * This is prepared to be used with Spring, as part of the dependency injection
@@ -39,17 +40,16 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.repository.AffinityGroupReposi
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Service("affinityGroupService")
-public final class JPAAffinityGroupService implements AffinityGroupService {
+@Service("unitService")
+public final class JPAUnitAccessService implements UnitAccessService {
 
     /**
-     * Repository for the {@code AffinityGroup} instances.
+     * Repository for the {@code Unit} instances.
      */
-    private final AffinityGroupRepository affinityRepository;
+    private final UnitRepository unitRepository;
 
     /**
-     * Constructs a {@code JPAAffinityGroupService} with the specified
-     * repository.
+     * Constructs a {@code JPAUnitService} with the specified repository.
      * <p>
      * Said repository is meant to be injected through Spring.
      * 
@@ -57,27 +57,27 @@ public final class JPAAffinityGroupService implements AffinityGroupService {
      *            the repository to be used by the service
      */
     @Autowired
-    public JPAAffinityGroupService(final AffinityGroupRepository repository) {
+    public JPAUnitAccessService(final UnitRepository repository) {
         super();
 
-        affinityRepository = checkNotNull(repository,
+        unitRepository = checkNotNull(repository,
                 "Received a null pointer as abilities repository");
     }
 
     @Override
-    public final AffinityGroup getAffinityGroupById(final Integer id) {
-        final QueryData filter;
-
-        filter = new DefaultQueryData(
-                "SELECT affinity FROM AffinityGroup affinity WHERE id = :id");
-        filter.addParameter("id", id);
-
-        return getRepository().getEntity(filter);
+    public final Collection<Unit> getAllUnits() {
+        return getRepository().getAll();
     }
 
     @Override
-    public final Collection<AffinityGroup> getAllAffinityGroups() {
-        return getRepository().getAll();
+    public final Unit getUnitById(final Integer id) {
+        final QueryData filter;
+
+        filter = new DefaultQueryData(
+                "SELECT unit FROM Unit unit WHERE id = :id");
+        filter.addParameter("id", id);
+
+        return getRepository().getEntity(filter);
     }
 
     /**
@@ -85,8 +85,8 @@ public final class JPAAffinityGroupService implements AffinityGroupService {
      * 
      * @return the repository being used by the service
      */
-    private final AffinityGroupRepository getRepository() {
-        return affinityRepository;
+    private final UnitRepository getRepository() {
+        return unitRepository;
     }
 
 }

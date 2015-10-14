@@ -24,7 +24,7 @@ import com.wandrell.tabletop.dreadball.model.unit.Unit;
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface UnitService {
+public interface UnitAccessService {
 
     /**
      * Returns all {@code Unit} instances.

@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.resource.AbilityResource;
-import com.wandrell.tabletop.dreadball.ws.toolkit.service.AbilityService;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.AbilityAccessService;
 
 public final class TestAbilityResource {
 
@@ -45,11 +45,11 @@ public final class TestAbilityResource {
 
     @BeforeClass
     public final void initialize() {
-        final AbilityService service;
+        final AbilityAccessService service;
         final Collection<Ability> abilities;
         Ability ability;
 
-        service = Mockito.mock(AbilityService.class);
+        service = Mockito.mock(AbilityAccessService.class);
 
         abilities = new LinkedList<Ability>();
 
