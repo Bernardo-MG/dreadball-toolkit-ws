@@ -457,3 +457,10 @@ INSERT INTO unit_abilities (unit_id, ability_id) VALUES (55, 44);
 INSERT INTO unit_abilities (unit_id, ability_id) VALUES (57, 41);
 INSERT INTO unit_abilities (unit_id, ability_id) VALUES (58, 41);
 INSERT INTO unit_abilities (unit_id, ability_id) VALUES (59, 41);
+
+-- ****************************************
+--               TEAM RULES
+-- ****************************************
+
+INSERT INTO team_rules (id, name) VALUES (1, 'monkey_business');
+INSERT INTO team_rules (id, name) VALUES (2, 'boiled_down');
