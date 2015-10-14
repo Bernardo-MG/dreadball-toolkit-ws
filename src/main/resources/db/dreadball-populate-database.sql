@@ -121,13 +121,13 @@ INSERT INTO affinity_groups (id, name) VALUES (27, 'worker');
 --                 UNITS
 -- ****************************************
 
--- Humans
+-- Humans (male)
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
-	VALUES (1, 'human_guard', 10, 4, 5, 4, 4, 4, 'GUARD', false);
+	VALUES (1, 'human_male_guard', 10, 4, 5, 4, 4, 4, 'GUARD', false);
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
-	VALUES (2, 'human_jack', 8, 4, 5, 4, 4, 4, 'JACK', false);
+	VALUES (2, 'human_male_jack', 8, 4, 5, 4, 4, 4, 'JACK', false);
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
-	VALUES (3, 'human_striker', 10, 5, 5, 4, 4, 4, 'STRIKER', false);
+	VALUES (3, 'human_male_striker', 10, 5, 5, 4, 4, 4, 'STRIKER', false);
 
 -- Orx/Goblins
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
@@ -151,19 +151,57 @@ INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, posi
 
 -- Robots
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
-	VALUES (11, 'robot_guard', 0, 5, 4, 4, 5, 3, 'GUARD', false);
+	VALUES (11, 'robot_guard', 0, 4, 5, 4, 5, 3, 'GUARD', false);
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
-	VALUES (12, 'robot_jack', 14, 6, 4, 4, 4, 4, 'JACK', false);
+	VALUES (12, 'robot_jack', 14, 4, 6, 4, 4, 4, 'JACK', false);
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
 	VALUES (13, 'robot_striker', 0, 5, 5, 4, 3, 5, 'STRIKER', false);
 
 -- Z'zor
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
-	VALUES (14, 'zzor_guard', 17, 5, 4, 5, 4, 3, 'GUARD', false);
+	VALUES (14, 'zzor_guard', 17, 4, 5, 5, 4, 3, 'GUARD', false);
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
-	VALUES (15, 'zzor_jack', 9, 5, 4, 4, 4, 4, 'JACK', false);
+	VALUES (15, 'zzor_jack', 9, 4, 5, 4, 4, 4, 'JACK', false);
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
-	VALUES (16, 'zzor_striker', 11, 6, 5, 5, 4, 4, 'STRIKER', false);
+	VALUES (16, 'zzor_striker', 11, 5, 6, 5, 4, 4, 'STRIKER', false);
+
+-- Judwan
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (17, 'judwan_striker', 15, 5, 6, 5, 4, 4, 'STRIKER', false);
+
+-- Humans (female)
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (18, 'human_female_guard', 10, 4, 5, 4, 4, 4, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (19, 'human_female_jack', 9, 4, 5, 4, 4, 4, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (20, 'human_female_striker', 10, 5, 5, 4, 4, 4, 'STRIKER', false);
+
+-- Asterians
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (21, 'asterian_guard', 10, 4, 6, 4, 3, 5, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (22, 'asterian_jack', 10, 4, 6, 4, 3, 5, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (23, 'asterian_striker', 13, 5, 6, 4, 3, 5, 'STRIKER', false);
+
+-- Nameless
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (24, 'nameless_guard_sticky', 9, 4, 4, 5, 4, 4, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (25, 'nameless_guard_hard', 15, 4, 5, 4, 5, 3, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (26, 'nameless_striker', 13, 5, 6, 4, 4, 4, 'STRIKER', false);
+
+-- Teratons
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (27, 'teraton_guard', 15, 4, 5, 4, 5, 3, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (28, 'teraton_jack', 15, 4, 5, 4, 5, 3, 'JACK', false);
+
+-- Zees
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (29, 'zee_jack', 9, 4, 5, 5, 3, 5, 'JACK', false);
 
 -- --------------
 -- Unit abilities
@@ -187,3 +225,47 @@ INSERT INTO unit_abilities (unit_id, ability_id) VALUES (14, 68);
 
 -- Z'zor jack: slide
 INSERT INTO unit_abilities (unit_id, ability_id) VALUES (15, 64);
+
+-- Judwan: pacifist
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (17, 40);
+
+-- Judwan: long arms
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (17, 31);
+
+-- Judwan: misdirect
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (17, 36);
+
+-- Human (female) jack: running interference
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (19, 60);
+
+-- Asterian guard: dirty tricks
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (21, 12);
+
+-- Asterian jack and striker: fragile
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (22, 20);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (23, 20);
+
+-- Asterian jack: taking a dive
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (22, 73);
+
+-- Nameless sticky guard: gotcha
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (24, 21);
+
+-- Nameless hard guard: can't feel a thing
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (25, 8);
+
+-- Nameless hard guard: steady
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (25, 68);
+
+-- Nameless striker: a safe pair of hands
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (26, 3);
+
+-- Teratons: teleport
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (27, 74);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (28, 74);
+
+-- Zees: it wasn't me
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (29, 27);
+
+-- Zees: runaround
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (29, 59);
