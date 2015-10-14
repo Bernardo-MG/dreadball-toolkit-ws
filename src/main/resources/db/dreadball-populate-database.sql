@@ -112,3 +112,12 @@ INSERT INTO affinity_groups (id, name) VALUES (24, 'vat_brothers');
 INSERT INTO affinity_groups (id, name) VALUES (25, 'vicious');
 INSERT INTO affinity_groups (id, name) VALUES (26, 'weird_science');
 INSERT INTO affinity_groups (id, name) VALUES (27, 'worker');
+
+-- Units
+
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (1, 'human_guard', 10, 4, 5, 4, 4, 4, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (2, 'human_jack', 8, 4, 5, 4, 4, 4, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (3, 'human_striker', 10, 5, 5, 4, 4, 4, 'STRIKER', false);
