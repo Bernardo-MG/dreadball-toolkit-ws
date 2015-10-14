@@ -1,3 +1,18 @@
+--
+--  Copyright 2015 the original author or authors
+--
+--  Licensed under the Apache License, Version 2.0 (the "License"); you may not
+--  use this file except in compliance with the License. You may obtain a copy of
+--  the License at
+--
+--  http://www.apache.org/licenses/LICENSE-2.0
+--
+--  Unless required by applicable law or agreed to in writing, software
+--  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+--  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+--  License for the specific language governing permissions and limitations under
+--  the License.
+--
 
 -- ****************************************
 --                ABILITIES
@@ -203,6 +218,88 @@ INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, posi
 INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
 	VALUES (29, 'zee_jack', 9, 4, 5, 5, 3, 5, 'JACK', false);
 
+-- Sphyr
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (30, 'sphyr_guard', 12, 4, 6, 4, 4, 4, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (31, 'sphyr_jack', 9, 4, 6, 4, 4, 4, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (32, 'sphyr_striker', 12, 5, 6, 4, 4, 4, 'STRIKER', false);
+
+-- Brokkr
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (33, 'brokr_guard', 12, 4, 4, 4, 4, 5, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (34, 'brokr_jack', 9, 4, 4, 4, 4, 5, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (35, 'brokr_striker', 9, 5, 4, 4, 4, 5, 'STRIKER', false);
+
+-- Rebs
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (36, 'rin_guard', 12, 4, 5, 5, 4, 4, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (37, 'gaelian_jack', 13, 4, 7, 4, 4, 4, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (38, 'sorak_jack', 10, 4, 5, 4, 4, 3, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (39, 'ralarat_striker', 15, 5, 6, 5, 3, 4, 'STRIKER', false);
+
+-- Hobgoblins
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (40, 'hulk_guard', 20, 4, 5, 5, 5, 3, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (41, 'hobgoblin_jack', 9, 4, 5, 5, 4, 4, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (42, 'hobgoblin_striker', 11, 5, 5, 5, 4, 4, 'STRIKER', false);
+
+-- Martians
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (43, 'martian_guard', 10, 4, 6, 5, 4, 4, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (44, 'martian_jack', 9, 4, 6, 5, 4, 4, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (45, 'martian_striker', 10, 5, 6, 5, 4, 4, 'STRIKER', false);
+
+-- Convicts
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (46, 'convict_guard', 16, 4, 5, 5, 4, 3, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (47, 'convict_jack', 9, 4, 5, 4, 4, 4, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (48, 'convict_striker', 11, 5, 5, 4, 4, 4, 'STRIKER', false);
+
+-- Kalyshi
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (49, 'kalyshi_jack', 11, 4, 6, 4, 3, 5, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (50, 'kalyshi_striker', 14, 5, 6, 4, 3, 5, 'STRIKER', false);
+
+-- Crystallans
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (51, 'crystallan_guard', 12, 4, 4, 4, 4, 5, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (52, 'crystallan_jack', 10, 4, 4, 4, 4, 5, 'JACK', false);
+
+-- Tsudochan
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (53, 'tsudochan_jack', 10, 4, 5, 4, 4, 4, 'JACK', false);
+
+-- Koris
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (54, 'koris_guard', 12, 4, 4, 4, 4, 4, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (55, 'koris_jack', 11, 4, 4, 4, 4, 4, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (56, 'koris_striker', 11, 5, 4, 4, 4, 4, 'STRIKER', false);
+
+-- Ada-Lorana
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (57, 'ada-lorana_guard', 15, 4, 5, 4, 3, 4, 'GUARD', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (58, 'ada-lorana_jack', 12, 4, 5, 4, 3, 4, 'JACK', false);
+INSERT INTO units (id, name, cost, armor, movement, skill, speed, strength, position, giant)
+	VALUES (59, 'ada-lorana_striker', 15, 5, 5, 4, 3, 4, 'STRIKER', false);
+
 -- --------------
 -- Unit abilities
 -- --------------
@@ -269,3 +366,95 @@ INSERT INTO unit_abilities (unit_id, ability_id) VALUES (29, 27);
 
 -- Zees: runaround
 INSERT INTO unit_abilities (unit_id, ability_id) VALUES (29, 59);
+
+-- Sphyr: tail
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (30, 72);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (31, 72);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (32, 72);
+
+-- Brokkr: steady
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (33, 68);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (34, 68);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (35, 68);
+
+-- Brokkr striker: grizzled
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (35, 22);
+
+-- Rin guard: pummel
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (36, 47);
+
+-- Gaelian jack: charge
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (37, 9);
+
+-- Sorak jack: a safe pair of hands
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (38, 3);
+
+-- Ralarat striker: jump
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (39, 28);
+
+-- Ralarat striker: slippery customer
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (39, 65);
+
+-- Hulk guard: mighty
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (40, 33);
+
+-- Hulk guard: steady
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (40, 68);
+
+-- Hulk guard: trail blazer
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (40, 78);
+
+-- Hobgoblins: stench
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (41, 69);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (42, 69);
+
+-- Martians: fragile
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (43, 20);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (44, 20);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (45, 20);
+
+-- Martian jack: illegal
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (44, 25);
+
+-- Martian striker: a safe pair of hands
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (45, 3);
+
+-- Convicts: shock collar
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (46, 61);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (47, 61);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (48, 61);
+
+-- Convict guard: threatening
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (46, 75);
+
+-- Kalyshi jack: shove
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (49, 62);
+
+-- Kalyshi jack: backstab
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (49, 6);
+
+-- Kalyshi striker: jump
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (50, 28);
+
+-- Crystallans: harmonics
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (51, 23);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (52, 23);
+
+-- Tsudochan: push
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (53, 48);
+
+-- Koris: spinner
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (54, 67);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (55, 67);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (56, 67);
+
+-- Koris guard: gotcha
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (54, 21);
+
+-- Koris jack: portal
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (55, 44);
+
+-- Ada-Lorana: phaser
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (57, 41);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (58, 41);
+INSERT INTO unit_abilities (unit_id, ability_id) VALUES (59, 41);
