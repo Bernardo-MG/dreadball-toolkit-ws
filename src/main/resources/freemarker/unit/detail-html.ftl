@@ -55,11 +55,15 @@
                         <dt>Basic cost</dt>
                         <dd>${model.cost}</dd>
                         <dt>Abilities</dt>
-                    	<#assign abilitiesList = []>
+                    	<#assign abilitiesList = "">
                 		<#list model.abilities as ability>
-                        	<#assign abilitiesList = abilitiesList + [ability.abilityName]>
+                			<#if abilitiesList?has_content>
+                    			<#assign abilitiesList = abilitiesList + ", ">
+                			</#if>
+                			<#assign abilityLink = "<a href=\"../abilities/" + ability.id + "\">" + ability.abilityName + "</a>">
+                			<#assign abilitiesList = abilitiesList + abilityLink>
                 		</#list>
-                        <dd>${abilitiesList?join(", ")}</dd>
+                        <dd>${abilitiesList}</dd>
                     </dl>
                 </div>
             </div>
