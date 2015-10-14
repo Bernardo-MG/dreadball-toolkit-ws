@@ -19,19 +19,19 @@
     <meta http-equiv="Content-Type" content="text/html); charset=utf-8"/>
     <meta charset='utf-8'>
     
-    <title>Units list</title>
+    <title>Abilities list</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="./static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./static/css/theme.css" rel="stylesheet">
+    <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/theme.css" rel="stylesheet">
 </head>
 <body>
 <section class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <header class="page-header">
-                <h1>Units list</h1>
+                <h1>Abilities list</h1>
             </header>
         </div>
     </div>
@@ -42,19 +42,15 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Position</th>
-                        <th>Basic cost</th>
                         <th>Details</th>
                     </tr>
                 </thead>
                 <tbody>
-                <#list model as unit>
+                <#list model as ability>
                 <tr>
-                    <td>${unit.id}</td>
-                    <td>${unit.templateName}</td>
-                    <td>${unit.position}</td>
-                    <td>${unit.cost}</td>
-                    <td><a href="./units/${unit.id}">Check details</a></td>
+                    <td>${ability.id}</td>
+                    <td>${ability.abilityName}</td>
+                    <td><a href="./abilities/${ability.id}">Check details</a></td>
                 </tr>
                 </#list>
                 </tbody>
@@ -62,7 +58,7 @@
         </div>
     </div>
 </section>
-<script src="./static/lib/jquery/jquery-1.11.3.min.js"></script>
-<script src="./static/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../static/lib/jquery/jquery-1.11.3.min.js"></script>
+<script src="../static/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

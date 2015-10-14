@@ -41,7 +41,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Path("/abilities")
+@Path("/units/abilities")
 @Service
 public final class AbilityResource {
 
@@ -69,14 +69,14 @@ public final class AbilityResource {
      * Returns the abilities to be transformed into an HTML response.
      * <p>
      * These will be transformed into HTML by using the Freemarker template in
-     * the path '/ability/list-html'.
+     * the path '/unit/ability/list-html'.
      * 
      * @return the abilities to be transformed into an HTML response through a
      *         Freemarker template
      */
     @GET
     @Produces({ MediaType.TEXT_HTML })
-    @Template(name = "/ability/list-html")
+    @Template(name = "/unit/ability/list-html")
     public final Collection<Ability> getAbilitiesHTML() {
         return getAbilityService().getAllAbilities();
     }
@@ -121,7 +121,7 @@ public final class AbilityResource {
      * an HTML response.
      * <p>
      * This will be transformed into HTML by using the Freemarker template in
-     * the path '/ability/detail-html'.
+     * the path '/unit/ability/detail-html'.
      * 
      * @param id
      *            id of the queried {@code Ability}
@@ -130,7 +130,7 @@ public final class AbilityResource {
     @GET
     @Path("{id}")
     @Produces({ MediaType.TEXT_HTML })
-    @Template(name = "/ability/detail-html")
+    @Template(name = "/unit/ability/detail-html")
     @ErrorTemplate(name = "/errors/404")
     public final Ability
             getAbilityHtml(@ValidId @PathParam("id") final String id) {

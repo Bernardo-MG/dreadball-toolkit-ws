@@ -38,7 +38,7 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 
 public final class ITDreadballToolkitApplicationAbilities {
 
-    private static final String PATH = "http://localhost:8080/abilities";
+    private static final String PATH = "http://localhost:8080/units/abilities";
 
     public ITDreadballToolkitApplicationAbilities() {
         super();

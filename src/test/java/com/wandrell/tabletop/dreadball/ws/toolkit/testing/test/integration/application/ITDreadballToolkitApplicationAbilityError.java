@@ -27,19 +27,22 @@ import org.testng.annotations.Test;
 
 public final class ITDreadballToolkitApplicationAbilityError {
 
-    private static final String PATH = "http://localhost:8080/abilities/12345";
+    private static final String PATH = "http://localhost:8080/units/abilities/12345";
 
     public ITDreadballToolkitApplicationAbilityError() {
         super();
     }
 
     @Test
-    public final void testGetAbility()
+    public final void testGetAbility_JSON()
             throws ClientProtocolException, IOException {
         final HttpUriRequest request;
         final HttpResponse httpResponse;
 
         request = new HttpGet(PATH);
+        request.addHeader("Accept", "application/json");
+
+        // TODO: Test this with other response types
 
         httpResponse = HttpClientBuilder.create().build().execute(request);
 

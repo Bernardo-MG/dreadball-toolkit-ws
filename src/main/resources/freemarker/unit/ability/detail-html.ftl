@@ -23,8 +23,8 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/theme.css" rel="stylesheet">
+    <link href="../../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/css/theme.css" rel="stylesheet">
 </head>
 <body>
 <section class="container">
@@ -46,7 +46,7 @@
         </div>
     </div>
 </section>
-<script src="../static/lib/jquery/jquery-1.11.3.min.js"></script>
-<script src="../static/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/lib/jquery/jquery-1.11.3.min.js"></script>
+<script src="../../static/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

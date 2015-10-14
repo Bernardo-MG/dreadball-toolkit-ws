@@ -50,7 +50,7 @@
                 <tr>
                     <td>${rule.id}</td>
                     <td>${rule.teamRuleName}</td>
-                    <td><a href="../teams/rules/${rule.id}">Check details</a></td>
+                    <td><a href="./rules/${rule.id}">Check details</a></td>
                 </tr>
                 </#list>
                 </tbody>

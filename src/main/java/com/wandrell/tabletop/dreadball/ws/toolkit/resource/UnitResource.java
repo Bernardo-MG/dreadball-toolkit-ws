@@ -41,7 +41,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Path("/units")
+@Path("/units/dbo")
 @Service
 public final class UnitResource {
 
@@ -69,7 +69,7 @@ public final class UnitResource {
      * HTML response.
      * <p>
      * This will be transformed into HTML by using the Freemarker template in
-     * the path '/unit/detail-html'.
+     * the path '/unit/dbo/detail-html'.
      * 
      * @param id
      *            id of the queried {@code Unit}
@@ -78,7 +78,7 @@ public final class UnitResource {
     @GET
     @Path("{id}")
     @Produces({ MediaType.TEXT_HTML })
-    @Template(name = "/unit/detail-html")
+    @Template(name = "/unit/dbo/detail-html")
     @ErrorTemplate(name = "/errors/404")
     public final Unit getUnitHtml(@ValidId @PathParam("id") final String id) {
         return getUnitService().getUnitById(Integer.parseInt(id));
@@ -105,14 +105,14 @@ public final class UnitResource {
      * Returns the units to be transformed into an HTML response.
      * <p>
      * These will be transformed into HTML by using the Freemarker template in
-     * the path '/unit/list-html'.
+     * the path '/unit/dbo/list-html'.
      * 
      * @return the units to be transformed into an HTML response through a
      *         Freemarker template
      */
     @GET
     @Produces({ MediaType.TEXT_HTML })
-    @Template(name = "/unit/list-html")
+    @Template(name = "/unit/dbo/list-html")
     public final Collection<Unit> getUnitsHTML() {
         return getUnitService().getAllUnits();
     }
