@@ -166,7 +166,7 @@
 		<server.test.port>9966</server.test.port>
 		<server.test.path>/${project.artifactId}</server.test.path>
 		<!-- Maven Site -->
-		<site.skin.version>0.1.0</site.skin.version>
+		<site.skin.version>0.2.0</site.skin.version>
 	</properties>
 
 	<dependencies>
