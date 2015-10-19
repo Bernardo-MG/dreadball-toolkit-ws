@@ -97,7 +97,7 @@ public final class JPATeamTypeRepository
     @PersistenceContext
     public final void setEntityManager(final EntityManager entityManager) {
         repository = new JPARepository<JPATeamType>(entityManager,
-                new DefaultQueryData("SELECT unit FROM TeamType unit"));
+                new DefaultQueryData("SELECT team FROM TeamType team"));
     }
 
     @Override
