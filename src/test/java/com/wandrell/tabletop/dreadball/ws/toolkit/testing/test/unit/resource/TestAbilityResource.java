@@ -24,8 +24,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.ws.toolkit.resource.AbilityResource;
-import com.wandrell.tabletop.dreadball.ws.toolkit.service.AbilityAccessService;
+import com.wandrell.tabletop.dreadball.ws.toolkit.resource.unit.AbilityResource;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.AbilityAccessService;
 
 public final class TestAbilityResource {
 
