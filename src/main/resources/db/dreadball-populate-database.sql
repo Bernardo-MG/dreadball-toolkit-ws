@@ -464,3 +464,33 @@ INSERT INTO unit_abilities (unit_id, ability_id) VALUES (59, 41);
 
 INSERT INTO team_rules (id, name) VALUES (1, 'monkey_business');
 INSERT INTO team_rules (id, name) VALUES (2, 'boiled_down');
+
+-- ****************************************
+--               TEAM TYPES
+-- ****************************************
+
+INSERT INTO team_types (id, name) VALUES (1, 'humans_male');
+INSERT INTO team_types (id, name) VALUES (2, 'orx_goblins');
+INSERT INTO team_types (id, name) VALUES (3, 'veer-myn');
+INSERT INTO team_types (id, name) VALUES (4, 'forge_fathers');
+INSERT INTO team_types (id, name) VALUES (5, 'robots');
+INSERT INTO team_types (id, name) VALUES (6, 'zzor');
+INSERT INTO team_types (id, name) VALUES (7, 'judwan');
+INSERT INTO team_types (id, name) VALUES (8, 'humans_female');
+INSERT INTO team_types (id, name) VALUES (9, 'asterian');
+INSERT INTO team_types (id, name) VALUES (10, 'nameless');
+INSERT INTO team_types (id, name) VALUES (11, 'teratons');
+INSERT INTO team_types (id, name) VALUES (12, 'zees');
+INSERT INTO team_types (id, name) VALUES (13, 'sphyr');
+INSERT INTO team_types (id, name) VALUES (14, 'brokkr');
+INSERT INTO team_types (id, name) VALUES (15, 'rebs');
+INSERT INTO team_types (id, name) VALUES (16, 'hobgoblins');
+INSERT INTO team_types (id, name) VALUES (17, 'martians');
+INSERT INTO team_types (id, name) VALUES (18, 'convicts');
+INSERT INTO team_types (id, name) VALUES (19, 'kalyshi');
+INSERT INTO team_types (id, name) VALUES (20, 'crystallans');
+INSERT INTO team_types (id, name) VALUES (21, 'tsudochans');
+INSERT INTO team_types (id, name) VALUES (22, 'koris');
+INSERT INTO team_types (id, name) VALUES (23, 'ada-lorana');
+INSERT INTO team_types (id, name) VALUES (24, 'mutants');
+INSERT INTO team_types (id, name) VALUES (25, 'mechanite');

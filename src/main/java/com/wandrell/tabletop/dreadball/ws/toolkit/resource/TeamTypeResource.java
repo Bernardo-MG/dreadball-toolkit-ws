@@ -115,7 +115,7 @@ public final class TeamTypeResource {
      */
     @GET
     @Produces({ MediaType.TEXT_HTML })
-    @Template(name = "/unit/dbo/list-html")
+    @Template(name = "/team/type/list-html")
     public final Collection<TeamType> getTeamTypesHTML() {
         return getTeamTypeService().getAllTeamTypes();
     }
