@@ -40,7 +40,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.AbilityDataServic
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Service("abilityService")
+@Service("abilityDataService")
 public final class JPAAbilityDataService implements AbilityDataService {
 
     /**

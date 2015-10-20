@@ -40,7 +40,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.service.availability.TeamTypeU
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Service("teamTypeUnitAvailabilityService")
+@Service("teamTypeUnitAvailabilityDataService")
 public final class JPATeamTypeUnitAvailabilityDataService
         implements TeamTypeUnitAvailabilityDataService {
 

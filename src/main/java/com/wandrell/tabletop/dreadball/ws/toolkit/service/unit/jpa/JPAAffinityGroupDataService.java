@@ -40,7 +40,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.AffinityGroupData
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Service("affinityGroupService")
+@Service("affinityGroupDataService")
 public final class JPAAffinityGroupDataService
         implements AffinityGroupDataService {
 

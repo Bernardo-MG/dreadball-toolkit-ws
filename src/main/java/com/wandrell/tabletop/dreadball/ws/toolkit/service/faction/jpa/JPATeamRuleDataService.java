@@ -40,7 +40,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.service.faction.TeamRuleDataSe
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Service("teamRuleService")
+@Service("teamRuleDataService")
 public final class JPATeamRuleDataService implements TeamRuleDataService {
 
     /**

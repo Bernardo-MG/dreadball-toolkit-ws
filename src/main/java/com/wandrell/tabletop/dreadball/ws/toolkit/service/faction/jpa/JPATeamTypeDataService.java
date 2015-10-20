@@ -40,7 +40,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.service.faction.TeamTypeDataSe
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Service("teamTypeService")
+@Service("teamTypeDataService")
 public final class JPATeamTypeDataService implements TeamTypeDataService {
 
     /**

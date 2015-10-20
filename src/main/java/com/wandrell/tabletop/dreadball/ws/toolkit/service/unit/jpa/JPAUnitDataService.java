@@ -39,7 +39,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.UnitDataService;
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Service("unitService")
+@Service("unitDataService")
 public final class JPAUnitDataService implements UnitDataService {
 
     /**
