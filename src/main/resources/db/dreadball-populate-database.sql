@@ -494,3 +494,113 @@ INSERT INTO team_types (id, name) VALUES (22, 'koris');
 INSERT INTO team_types (id, name) VALUES (23, 'ada-lorana');
 INSERT INTO team_types (id, name) VALUES (24, 'mutants');
 INSERT INTO team_types (id, name) VALUES (25, 'mechanite');
+
+-- -------------------
+-- Unit availabilities
+-- -------------------
+
+-- These follow the same order as the unit registration section
+-- In most cases this is: guard, jack and striker
+
+-- Humans (male)
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (1, 1, 1, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (2, 1, 2, 3, 6);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (3, 1, 3, 3, 6);
+
+-- Orx/Goblins
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (4, 2, 4, 3, 6);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (5, 2, 5, 5, 10);
+
+-- Veer-Myn
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (6, 3, 6, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (7, 3, 7, 6, 12);
+
+-- Forge fathers
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (8, 4, 8, 3, 6);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (9, 4, 9, 3, 6);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (10, 4, 10, 2, 4);
+
+-- Robots
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (11, 5, 12, 6, 14);
+
+-- Z'zor
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (12, 6, 14, 1, 2);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (13, 6, 15, 5, 10);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (14, 6, 16, 2, 4);
+
+-- Judwan
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (15, 7, 17, 6, 12);
+
+-- Humans (female)
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (16, 8, 18, 1, 2);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (17, 8, 19, 4, 8);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (18, 8, 20, 3, 6);
+
+-- Asterians
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (19, 9, 21, 1, 2);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (20, 9, 22, 3, 6);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (21, 9, 23, 4, 8);
+
+-- Nameless
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (22, 10, 24, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (23, 10, 25, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (24, 10, 26, 4, 8);
+
+-- Teratons
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (25, 11, 27, 4, 8);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (26, 11, 28, 4, 8);
+
+-- Zees
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (27, 12, 29, 10, 14);
+
+-- Sphyr
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (28, 13, 30, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (29, 13, 31, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (30, 13, 32, 4, 8);
+
+-- Brokkr
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (31, 14, 33, 4, 8);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (32, 14, 34, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (33, 14, 35, 2, 4);
+
+-- Rebs
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (34, 15, 36, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (35, 15, 37, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (36, 15, 38, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (37, 15, 39, 2, 4);
+
+-- Hobgoblins
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (38, 16, 40, 1, 2);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (39, 16, 41, 4, 8);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (40, 16, 42, 2, 4);
+
+-- Martians
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (41, 17, 43, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (42, 17, 44, 4, 8);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (43, 17, 45, 2, 4);
+
+-- Convicts
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (44, 18, 46, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (45, 18, 47, 3, 6);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (46, 18, 48, 3, 6);
+
+-- Kalyshi
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (47, 19, 49, 4, 8);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (48, 19, 50, 4, 8);
+
+-- Crystallans
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (49, 20, 51, 5, 10);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (50, 20, 52, 3, 6);
+
+-- Tsudochan
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (51, 21, 53, 8, 14);
+
+-- Koris
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (52, 22, 54, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (53, 22, 55, 5, 10);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (54, 22, 56, 1, 2);
+
+-- Ada-Lorana
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (55, 23, 57, 1, 2);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (56, 23, 58, 2, 4);
+INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES (57, 23, 59, 3, 6);
