@@ -38,8 +38,14 @@
                     <dl class="dl-horizontal">
                         <dt>Id</dt>
                         <dd>${model.id}</dd>
-                        <dt>Name</dt>
-                        <dd>${model.teamRuleName}</dd>
+                        <dt>Team</dt>
+                        <dd>${model.teamType.teamTypeName}</dd>
+                        <dt>Unit</dt>
+                        <dd>${model.unit.templateName}</dd>
+                        <dt>Initial</dt>
+                        <dd>${model.initialNumber}</dd>
+                        <dt>Max</dt>
+                        <dd>${model.maxNumber}</dd>
                     </dl>
                 </div>
             </div>

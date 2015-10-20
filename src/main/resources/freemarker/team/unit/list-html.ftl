@@ -41,16 +41,18 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name</th>
+                        <th>Team</th>
+                        <th>Unit</th>
                         <th>Details</th>
                     </tr>
                 </thead>
                 <tbody>
-                <#list model as rule>
+                <#list model as ava>
                 <tr>
-                    <td>${rule.id}</td>
-                    <td>${rule.teamRuleName}</td>
-                    <td><a href="./rules/${rule.id}">Check details</a></td>
+                    <td>${ava.id}</td>
+                    <td>${ava.teamType.teamTypeName}</td>
+                    <td>${ava.unit.templateName}</td>
+                    <td><a href="./units/${ava.id}">Check details</a></td>
                 </tr>
                 </#list>
                 </tbody>
