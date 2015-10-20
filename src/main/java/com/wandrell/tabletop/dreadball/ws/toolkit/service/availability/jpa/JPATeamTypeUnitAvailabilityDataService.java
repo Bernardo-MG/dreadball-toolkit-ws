@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.jpa;
+package com.wandrell.tabletop.dreadball.ws.toolkit.service.availability.jpa;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -26,13 +26,13 @@ import org.springframework.stereotype.Service;
 
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.ws.toolkit.repository.unit.AbilityRepository;
-import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.AbilityAccessService;
+import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeUnitAvailability;
+import com.wandrell.tabletop.dreadball.ws.toolkit.repository.availability.TeamTypeUnitAvailabilityRepository;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.availability.TeamTypeUnitAvailabilityDataService;
 
 /**
- * Implementation of {@link AbilityAccessService} working behind the scenes with
- * JPA.
+ * Implementation of {@link TeamTypeUnitAvailabilityDataService} working behind
+ * the scenes with JPA.
  * <p>
  * This is prepared to be used with Spring, as part of the dependency injection
  * process.
@@ -40,16 +40,18 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.AbilityAccessServ
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Service("abilityService")
-public final class JPAAbilityAccessService implements AbilityAccessService {
+@Service("teamTypeUnitAvailabilityService")
+public final class JPATeamTypeUnitAvailabilityDataService
+        implements TeamTypeUnitAvailabilityDataService {
 
     /**
-     * Repository for the {@code Ability} instances.
+     * Repository for the {@code TeamTypeUnitAvailability} instances.
      */
-    private final AbilityRepository abilityRepository;
+    private final TeamTypeUnitAvailabilityRepository unitRepository;
 
     /**
-     * Constructs a {@code JPAAbilityService} with the specified repository.
+     * Constructs a {@code JPATeamTypeUnitAvailabilityService} with the
+     * specified repository.
      * <p>
      * Said repository is meant to be injected through Spring.
      * 
@@ -57,27 +59,30 @@ public final class JPAAbilityAccessService implements AbilityAccessService {
      *            the repository to be used by the service
      */
     @Autowired
-    public JPAAbilityAccessService(final AbilityRepository repository) {
+    public JPATeamTypeUnitAvailabilityDataService(
+            final TeamTypeUnitAvailabilityRepository repository) {
         super();
 
-        abilityRepository = checkNotNull(repository,
+        unitRepository = checkNotNull(repository,
                 "Received a null pointer as abilities repository");
     }
 
     @Override
-    public final Ability getAbilityById(final Integer id) {
-        final QueryData filter;
-
-        filter = new DefaultQueryData(
-                "SELECT ability FROM Ability ability WHERE id = :id");
-        filter.addParameter("id", id);
-
-        return getRepository().getEntity(filter);
+    public final Collection<TeamTypeUnitAvailability>
+            getAllTeamTypeUnitAvailabilities() {
+        return getRepository().getAll();
     }
 
     @Override
-    public final Collection<Ability> getAllAbilities() {
-        return getRepository().getAll();
+    public final TeamTypeUnitAvailability
+            getTeamTypeUnitAvailabilityById(final Integer id) {
+        final QueryData filter;
+
+        filter = new DefaultQueryData(
+                "SELECT ava FROM TeamTypeUnitAvailability ava WHERE id = :id");
+        filter.addParameter("id", id);
+
+        return getRepository().getEntity(filter);
     }
 
     /**
@@ -85,8 +90,8 @@ public final class JPAAbilityAccessService implements AbilityAccessService {
      * 
      * @return the repository being used by the service
      */
-    private final AbilityRepository getRepository() {
-        return abilityRepository;
+    private final TeamTypeUnitAvailabilityRepository getRepository() {
+        return unitRepository;
     }
 
 }

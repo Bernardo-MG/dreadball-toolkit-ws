@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.jpa;
+package com.wandrell.tabletop.dreadball.ws.toolkit.service.faction.jpa;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -26,12 +26,12 @@ import org.springframework.stereotype.Service;
 
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
-import com.wandrell.tabletop.dreadball.ws.toolkit.repository.unit.UnitRepository;
-import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.UnitAccessService;
+import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
+import com.wandrell.tabletop.dreadball.ws.toolkit.repository.faction.TeamRuleRepository;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.faction.TeamRuleDataService;
 
 /**
- * Implementation of {@link UnitAccessService} working behind the scenes with
+ * Implementation of {@link TeamRuleDataService} working behind the scenes with
  * JPA.
  * <p>
  * This is prepared to be used with Spring, as part of the dependency injection
@@ -40,16 +40,16 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.UnitAccessService
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Service("unitService")
-public final class JPAUnitAccessService implements UnitAccessService {
+@Service("teamRuleService")
+public final class JPATeamRuleDataService implements TeamRuleDataService {
 
     /**
-     * Repository for the {@code Unit} instances.
+     * Repository for the {@code TeamRule} instances.
      */
-    private final UnitRepository unitRepository;
+    private final TeamRuleRepository ruleRepository;
 
     /**
-     * Constructs a {@code JPAUnitService} with the specified repository.
+     * Constructs a {@code JPATeamRuleService} with the specified repository.
      * <p>
      * Said repository is meant to be injected through Spring.
      * 
@@ -57,24 +57,24 @@ public final class JPAUnitAccessService implements UnitAccessService {
      *            the repository to be used by the service
      */
     @Autowired
-    public JPAUnitAccessService(final UnitRepository repository) {
+    public JPATeamRuleDataService(final TeamRuleRepository repository) {
         super();
 
-        unitRepository = checkNotNull(repository,
+        ruleRepository = checkNotNull(repository,
                 "Received a null pointer as abilities repository");
     }
 
     @Override
-    public final Collection<Unit> getAllUnits() {
+    public final Collection<TeamRule> getAllTeamRules() {
         return getRepository().getAll();
     }
 
     @Override
-    public final Unit getUnitById(final Integer id) {
+    public final TeamRule getTeamRuleById(final Integer id) {
         final QueryData filter;
 
         filter = new DefaultQueryData(
-                "SELECT unit FROM Unit unit WHERE id = :id");
+                "SELECT rule FROM TeamRule rule WHERE id = :id");
         filter.addParameter("id", id);
 
         return getRepository().getEntity(filter);
@@ -85,8 +85,8 @@ public final class JPAUnitAccessService implements UnitAccessService {
      * 
      * @return the repository being used by the service
      */
-    private final UnitRepository getRepository() {
-        return unitRepository;
+    private final TeamRuleRepository getRepository() {
+        return ruleRepository;
     }
 
 }

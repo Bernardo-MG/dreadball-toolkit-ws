@@ -25,7 +25,7 @@ import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeUnitAvail
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface TeamTypeUnitAvailabilityAccessService {
+public interface TeamTypeUnitAvailabilityDataService {
 
     /**
      * Returns all {@code TeamTypeUnitAvailability} instances.

@@ -17,29 +17,29 @@ package com.wandrell.tabletop.dreadball.ws.toolkit.service.unit;
 
 import java.util.Collection;
 
-import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
+import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
 /**
- * Interface for a service which handles {@link Ability} instances.
+ * Interface for a service which handles {@link Unit} instances.
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface AbilityAccessService {
+public interface UnitDataService {
 
     /**
-     * Acquires an {@code Ability} based on its id.
+     * Returns all {@code Unit} instances.
+     * 
+     * @return all {@code Unit} instances
+     */
+    public Collection<Unit> getAllUnits();
+
+    /**
+     * Acquires an {@code Unit} based on its id.
      * 
      * @param id
-     *            the {@code Ability} id
-     * @return the {@code Ability} with that id
+     *            the {@code Unit} id
+     * @return the {@code Unit} with that id
      */
-    public Ability getAbilityById(final Integer id);
-
-    /**
-     * Returns all {@code Ability} instances.
-     * 
-     * @return all {@code Ability} instances
-     */
-    public Collection<Ability> getAllAbilities();
+    public Unit getUnitById(final Integer id);
 
 }

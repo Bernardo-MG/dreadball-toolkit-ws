@@ -13,33 +13,33 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.service.unit;
+package com.wandrell.tabletop.dreadball.ws.toolkit.service.faction;
 
 import java.util.Collection;
 
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 
 /**
- * Interface for a service which handles {@link Unit} instances.
+ * Interface for a service which handles {@link TeamType} instances.
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface UnitAccessService {
+public interface TeamTypeDataService {
 
     /**
-     * Returns all {@code Unit} instances.
+     * Returns all {@code TeamType} instances.
      * 
-     * @return all {@code Unit} instances
+     * @return all {@code TeamType} instances
      */
-    public Collection<Unit> getAllUnits();
+    public Collection<TeamType> getAllTeamTypes();
 
     /**
-     * Acquires an {@code Unit} based on its id.
+     * Acquires an {@code TeamType} based on its id.
      * 
      * @param id
-     *            the {@code Unit} id
-     * @return the {@code Unit} with that id
+     *            the {@code TeamType} id
+     * @return the {@code TeamType} with that id
      */
-    public Unit getUnitById(final Integer id);
+    public TeamType getTeamTypeById(final Integer id);
 
 }

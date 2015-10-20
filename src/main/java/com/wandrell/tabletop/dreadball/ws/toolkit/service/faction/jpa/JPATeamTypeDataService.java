@@ -28,11 +28,11 @@ import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 import com.wandrell.tabletop.dreadball.ws.toolkit.repository.faction.TeamTypeRepository;
-import com.wandrell.tabletop.dreadball.ws.toolkit.service.faction.TeamTypeAccessService;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.faction.TeamTypeDataService;
 
 /**
- * Implementation of {@link TeamTypeAccessService} working behind the scenes
- * with JPA.
+ * Implementation of {@link TeamTypeDataService} working behind the scenes with
+ * JPA.
  * <p>
  * This is prepared to be used with Spring, as part of the dependency injection
  * process.
@@ -41,7 +41,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.service.faction.TeamTypeAccess
  */
 @Singleton
 @Service("teamTypeService")
-public final class JPATeamTypeAccessService implements TeamTypeAccessService {
+public final class JPATeamTypeDataService implements TeamTypeDataService {
 
     /**
      * Repository for the {@code TeamType} instances.
@@ -57,7 +57,7 @@ public final class JPATeamTypeAccessService implements TeamTypeAccessService {
      *            the repository to be used by the service
      */
     @Autowired
-    public JPATeamTypeAccessService(final TeamTypeRepository repository) {
+    public JPATeamTypeDataService(final TeamTypeRepository repository) {
         super();
 
         teamRepository = checkNotNull(repository,

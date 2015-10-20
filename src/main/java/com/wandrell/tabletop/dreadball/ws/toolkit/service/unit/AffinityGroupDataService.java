@@ -13,33 +13,33 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.service.faction;
+package com.wandrell.tabletop.dreadball.ws.toolkit.service.unit;
 
 import java.util.Collection;
 
-import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
+import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
 /**
- * Interface for a service which handles {@link TeamRule} instances.
+ * Interface for a service which handles {@link AffinityGroup} instances.
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface TeamRuleAccessService {
+public interface AffinityGroupDataService {
 
     /**
-     * Returns all {@code TeamRule} instances.
-     * 
-     * @return all {@code TeamRule} instances
-     */
-    public Collection<TeamRule> getAllTeamRules();
-
-    /**
-     * Acquires an {@code TeamRule} based on its id.
+     * Acquires an {@code AffinityGroup} based on its id.
      * 
      * @param id
-     *            the {@code TeamRule} id
-     * @return the {@code TeamRule} with that id
+     *            the {@code AffinityGroup} id
+     * @return the {@code AffinityGroup} with that id
      */
-    public TeamRule getTeamRuleById(final Integer id);
+    public AffinityGroup getAffinityGroupById(final Integer id);
+
+    /**
+     * Returns all {@code AffinityGroup} instances.
+     * 
+     * @return all {@code AffinityGroup} instances
+     */
+    public Collection<AffinityGroup> getAllAffinityGroups();
 
 }

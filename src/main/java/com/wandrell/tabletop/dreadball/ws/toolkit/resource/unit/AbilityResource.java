@@ -32,7 +32,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.AbilityAccessService;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.AbilityDataService;
 import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
 
 /**
@@ -49,7 +49,7 @@ public final class AbilityResource {
      * Service being used by the resource to handle the {@code Ability}
      * instances.
      */
-    private final AbilityAccessService abilityService;
+    private final AbilityDataService abilityService;
 
     /**
      * Constructs a {@code AbilityResource} with the specified service.
@@ -58,7 +58,7 @@ public final class AbilityResource {
      *            the service to be used by the resource.
      */
     @Autowired
-    public AbilityResource(final AbilityAccessService service) {
+    public AbilityResource(final AbilityDataService service) {
         super();
 
         abilityService = checkNotNull(service,
@@ -179,7 +179,7 @@ public final class AbilityResource {
      * 
      * @return the service being used by the resource
      */
-    private final AbilityAccessService getAbilityService() {
+    private final AbilityDataService getAbilityService() {
         return abilityService;
     }
 

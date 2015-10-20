@@ -32,7 +32,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeUnitAvailability;
-import com.wandrell.tabletop.dreadball.ws.toolkit.service.availability.TeamTypeUnitAvailabilityAccessService;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.availability.TeamTypeUnitAvailabilityDataService;
 import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
 
 /**
@@ -49,7 +49,7 @@ public final class TeamTypeUnitAvailabilityResource {
      * Service being used by the resource to handle the
      * {@code TeamTypeUnitAvailability} instances.
      */
-    private final TeamTypeUnitAvailabilityAccessService avaService;
+    private final TeamTypeUnitAvailabilityDataService avaService;
 
     /**
      * Constructs a {@code TeamTypeUnitAvailabilityResource} with the specified
@@ -60,7 +60,7 @@ public final class TeamTypeUnitAvailabilityResource {
      */
     @Autowired
     public TeamTypeUnitAvailabilityResource(
-            final TeamTypeUnitAvailabilityAccessService service) {
+            final TeamTypeUnitAvailabilityDataService service) {
         super();
 
         avaService = checkNotNull(service,
@@ -194,7 +194,7 @@ public final class TeamTypeUnitAvailabilityResource {
      * 
      * @return the service being used by the resource
      */
-    private final TeamTypeUnitAvailabilityAccessService
+    private final TeamTypeUnitAvailabilityDataService
             getTeamTypeUnitAvailabilityService() {
         return avaService;
     }

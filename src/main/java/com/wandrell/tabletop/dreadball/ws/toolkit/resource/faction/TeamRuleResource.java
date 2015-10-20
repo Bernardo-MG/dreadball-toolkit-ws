@@ -32,7 +32,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
-import com.wandrell.tabletop.dreadball.ws.toolkit.service.faction.TeamRuleAccessService;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.faction.TeamRuleDataService;
 import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
 
 /**
@@ -49,7 +49,7 @@ public final class TeamRuleResource {
      * Service being used by the resource to handle the {@code TeamRule}
      * instances.
      */
-    private final TeamRuleAccessService ruleService;
+    private final TeamRuleDataService ruleService;
 
     /**
      * Constructs a {@code TeamRuleResource} with the specified service.
@@ -58,7 +58,7 @@ public final class TeamRuleResource {
      *            the service to be used by the resource.
      */
     @Autowired
-    public TeamRuleResource(final TeamRuleAccessService service) {
+    public TeamRuleResource(final TeamRuleDataService service) {
         super();
 
         ruleService = checkNotNull(service,
@@ -179,7 +179,7 @@ public final class TeamRuleResource {
      * 
      * @return the service being used by the resource
      */
-    private final TeamRuleAccessService getTeamRuleService() {
+    private final TeamRuleDataService getTeamRuleService() {
         return ruleService;
     }
 

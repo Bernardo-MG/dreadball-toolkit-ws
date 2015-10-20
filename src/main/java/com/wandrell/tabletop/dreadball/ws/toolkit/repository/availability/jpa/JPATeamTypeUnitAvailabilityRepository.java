@@ -40,7 +40,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.repository.availability.TeamTy
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Repository("teamTypeTeamTypeUnitAvailabilityAvailabilityRepository")
+@Repository("teamTypeUnitAvailabilityRepository")
 public final class JPATeamTypeUnitAvailabilityRepository
         implements TeamTypeUnitAvailabilityRepository,
         FilteredRepository<TeamTypeUnitAvailability, QueryData> {
