@@ -26,7 +26,7 @@ import org.springframework.stereotype.Service;
 
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.tabletop.dreadball.model.availability.team.TeamTypeAssetsAvailability;
+import com.wandrell.tabletop.dreadball.model.availability.asset.TeamTypeAssetsAvailability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.repository.availability.TeamTypeAssetsAvailabilityRepository;
 import com.wandrell.tabletop.dreadball.ws.toolkit.service.availability.TeamTypeAssetsAvailabilityDataService;
 

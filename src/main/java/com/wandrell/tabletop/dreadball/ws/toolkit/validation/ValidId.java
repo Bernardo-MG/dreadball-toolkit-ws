@@ -48,7 +48,7 @@ public @interface ValidId {
      * 
      * @return the bean validation groups
      */
-    Class<?>[]groups() default {};
+    Class<?>[] groups() default {};
 
     /**
      * Returns the bean validation message code.
@@ -62,6 +62,6 @@ public @interface ValidId {
      * 
      * @return the bean validation payload
      */
-    Class<? extends Payload>[]payload() default {};
+    Class<? extends Payload>[] payload() default {};
 
 }

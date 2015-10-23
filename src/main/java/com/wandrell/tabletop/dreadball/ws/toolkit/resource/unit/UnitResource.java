@@ -31,7 +31,7 @@ import org.glassfish.jersey.server.mvc.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.UnitDataService;
 import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
 
@@ -80,7 +80,8 @@ public final class UnitResource {
     @Produces({ MediaType.TEXT_HTML })
     @Template(name = "/unit/dbo/detail-html")
     @ErrorTemplate(name = "/errors/404")
-    public final Unit getUnitHtml(@ValidId @PathParam("id") final String id) {
+    public final UnitTemplate
+            getUnitHtml(@ValidId @PathParam("id") final String id) {
         return getUnitService().getUnitById(Integer.parseInt(id));
     }
 
@@ -97,7 +98,8 @@ public final class UnitResource {
     @GET
     @Path("{id}")
     @Produces({ MediaType.APPLICATION_JSON })
-    public final Unit getUnitJSON(@ValidId @PathParam("id") final String id) {
+    public final UnitTemplate
+            getUnitJSON(@ValidId @PathParam("id") final String id) {
         return getUnitService().getUnitById(Integer.parseInt(id));
     }
 
@@ -113,7 +115,7 @@ public final class UnitResource {
     @GET
     @Produces({ MediaType.TEXT_HTML })
     @Template(name = "/unit/dbo/list-html")
-    public final Collection<Unit> getUnitsHTML() {
+    public final Collection<UnitTemplate> getUnitsHTML() {
         return getUnitService().getAllUnits();
     }
 
@@ -127,7 +129,7 @@ public final class UnitResource {
      */
     @GET
     @Produces({ MediaType.APPLICATION_JSON })
-    public final Collection<Unit> getUnitsJSON() {
+    public final Collection<UnitTemplate> getUnitsJSON() {
         return getUnitService().getAllUnits();
     }
 
@@ -139,13 +141,13 @@ public final class UnitResource {
     @GET
     @Produces({ MediaType.TEXT_PLAIN })
     public final String getUnitsText() {
-        final Collection<Unit> units;
+        final Collection<UnitTemplate> units;
         final StringBuilder result;
 
         units = getUnitService().getAllUnits();
 
         result = new StringBuilder();
-        for (final Unit unit : units) {
+        for (final UnitTemplate unit : units) {
             result.append(unit.getTemplateName()).append('\n');
         }
 
@@ -163,7 +165,7 @@ public final class UnitResource {
     @Path("{id}")
     @Produces({ MediaType.TEXT_PLAIN })
     public final String getUnitText(@ValidId @PathParam("id") final String id) {
-        final Unit unit;
+        final UnitTemplate unit;
 
         unit = getUnitService().getUnitById(Integer.parseInt(id));
 

@@ -26,7 +26,7 @@ import org.springframework.stereotype.Service;
 
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 import com.wandrell.tabletop.dreadball.ws.toolkit.repository.unit.UnitRepository;
 import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.UnitDataService;
 
@@ -64,12 +64,12 @@ public final class JPAUnitDataService implements UnitDataService {
     }
 
     @Override
-    public final Collection<Unit> getAllUnits() {
+    public final Collection<UnitTemplate> getAllUnits() {
         return getRepository().getAll();
     }
 
     @Override
-    public final Unit getUnitById(final Integer id) {
+    public final UnitTemplate getUnitById(final Integer id) {
         final QueryData filter;
 
         filter = new DefaultQueryData(

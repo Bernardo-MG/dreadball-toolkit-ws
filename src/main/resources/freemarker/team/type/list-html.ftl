@@ -49,7 +49,7 @@
                 <#list model as type>
                 <tr>
                     <td>${type.id}</td>
-                    <td>${type.teamTypeName}</td>
+                    <td>${type.name}</td>
                     <td><a href="./types/${type.id}">Check details</a></td>
                 </tr>
                 </#list>

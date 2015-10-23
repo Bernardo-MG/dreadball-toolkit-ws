@@ -149,7 +149,7 @@ public final class TeamRuleResource {
 
         result = new StringBuilder();
         for (final TeamRule rule : rules) {
-            result.append(rule.getTeamRuleName()).append('\n');
+            result.append(rule.getName()).append('\n');
         }
 
         return result.toString();
@@ -171,7 +171,7 @@ public final class TeamRuleResource {
 
         teamRule = getTeamRuleService().getTeamRuleById(Integer.parseInt(id));
 
-        return teamRule.getTeamRuleName();
+        return teamRule.getName();
     }
 
     /**

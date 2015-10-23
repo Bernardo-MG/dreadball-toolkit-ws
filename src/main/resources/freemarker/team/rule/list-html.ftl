@@ -49,7 +49,7 @@
                 <#list model as rule>
                 <tr>
                     <td>${rule.id}</td>
-                    <td>${rule.teamRuleName}</td>
+                    <td>${rule.name}</td>
                     <td><a href="./rules/${rule.id}">Check details</a></td>
                 </tr>
                 </#list>

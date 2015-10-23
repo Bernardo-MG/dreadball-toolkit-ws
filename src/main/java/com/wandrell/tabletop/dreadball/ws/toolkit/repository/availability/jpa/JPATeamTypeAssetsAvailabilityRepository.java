@@ -30,8 +30,8 @@ import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.repository.JPARepository;
-import com.wandrell.tabletop.dreadball.model.availability.team.TeamTypeAssetsAvailability;
-import com.wandrell.tabletop.dreadball.model.persistence.availability.team.JPATeamTypeAssetsAvailability;
+import com.wandrell.tabletop.dreadball.model.availability.asset.TeamTypeAssetsAvailability;
+import com.wandrell.tabletop.dreadball.model.persistence.availability.asset.JPATeamTypeAssetsAvailability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.repository.availability.TeamTypeAssetsAvailabilityRepository;
 
 /**

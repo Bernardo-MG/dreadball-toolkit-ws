@@ -49,7 +49,7 @@
                 <#list model as ability>
                 <tr>
                     <td>${ability.id}</td>
-                    <td>${ability.abilityName}</td>
+                    <td>${ability.name}</td>
                     <td><a href="./abilities/${ability.id}">Check details</a></td>
                 </tr>
                 </#list>

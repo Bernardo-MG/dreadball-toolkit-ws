@@ -160,7 +160,7 @@ public final class TeamTypeUnitAvailabilityResource {
 
         result = new StringBuilder();
         for (final TeamTypeUnitAvailability ava : avas) {
-            result.append(ava.getTeamType().getTeamTypeName()).append(" - ")
+            result.append(ava.getTeamType().getName()).append(" - ")
                     .append(ava.getUnit().getTemplateName()).append('\n');
         }
 
@@ -185,7 +185,7 @@ public final class TeamTypeUnitAvailabilityResource {
         ava = getTeamTypeUnitAvailabilityService()
                 .getTeamTypeUnitAvailabilityById(Integer.parseInt(id));
 
-        return String.format("%s - %s", ava.getTeamType().getTeamTypeName(),
+        return String.format("%s - %s", ava.getTeamType().getName(),
                 ava.getUnit().getTemplateName());
     }
 

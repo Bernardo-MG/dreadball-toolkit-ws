@@ -17,7 +17,7 @@ package com.wandrell.tabletop.dreadball.ws.toolkit.service.availability;
 
 import java.util.Collection;
 
-import com.wandrell.tabletop.dreadball.model.availability.team.TeamTypeAssetsAvailability;
+import com.wandrell.tabletop.dreadball.model.availability.asset.TeamTypeAssetsAvailability;
 
 /**
  * Interface for a service which handles {@link TeamTypeAssetsAvailability}

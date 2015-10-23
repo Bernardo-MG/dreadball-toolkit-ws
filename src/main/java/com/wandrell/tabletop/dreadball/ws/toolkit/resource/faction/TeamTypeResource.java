@@ -149,7 +149,7 @@ public final class TeamTypeResource {
 
         result = new StringBuilder();
         for (final TeamType unit : units) {
-            result.append(unit.getTeamTypeName()).append('\n');
+            result.append(unit.getName()).append('\n');
         }
 
         return result.toString();
@@ -171,7 +171,7 @@ public final class TeamTypeResource {
 
         unit = getTeamTypeService().getTeamTypeById(Integer.parseInt(id));
 
-        return unit.getTeamTypeName();
+        return unit.getName();
     }
 
     /**

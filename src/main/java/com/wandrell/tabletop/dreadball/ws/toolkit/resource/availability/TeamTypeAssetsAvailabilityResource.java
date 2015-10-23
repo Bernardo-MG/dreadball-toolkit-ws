@@ -31,7 +31,7 @@ import org.glassfish.jersey.server.mvc.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wandrell.tabletop.dreadball.model.availability.team.TeamTypeAssetsAvailability;
+import com.wandrell.tabletop.dreadball.model.availability.asset.TeamTypeAssetsAvailability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.service.availability.TeamTypeAssetsAvailabilityDataService;
 import com.wandrell.tabletop.dreadball.ws.toolkit.validation.ValidId;
 
@@ -162,7 +162,7 @@ public final class TeamTypeAssetsAvailabilityResource {
         result = new StringBuilder();
         for (final TeamTypeAssetsAvailability ava : avas) {
             // TODO: Extend to show all data
-            result.append(ava.getTeamType().getTeamTypeName()).append('\n');
+            result.append(ava.getTeamType().getName()).append('\n');
         }
 
         return result.toString();
@@ -188,7 +188,7 @@ public final class TeamTypeAssetsAvailabilityResource {
                 .getTeamTypeAssetsAvailabilityById(Integer.parseInt(id));
 
         // TODO: Extend to show all data
-        return String.format("%s", ava.getTeamType().getTeamTypeName());
+        return String.format("%s", ava.getTeamType().getName());
     }
 
     /**

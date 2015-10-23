@@ -110,7 +110,7 @@ public final class AbilityResource {
 
         result = new StringBuilder();
         for (final Ability ability : abilities) {
-            result.append(ability.getAbilityName()).append('\n');
+            result.append(ability.getName()).append('\n');
         }
 
         return result.toString();
@@ -171,7 +171,7 @@ public final class AbilityResource {
 
         ability = getAbilityService().getAbilityById(Integer.parseInt(id));
 
-        return ability.getAbilityName();
+        return ability.getName();
     }
 
     /**

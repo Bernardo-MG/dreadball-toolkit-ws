@@ -17,13 +17,14 @@ package com.wandrell.tabletop.dreadball.ws.toolkit.repository.unit;
 
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 
 /**
  * Interface representing the repository for the {@link Unit} instances.
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface UnitRepository extends FilteredRepository<Unit, QueryData> {
+public interface UnitRepository
+        extends FilteredRepository<UnitTemplate, QueryData> {
 
 }

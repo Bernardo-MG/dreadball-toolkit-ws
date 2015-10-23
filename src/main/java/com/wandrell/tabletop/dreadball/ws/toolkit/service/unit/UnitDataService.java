@@ -17,7 +17,7 @@ package com.wandrell.tabletop.dreadball.ws.toolkit.service.unit;
 
 import java.util.Collection;
 
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 
 /**
  * Interface for a service which handles {@link Unit} instances.
@@ -31,7 +31,7 @@ public interface UnitDataService {
      * 
      * @return all {@code Unit} instances
      */
-    public Collection<Unit> getAllUnits();
+    public Collection<UnitTemplate> getAllUnits();
 
     /**
      * Acquires an {@code Unit} based on its id.
@@ -40,6 +40,6 @@ public interface UnitDataService {
      *            the {@code Unit} id
      * @return the {@code Unit} with that id
      */
-    public Unit getUnitById(final Integer id);
+    public UnitTemplate getUnitById(final Integer id);
 
 }

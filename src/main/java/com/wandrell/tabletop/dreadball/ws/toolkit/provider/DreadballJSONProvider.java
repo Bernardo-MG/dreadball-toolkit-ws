@@ -22,11 +22,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.UnitTemplateMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
@@ -50,7 +50,7 @@ public final class DreadballJSONProvider
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
 
-        mapper.addMixIn(Unit.class, UnitMixIn.class);
+        mapper.addMixIn(UnitTemplate.class, UnitTemplateMixIn.class);
         mapper.addMixIn(AttributesHolder.class, AttributesHolderMixIn.class);
 
         mapper.addMixIn(TeamRule.class, TeamRuleMixIn.class);

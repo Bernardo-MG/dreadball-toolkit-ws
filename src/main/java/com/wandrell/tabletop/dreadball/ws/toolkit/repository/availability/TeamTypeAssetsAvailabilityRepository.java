@@ -17,7 +17,7 @@ package com.wandrell.tabletop.dreadball.ws.toolkit.repository.availability;
 
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.tabletop.dreadball.model.availability.team.TeamTypeAssetsAvailability;
+import com.wandrell.tabletop.dreadball.model.availability.asset.TeamTypeAssetsAvailability;
 
 /**
  * Interface representing the repository for the

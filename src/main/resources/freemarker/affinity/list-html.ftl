@@ -49,7 +49,7 @@
                 <#list model as affinity>
                 <tr>
                     <td>${affinity.id}</td>
-                    <td>${affinity.affinityGroupName}</td>
+                    <td>${affinity.name}</td>
                     <td><a href="./affinities/${affinity.id}">Check details</a></td>
                 </tr>
                 </#list>

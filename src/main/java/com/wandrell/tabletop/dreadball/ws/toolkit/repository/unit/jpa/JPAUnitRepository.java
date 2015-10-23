@@ -31,7 +31,7 @@ import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.repository.JPARepository;
 import com.wandrell.tabletop.dreadball.model.persistence.unit.JPAUnit;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 import com.wandrell.tabletop.dreadball.ws.toolkit.repository.unit.UnitRepository;
 
 /**
@@ -42,7 +42,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.repository.unit.UnitRepository
 @Singleton
 @Repository("unitRepository")
 public final class JPAUnitRepository
-        implements UnitRepository, FilteredRepository<Unit, QueryData> {
+        implements UnitRepository, FilteredRepository<UnitTemplate, QueryData> {
 
     /**
      * Base repository for applying inheritance through composition.
@@ -57,7 +57,7 @@ public final class JPAUnitRepository
     }
 
     @Override
-    public final void add(final Unit entity) {
+    public final void add(final UnitTemplate entity) {
         checkArgument(entity instanceof JPAUnit,
                 "The entity should be an instance of JPAUnit");
 
@@ -65,22 +65,24 @@ public final class JPAUnitRepository
     }
 
     @Override
-    public final Collection<Unit> getAll() {
-        return new LinkedList<Unit>(getBaseRepository().getAll());
+    public final Collection<UnitTemplate> getAll() {
+        return new LinkedList<UnitTemplate>(getBaseRepository().getAll());
     }
 
     @Override
-    public final Collection<Unit> getCollection(final QueryData filter) {
-        return new LinkedList<Unit>(getBaseRepository().getCollection(filter));
+    public final Collection<UnitTemplate>
+            getCollection(final QueryData filter) {
+        return new LinkedList<UnitTemplate>(
+                getBaseRepository().getCollection(filter));
     }
 
     @Override
-    public final Unit getEntity(final QueryData filter) {
+    public final UnitTemplate getEntity(final QueryData filter) {
         return getBaseRepository().getEntity(filter);
     }
 
     @Override
-    public final void remove(final Unit entity) {
+    public final void remove(final UnitTemplate entity) {
         checkArgument(entity instanceof JPAUnit,
                 "The entity should be an instance of JPAUnit");
 
@@ -100,7 +102,7 @@ public final class JPAUnitRepository
     }
 
     @Override
-    public final void update(final Unit entity) {
+    public final void update(final UnitTemplate entity) {
         checkArgument(entity instanceof JPAUnit,
                 "The entity should be an instance of JPAUnit");
 

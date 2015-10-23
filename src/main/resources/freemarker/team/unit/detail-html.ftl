@@ -39,7 +39,7 @@
                         <dt>Id</dt>
                         <dd>${model.id}</dd>
                         <dt>Team</dt>
-                        <dd>${model.teamType.teamTypeName}</dd>
+                        <dd>${model.teamType.name}</dd>
                         <dt>Unit</dt>
                         <dd>${model.unit.templateName}</dd>
                         <dt>Initial</dt>

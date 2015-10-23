@@ -39,7 +39,7 @@
                         <dt>Id</dt>
                         <dd>${model.id}</dd>
                         <dt>Name</dt>
-                        <dd>${model.abilityName}</dd>
+                        <dd>${model.name}</dd>
                     </dl>
                 </div>
             </div>

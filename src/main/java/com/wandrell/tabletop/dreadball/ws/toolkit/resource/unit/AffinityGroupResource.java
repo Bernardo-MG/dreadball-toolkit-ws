@@ -151,7 +151,7 @@ public final class AffinityGroupResource {
 
         result = new StringBuilder();
         for (final AffinityGroup affinity : affinities) {
-            result.append(affinity.getAffinityGroupName()).append('\n');
+            result.append(affinity.getName()).append('\n');
         }
 
         return result.toString();
@@ -175,7 +175,7 @@ public final class AffinityGroupResource {
         affinity = getAffinityGroupService()
                 .getAffinityGroupById(Integer.parseInt(id));
 
-        return affinity.getAffinityGroupName();
+        return affinity.getName();
     }
 
     /**

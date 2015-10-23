@@ -54,11 +54,11 @@ public final class TestAbilityResource {
         abilities = new LinkedList<Ability>();
 
         ability = Mockito.mock(Ability.class);
-        Mockito.when(ability.getAbilityName()).thenReturn("ability1");
+        Mockito.when(ability.getName()).thenReturn("ability1");
         abilities.add(ability);
 
         ability = Mockito.mock(Ability.class);
-        Mockito.when(ability.getAbilityName()).thenReturn("ability2");
+        Mockito.when(ability.getName()).thenReturn("ability2");
         abilities.add(ability);
 
         Mockito.when(service.getAllAbilities()).thenReturn(abilities);

@@ -39,7 +39,7 @@
                         <dt>Id</dt>
                         <dd>${model.id}</dd>
                         <dt>Team</dt>
-                        <dd>${model.teamType.teamTypeName}</dd>
+                        <dd>${model.teamType.name}</dd>
                         <dt>Cheerleader cost</dt>
                         <dd>${model.cheerleaderCost}</dd>
                         <dt>Cheerleader initial</dt>

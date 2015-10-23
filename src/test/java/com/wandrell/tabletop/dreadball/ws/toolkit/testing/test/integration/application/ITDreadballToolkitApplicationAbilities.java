@@ -92,7 +92,7 @@ public final class ITDreadballToolkitApplicationAbilities {
                 token);
 
         Assert.assertEquals("360_vision",
-                abilities.iterator().next().getAbilityName());
+                abilities.iterator().next().getName());
     }
 
     @Test
