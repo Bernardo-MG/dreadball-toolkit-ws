@@ -98,7 +98,7 @@ public final class JPAUnitRepository
     @PersistenceContext
     public final void setEntityManager(final EntityManager entityManager) {
         repository = new JPARepository<JPAUnit>(entityManager,
-                new DefaultQueryData("SELECT unit FROM Unit unit"));
+                new DefaultQueryData("SELECT unit FROM UnitTemplate unit"));
     }
 
     @Override
