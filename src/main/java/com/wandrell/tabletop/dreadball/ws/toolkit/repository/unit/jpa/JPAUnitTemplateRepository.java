@@ -30,38 +30,38 @@ import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.repository.JPARepository;
-import com.wandrell.tabletop.dreadball.model.persistence.unit.JPAUnit;
+import com.wandrell.tabletop.dreadball.model.persistence.unit.JPAUnitTemplate;
 import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
-import com.wandrell.tabletop.dreadball.ws.toolkit.repository.unit.UnitRepository;
+import com.wandrell.tabletop.dreadball.ws.toolkit.repository.unit.UnitTemplateRepository;
 
 /**
- * JPA-based implementation of {@link UnitRepository}.
+ * JPA-based implementation of {@link UnitTemplateRepository}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @Singleton
 @Repository("unitRepository")
-public final class JPAUnitRepository
-        implements UnitRepository, FilteredRepository<UnitTemplate, QueryData> {
+public final class JPAUnitTemplateRepository implements UnitTemplateRepository,
+        FilteredRepository<UnitTemplate, QueryData> {
 
     /**
      * Base repository for applying inheritance through composition.
      */
-    private FilteredRepository<JPAUnit, QueryData> repository;
+    private FilteredRepository<JPAUnitTemplate, QueryData> repository;
 
     /**
      * Constructs a {@code JPAUnitRepository}.
      */
-    public JPAUnitRepository() {
+    public JPAUnitTemplateRepository() {
         super();
     }
 
     @Override
     public final void add(final UnitTemplate entity) {
-        checkArgument(entity instanceof JPAUnit,
+        checkArgument(entity instanceof JPAUnitTemplate,
                 "The entity should be an instance of JPAUnit");
 
-        getBaseRepository().add((JPAUnit) entity);
+        getBaseRepository().add((JPAUnitTemplate) entity);
     }
 
     @Override
@@ -83,10 +83,10 @@ public final class JPAUnitRepository
 
     @Override
     public final void remove(final UnitTemplate entity) {
-        checkArgument(entity instanceof JPAUnit,
+        checkArgument(entity instanceof JPAUnitTemplate,
                 "The entity should be an instance of JPAUnit");
 
-        getBaseRepository().remove((JPAUnit) entity);
+        getBaseRepository().remove((JPAUnitTemplate) entity);
     }
 
     /**
@@ -97,16 +97,16 @@ public final class JPAUnitRepository
      */
     @PersistenceContext
     public final void setEntityManager(final EntityManager entityManager) {
-        repository = new JPARepository<JPAUnit>(entityManager,
+        repository = new JPARepository<JPAUnitTemplate>(entityManager,
                 new DefaultQueryData("SELECT unit FROM UnitTemplate unit"));
     }
 
     @Override
     public final void update(final UnitTemplate entity) {
-        checkArgument(entity instanceof JPAUnit,
+        checkArgument(entity instanceof JPAUnitTemplate,
                 "The entity should be an instance of JPAUnit");
 
-        getBaseRepository().update((JPAUnit) entity);
+        getBaseRepository().update((JPAUnitTemplate) entity);
     }
 
     /**
@@ -115,7 +115,8 @@ public final class JPAUnitRepository
      * 
      * @return the base repository
      */
-    private final FilteredRepository<JPAUnit, QueryData> getBaseRepository() {
+    private final FilteredRepository<JPAUnitTemplate, QueryData>
+            getBaseRepository() {
         return repository;
     }
 

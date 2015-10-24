@@ -20,11 +20,11 @@ import java.util.Collection;
 import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 
 /**
- * Interface for a service which handles {@link Unit} instances.
+ * Interface for a service which handles {@link UnitTemplate} instances.
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface UnitDataService {
+public interface UnitTemplateDataService {
 
     /**
      * Returns all {@code Unit} instances.

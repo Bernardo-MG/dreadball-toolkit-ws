@@ -27,11 +27,12 @@ import org.springframework.stereotype.Service;
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
-import com.wandrell.tabletop.dreadball.ws.toolkit.repository.unit.UnitRepository;
-import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.UnitDataService;
+import com.wandrell.tabletop.dreadball.ws.toolkit.repository.unit.UnitTemplateRepository;
+import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.UnitTemplateDataService;
 
 /**
- * Implementation of {@link UnitDataService} working behind the scenes with JPA.
+ * Implementation of {@link UnitTemplateDataService} working behind the scenes
+ * with JPA.
  * <p>
  * This is prepared to be used with Spring, as part of the dependency injection
  * process.
@@ -40,12 +41,13 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.service.unit.UnitDataService;
  */
 @Singleton
 @Service("unitDataService")
-public final class JPAUnitDataService implements UnitDataService {
+public final class JPAUnitTemplateDataService
+        implements UnitTemplateDataService {
 
     /**
      * Repository for the {@code Unit} instances.
      */
-    private final UnitRepository unitRepository;
+    private final UnitTemplateRepository unitRepository;
 
     /**
      * Constructs a {@code JPAUnitService} with the specified repository.
@@ -56,7 +58,7 @@ public final class JPAUnitDataService implements UnitDataService {
      *            the repository to be used by the service
      */
     @Autowired
-    public JPAUnitDataService(final UnitRepository repository) {
+    public JPAUnitTemplateDataService(final UnitTemplateRepository repository) {
         super();
 
         unitRepository = checkNotNull(repository,
@@ -84,7 +86,7 @@ public final class JPAUnitDataService implements UnitDataService {
      * 
      * @return the repository being used by the service
      */
-    private final UnitRepository getRepository() {
+    private final UnitTemplateRepository getRepository() {
         return unitRepository;
     }
 
