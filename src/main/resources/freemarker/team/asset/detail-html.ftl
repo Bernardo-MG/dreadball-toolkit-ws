@@ -61,11 +61,11 @@
                         <dt>Dreadball Card initial</dt>
                         <dd>${model.dreadballCardMax}</dd>
                         <dt>Defensive Coaching Staff</dt>
-                        <dd>${model.isStartingWithDefensiveCoachingStaff}</dd>
+                        <dd>${model.isStartingWithDefensiveCoachingStaff()?c}</dd>
                         <dt>Offensive Coaching Staff</dt>
-                        <dd>${model.isStartingWithOffensiveCoachingStaff}</dd>
+                        <dd>${model.isStartingWithOffensiveCoachingStaff()?c}</dd>
                         <dt>Support Coaching Staff</dt>
-                        <dd>${model.isStartingWithSupportCoachingStaff}</dd>
+                        <dd>${model.isStartingWithSupportCoachingStaff()?c}</dd>
                     </dl>
                 </div>
             </div>
