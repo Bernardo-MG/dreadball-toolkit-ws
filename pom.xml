@@ -114,20 +114,20 @@
 		<!-- Dependencies versions -->
 		<gson.version>2.4</gson.version>
 		<guava.version>18.0</guava.version>
-		<h2.version>1.4.188</h2.version>
-		<hibernate.version>4.3.11.Final</hibernate.version>
-		<hikari.version>2.3.9</hikari.version>
+		<h2.version>1.4.190</h2.version>
+		<hibernate.version>5.0.1.Final</hibernate.version>
+		<hikari.version>2.3.11</hikari.version>
 		<httpclient.version>4.5.1</httpclient.version>
-		<jackson.version>2.6.1</jackson.version>
+		<jackson.version>2.6.3</jackson.version>
 		<jersey.version>2.22.1</jersey.version>
 		<jsoup.version>1.8.3</jsoup.version>
 		<mockito.version>1.10.19</mockito.version>
 		<slf4j.version>1.7.12</slf4j.version>
-		<spring.version>4.2.1.RELEASE</spring.version>
+		<spring.version>4.2.2.RELEASE</spring.version>
 		<tabletop.dreadball.model.default.version>0.2.0</tabletop.dreadball.model.default.version>
 		<tabletop.dreadball.model.json.version>0.2.1</tabletop.dreadball.model.json.version>
 		<tabletop.dreadball.model.persistence.version>0.2.1</tabletop.dreadball.model.persistence.version>
-		<testng.version>6.9.6</testng.version>
+		<testng.version>6.9.8</testng.version>
 		<wandrell.persistence.version>0.1.3</wandrell.persistence.version>
 		<!-- Plugins versions -->
 		<plugin.ant.version>1.8</plugin.ant.version>
@@ -227,10 +227,6 @@
 					<groupId>org.slf4j</groupId>
 					<artifactId>slf4j-api</artifactId>
 				</exclusion>
-				<exclusion>
-					<groupId>org.javassist</groupId>
-					<artifactId>javassist</artifactId>
-				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -238,12 +234,6 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.javassist</groupId>
-					<artifactId>javassist</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<!-- Hikari CP -->
@@ -295,10 +285,6 @@
 					<artifactId>spring-beans</artifactId>
 				</exclusion>
 				<exclusion>
-					<groupId>org.javassist</groupId>
-					<artifactId>javassist</artifactId>
-				</exclusion>
-				<exclusion>
 					<groupId>org.springframework</groupId>
 					<artifactId>spring-context</artifactId>
 				</exclusion>
@@ -347,6 +333,12 @@
 			<groupId>org.glassfish.jersey.ext</groupId>
 			<artifactId>jersey-mvc-bean-validation</artifactId>
 			<version>${jersey.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.jboss.logging</groupId>
+					<artifactId>jboss-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<!-- Java Persistence Utils -->
@@ -396,12 +388,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-aop</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<!-- Spring Web -->
@@ -437,10 +423,6 @@
 				<exclusion>
 					<groupId>com.google.guava</groupId>
 					<artifactId>guava</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
