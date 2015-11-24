@@ -324,6 +324,12 @@
 			<groupId>org.glassfish.jersey.ext</groupId>
 			<artifactId>jersey-mvc-freemarker</artifactId>
 			<version>${jersey.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<!-- Jersey MVC Bean Validation -->
@@ -450,7 +456,7 @@
 	<!-- ********************************************** -->
 
 	<build>
-		<defaultGoal>clean package install</defaultGoal>
+		<defaultGoal>clean package</defaultGoal>
 		<extensions>
 			<extension>
 				<!-- Wagon -->
