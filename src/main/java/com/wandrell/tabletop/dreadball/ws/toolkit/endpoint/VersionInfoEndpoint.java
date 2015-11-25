@@ -46,7 +46,6 @@ public final class VersionInfoEndpoint {
      * @return the web service version as a plain text
      */
     @GET
-    @Path("/")
     @Produces({ MediaType.TEXT_PLAIN })
     public final String getVersion() {
         return "test";

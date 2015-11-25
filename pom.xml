@@ -344,6 +344,12 @@
 			<version>${slf4j.version}</version>
 		</dependency>
 		<dependency>
+			<!-- SL4J Simple -->
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
 			<!-- Java Persistence Utils -->
 			<groupId>com.wandrell</groupId>
 			<artifactId>persistence-utils</artifactId>
