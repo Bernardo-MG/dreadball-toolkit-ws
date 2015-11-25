@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.resource.endpoint.unit;
+package com.wandrell.tabletop.dreadball.ws.toolkit.endpoint.unit;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -43,7 +43,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.business.validation.ValidId;
 @Singleton
 @Path("/units/abilities")
 @Service
-public final class AbilityResource {
+public final class AbilityEndpoint {
 
     /**
      * Service being used by the resource to handle the {@code Ability}
@@ -58,7 +58,7 @@ public final class AbilityResource {
      *            the service to be used by the resource.
      */
     @Autowired
-    public AbilityResource(final AbilityDataService service) {
+    public AbilityEndpoint(final AbilityDataService service) {
         super();
 
         abilityService = checkNotNull(service,

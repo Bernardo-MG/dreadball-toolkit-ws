@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.resource;
+package com.wandrell.tabletop.dreadball.ws.toolkit.endpoint;
 
 import javax.ws.rs.ApplicationPath;
 
@@ -48,7 +48,7 @@ public final class DreadballToolkitResourceConfig extends ResourceConfig {
         register(RequestContextFilter.class);
 
         // Resource packages
-        packages("com.wandrell.tabletop.dreadball.ws.toolkit.resource");
+        packages("com.wandrell.tabletop.dreadball.ws.toolkit.endpoint");
 
         // Propagate validation errors to client
         property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);

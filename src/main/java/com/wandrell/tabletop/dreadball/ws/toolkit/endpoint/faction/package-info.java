@@ -16,4 +16,4 @@
 /**
  * Provides the web service resources for factions.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.resource.endpoint.faction;
+package com.wandrell.tabletop.dreadball.ws.toolkit.endpoint.faction;

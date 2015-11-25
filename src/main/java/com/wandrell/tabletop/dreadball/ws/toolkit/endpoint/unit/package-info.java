@@ -14,6 +14,6 @@
  * the License.
  */
 /**
- * Provides the web service resources for availabilities.
+ * Provides the web service resources for units.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.resource.endpoint.availability;
+package com.wandrell.tabletop.dreadball.ws.toolkit.endpoint.unit;

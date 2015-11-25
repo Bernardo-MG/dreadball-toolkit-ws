@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.resource.endpoint;
+package com.wandrell.tabletop.dreadball.ws.toolkit.endpoint;
 
 import javax.inject.Singleton;
 import javax.ws.rs.GET;
@@ -31,12 +31,12 @@ import org.springframework.stereotype.Service;
 @Singleton
 @Path("/version")
 @Service
-public final class VersionInfoResource {
+public final class VersionInfoEndpoint {
 
     /**
      * Constructs a {@code VersionInfoResource}.
      */
-    public VersionInfoResource() {
+    public VersionInfoEndpoint() {
         super();
     }
 

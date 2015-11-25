@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.resource.endpoint.unit;
+package com.wandrell.tabletop.dreadball.ws.toolkit.endpoint.faction;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -31,8 +31,8 @@ import org.glassfish.jersey.server.mvc.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
-import com.wandrell.tabletop.dreadball.ws.toolkit.business.service.unit.UnitTemplateDataService;
+import com.wandrell.tabletop.dreadball.model.faction.TeamType;
+import com.wandrell.tabletop.dreadball.ws.toolkit.business.service.faction.TeamTypeDataService;
 import com.wandrell.tabletop.dreadball.ws.toolkit.business.validation.ValidId;
 
 /**
@@ -41,86 +41,87 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.business.validation.ValidId;
  * @author Bernardo Martínez Garrido
  */
 @Singleton
-@Path("/units/dbo")
+@Path("/teams/types")
 @Service
-public final class UnitResource {
+public final class TeamTypeEndpoint {
 
     /**
-     * Service being used by the resource to handle the {@code Unit} instances.
+     * Service being used by the resource to handle the {@code TeamType}
+     * instances.
      */
-    private final UnitTemplateDataService unitService;
+    private final TeamTypeDataService teamService;
 
     /**
-     * Constructs a {@code UnitResource} with the specified service.
+     * Constructs a {@code TeamTypeResource} with the specified service.
      * 
      * @param service
      *            the service to be used by the resource.
      */
     @Autowired
-    public UnitResource(final UnitTemplateDataService service) {
+    public TeamTypeEndpoint(final TeamTypeDataService service) {
         super();
 
-        unitService = checkNotNull(service,
+        teamService = checkNotNull(service,
                 "Received a null pointer as units service");
     }
 
     /**
-     * Returns the {@code Unit} with the specified id, to be transformed into an
-     * HTML response.
+     * Returns the {@code TeamType} with the specified id, to be transformed
+     * into an HTML response.
      * <p>
      * This will be transformed into HTML by using the Freemarker template in
-     * the path '/unit/dbo/detail-html'.
+     * the path '/team/type/detail-html'.
      * 
      * @param id
-     *            id of the queried {@code Unit}
-     * @return {@code Unit} to transform into an HTML response
+     *            id of the queried {@code TeamType}
+     * @return {@code TeamType} to transform into an HTML response
      */
     @GET
     @Path("{id}")
     @Produces({ MediaType.TEXT_HTML })
-    @Template(name = "/unit/dbo/detail-html")
+    @Template(name = "/team/type/detail-html")
     @ErrorTemplate(name = "/errors/404")
-    public final UnitTemplate
-            getUnitHtml(@ValidId @PathParam("id") final String id) {
-        return getUnitService().getUnitById(Integer.parseInt(id));
+    public final TeamType
+            getTeamTypeHtml(@ValidId @PathParam("id") final String id) {
+        return getTeamTypeService().getTeamTypeById(Integer.parseInt(id));
     }
 
     /**
-     * Returns the {@code Unit} with the specified id, to be transformed into a
-     * JSON response.
+     * Returns the {@code TeamType} with the specified id, to be transformed
+     * into a JSON response.
      * <p>
      * This will be transformed into JSON by using a JSON provider.
      * 
      * @param id
-     *            id of the queried {@code Unit}
-     * @return {@code Unit} to transform into a JSON response
+     *            id of the queried {@code TeamType}
+     * @return {@code TeamType} to transform into a JSON response
      */
     @GET
     @Path("{id}")
     @Produces({ MediaType.APPLICATION_JSON })
-    public final UnitTemplate
-            getUnitJSON(@ValidId @PathParam("id") final String id) {
-        return getUnitService().getUnitById(Integer.parseInt(id));
+    public final TeamType
+            getTeamTypeJSON(@ValidId @PathParam("id") final String id) {
+        return getTeamTypeService().getTeamTypeById(Integer.parseInt(id));
     }
 
     /**
-     * Returns the units to be transformed into an HTML response.
+     * Returns the team types to be transformed into an HTML response.
      * <p>
      * These will be transformed into HTML by using the Freemarker template in
-     * the path '/unit/dbo/list-html'.
+     * the path '/team/type/list-html'.
      * 
      * @return the units to be transformed into an HTML response through a
      *         Freemarker template
      */
     @GET
     @Produces({ MediaType.TEXT_HTML })
-    @Template(name = "/unit/dbo/list-html")
-    public final Collection<UnitTemplate> getUnitsHTML() {
-        return getUnitService().getAllUnits();
+    @Template(name = "/team/type/list-html")
+    public final Collection<TeamType> getTeamTypesHTML() {
+        return getTeamTypeService().getAllTeamTypes();
     }
 
     /**
-     * Returns the units to be transformed into a JSON response.
+     * Returns the team types to be transformed into a JSON response.
      * <p>
      * These will be transformed into JSON through the use of a JSON provider.
      * 
@@ -129,8 +130,8 @@ public final class UnitResource {
      */
     @GET
     @Produces({ MediaType.APPLICATION_JSON })
-    public final Collection<UnitTemplate> getUnitsJSON() {
-        return getUnitService().getAllUnits();
+    public final Collection<TeamType> getTeamTypesJSON() {
+        return getTeamTypeService().getAllTeamTypes();
     }
 
     /**
@@ -140,36 +141,37 @@ public final class UnitResource {
      */
     @GET
     @Produces({ MediaType.TEXT_PLAIN })
-    public final String getUnitsText() {
-        final Collection<UnitTemplate> units;
+    public final String getTeamTypesText() {
+        final Collection<TeamType> units;
         final StringBuilder result;
 
-        units = getUnitService().getAllUnits();
+        units = getTeamTypeService().getAllTeamTypes();
 
         result = new StringBuilder();
-        for (final UnitTemplate unit : units) {
-            result.append(unit.getTemplateName()).append('\n');
+        for (final TeamType unit : units) {
+            result.append(unit.getName()).append('\n');
         }
 
         return result.toString();
     }
 
     /**
-     * Returns a string representing the {@code Unit} with the specified id.
+     * Returns a string representing the {@code TeamType} with the specified id.
      * 
      * @param id
-     *            id of the queried {@code Unit}
-     * @return string representing the queried {@code Unit}
+     *            id of the queried {@code TeamType}
+     * @return string representing the queried {@code TeamType}
      */
     @GET
     @Path("{id}")
     @Produces({ MediaType.TEXT_PLAIN })
-    public final String getUnitText(@ValidId @PathParam("id") final String id) {
-        final UnitTemplate unit;
+    public final String
+            getTeamTypeText(@ValidId @PathParam("id") final String id) {
+        final TeamType unit;
 
-        unit = getUnitService().getUnitById(Integer.parseInt(id));
+        unit = getTeamTypeService().getTeamTypeById(Integer.parseInt(id));
 
-        return unit.getTemplateName();
+        return unit.getName();
     }
 
     /**
@@ -177,8 +179,8 @@ public final class UnitResource {
      * 
      * @return the service being used by the resource
      */
-    private final UnitTemplateDataService getUnitService() {
-        return unitService;
+    private final TeamTypeDataService getTeamTypeService() {
+        return teamService;
     }
 
 }

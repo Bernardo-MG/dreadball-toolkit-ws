@@ -25,11 +25,11 @@ import org.testng.annotations.Test;
 
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.business.service.unit.AbilityDataService;
-import com.wandrell.tabletop.dreadball.ws.toolkit.resource.endpoint.unit.AbilityResource;
+import com.wandrell.tabletop.dreadball.ws.toolkit.endpoint.unit.AbilityEndpoint;
 
 public final class TestAbilityResource {
 
-    private AbilityResource resource;
+    private AbilityEndpoint resource;
 
     public static String diff(String str1, String str2) {
         int index = str1.lastIndexOf(str2);
@@ -63,7 +63,7 @@ public final class TestAbilityResource {
 
         Mockito.when(service.getAllAbilities()).thenReturn(abilities);
 
-        resource = new AbilityResource(service);
+        resource = new AbilityEndpoint(service);
     }
 
     @Test

@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.resource.endpoint.faction;
+package com.wandrell.tabletop.dreadball.ws.toolkit.endpoint.faction;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -43,7 +43,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.business.validation.ValidId;
 @Singleton
 @Path("/teams/rules")
 @Service
-public final class TeamRuleResource {
+public final class TeamRuleEndpoint {
 
     /**
      * Service being used by the resource to handle the {@code TeamRule}
@@ -58,7 +58,7 @@ public final class TeamRuleResource {
      *            the service to be used by the resource.
      */
     @Autowired
-    public TeamRuleResource(final TeamRuleDataService service) {
+    public TeamRuleEndpoint(final TeamRuleDataService service) {
         super();
 
         ruleService = checkNotNull(service,

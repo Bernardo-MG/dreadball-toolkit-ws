@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.ws.toolkit.resource.endpoint.availability;
+package com.wandrell.tabletop.dreadball.ws.toolkit.endpoint.availability;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -43,7 +43,7 @@ import com.wandrell.tabletop.dreadball.ws.toolkit.business.validation.ValidId;
 @Singleton
 @Path("/teams/assets")
 @Service
-public final class TeamTypeAssetsAvailabilityResource {
+public final class TeamTypeAssetsAvailabilityEndpoint {
 
     /**
      * Service being used by the resource to handle the
@@ -59,7 +59,7 @@ public final class TeamTypeAssetsAvailabilityResource {
      *            the service to be used by the resource.
      */
     @Autowired
-    public TeamTypeAssetsAvailabilityResource(
+    public TeamTypeAssetsAvailabilityEndpoint(
             final TeamTypeAssetsAvailabilityDataService service) {
         super();
 
