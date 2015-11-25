@@ -4,6 +4,7 @@
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
 	<import resource="persistence.xml" />
+	<import resource="endpoint.xml" />
 	<import resource="service.xml" />
 
 </beans>
