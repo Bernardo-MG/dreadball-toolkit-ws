@@ -120,6 +120,42 @@
 			</build>
 		</profile>
 		<profile>
+			<!-- Local deployment profile -->
+			<!-- Prepares the project to allow local deployment for development -->
+			<!-- For this the Tomcat 7 Maven plugin is used -->
+			<id>local_deployment</id>
+			<activation>
+				<property>
+					<name>environment</name>
+					<value>development</value>
+				</property>
+			</activation>
+			<properties>
+				<!-- Plugins versions -->
+				<plugin.tomcat7.version>2.2</plugin.tomcat7.version>
+				<!-- Server config -->
+				<server.test.name>tomcat-development-server</server.test.name>
+				<server.test.port>9966</server.test.port>
+				<server.test.path>/${project.artifactId}</server.test.path>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<!-- Tomcat 7 -->
+						<!-- To allow deploying in local for testing purposes -->
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>${plugin.tomcat7.version}</version>
+						<configuration>
+							<server>${server.test.name}</server>
+							<port>${server.test.port}</port>
+							<path>${server.test.path}</path>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>default</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -230,14 +266,9 @@
 		<plugin.source.version>2.4</plugin.source.version>
 		<plugin.surefire.version>2.18.1</plugin.surefire.version>
 		<plugin.taglist.version>2.4</plugin.taglist.version>
-		<plugin.tomcat7.version>2.2</plugin.tomcat7.version>
 		<plugin.war.version>2.6</plugin.war.version>
 		<!-- Extensions versions -->
 		<extension.wagon.version>2.9</extension.wagon.version>
-		<!-- Server config -->
-		<server.test.name>tomcat-development-server</server.test.name>
-		<server.test.port>9966</server.test.port>
-		<server.test.path>/${project.artifactId}</server.test.path>
 		<!-- Maven Site -->
 		<site.skin.version>0.2.1</site.skin.version>
 	</properties>
@@ -849,18 +880,6 @@
 						<!-- Path to the unit tests suite file -->
 						<suiteXmlFile>${project.build.testOutputDirectory}/tests_maven_unit_suite.xml</suiteXmlFile>
 					</suiteXmlFiles>
-				</configuration>
-			</plugin>
-			<plugin>
-				<!-- Tomcat 7 -->
-				<!-- To allow deploying in local for testing purposes -->
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>${plugin.tomcat7.version}</version>
-				<configuration>
-					<server>${server.test.name}</server>
-					<port>${server.test.port}</port>
-					<path>${server.test.path}</path>
 				</configuration>
 			</plugin>
 			<plugin>
