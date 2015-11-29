@@ -48,7 +48,7 @@ The project can be installed by creating the war file and deploying it into a se
 To just run the web service, useful for testing, the following command can be used:
 
 ```
-mvn tomcat7:run -Denvironment=development
+mvn tomcat7:run-war -Denvironment=development
 ```
 
 As the Tomcat 7 plugin is not really needed by the project, a profile, called *local\_deployment*, contains all the required configuration for it. By setting the *environment* variable to the *development* value this profile is set ready.

@@ -222,7 +222,7 @@
 		<gson.version>2.4</gson.version>
 		<guava.version>18.0</guava.version>
 		<h2.version>1.4.190</h2.version>
-		<hibernate.version>5.0.1.Final</hibernate.version>
+		<hibernate.version>4.3.11.Final</hibernate.version>
 		<hikari.version>2.3.11</hikari.version>
 		<httpclient.version>4.5.1</httpclient.version>
 		<jackson.version>2.6.3</jackson.version>
@@ -236,7 +236,7 @@
 		<tabletop.dreadball.model.json.version>0.2.1</tabletop.dreadball.model.json.version>
 		<tabletop.dreadball.model.persistence.version>0.2.1</tabletop.dreadball.model.persistence.version>
 		<testng.version>6.9.8</testng.version>
-		<wandrell.persistence.version>0.1.6</wandrell.persistence.version>
+		<wandrell.persistence.version>0.1.7</wandrell.persistence.version>
 		<!-- Plugins versions -->
 		<plugin.ant.version>1.8</plugin.ant.version>
 		<plugin.assembly.version>2.6</plugin.assembly.version>
@@ -369,6 +369,24 @@
 			<version>${jersey.version}</version>
 		</dependency>
 		<dependency>
+			<!-- Java Persistence Utils -->
+			<groupId>com.wandrell</groupId>
+			<artifactId>persistence-utils</artifactId>
+			<version>${wandrell.persistence.version}</version>
+		</dependency>
+		<dependency>
+			<!-- Log4j core -->
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<!-- Log4j SLF4J Bridge -->
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
 			<!-- SL4J API -->
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -379,12 +397,6 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 			<version>${slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<!-- Java Persistence Utils -->
-			<groupId>com.wandrell</groupId>
-			<artifactId>persistence-utils</artifactId>
-			<version>${wandrell.persistence.version}</version>
 		</dependency>
 		<dependency>
 			<!-- Spring beans -->
@@ -450,20 +462,6 @@
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
 			<version>${jsoup.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<!-- Log4j core -->
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>${log4j.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<!-- Log4j SLF4J Bridge -->
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-slf4j-impl</artifactId>
-			<version>${log4j.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
