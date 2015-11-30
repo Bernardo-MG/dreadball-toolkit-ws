@@ -454,13 +454,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<!-- H2 Database -->
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>${h2.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<!-- HTTPClient -->
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
@@ -579,6 +572,15 @@
 						</goals>
 					</execution>
 				</executions>
+				<dependencies>
+					<dependency>
+						<!-- H2 Database -->
+						<!-- In-memory database for testing -->
+						<groupId>com.h2database</groupId>
+						<artifactId>h2</artifactId>
+						<version>${h2.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<!-- Clean -->
