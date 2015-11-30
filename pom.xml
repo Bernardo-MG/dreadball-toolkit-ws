@@ -376,6 +376,12 @@
 			<groupId>com.wandrell</groupId>
 			<artifactId>persistence-utils</artifactId>
 			<version>${wandrell.persistence.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax</groupId>
+					<artifactId>javaee-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<!-- Log4j core -->
