@@ -122,7 +122,7 @@
 		<profile>
 			<!-- Local deployment profile -->
 			<!-- Prepares the project to allow local deployment for development -->
-			<!-- For this the Tomcat 7 Maven plugin is used -->
+			<!-- This will make use of the Tomcat 7 Maven plugin -->
 			<id>local_deployment</id>
 			<activation>
 				<property>
@@ -138,6 +138,15 @@
 				<server.test.port>9966</server.test.port>
 				<server.test.path>/${project.artifactId}</server.test.path>
 			</properties>
+			<dependencies>
+				<dependency>
+					<!-- H2 Database -->
+					<!-- It is set to the compile scope -->
+					<groupId>com.h2database</groupId>
+					<artifactId>h2</artifactId>
+					<version>${h2.version}</version>
+				</dependency>
+			</dependencies>
 			<build>
 				<plugins>
 					<plugin>
@@ -303,12 +312,6 @@
 			<version>${guava.version}</version>
 		</dependency>
 		<dependency>
-			<!-- H2 Database -->
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>${h2.version}</version>
-		</dependency>
-		<dependency>
 			<!-- Hibernate Ehcache -->
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>
@@ -448,6 +451,13 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>${gson.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<!-- H2 Database -->
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
