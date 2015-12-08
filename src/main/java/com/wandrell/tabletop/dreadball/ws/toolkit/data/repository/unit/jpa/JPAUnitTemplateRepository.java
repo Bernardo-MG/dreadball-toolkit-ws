@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+
 package com.wandrell.tabletop.dreadball.ws.toolkit.data.repository.unit.jpa;
 
 import static com.google.common.base.Preconditions.checkArgument;
