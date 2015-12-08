@@ -1,14 +1,8 @@
 language: java
 jdk:
-#  - oraclejdk8
-matrix:
-  include:
-    # Code artifacts deployed with JDK8
-    - jdk: oraclejdk8
-      env: DEPLOY=true
-    # Documentation deployed with JDK8
-    - jdk: oraclejdk8
-      env: DEPLOY_DOCS=true
+- oraclejdk8
+env:
+  - DEPLOY=false DEPLOY_DOCS=true
     
 before_install:
   # Sets the deployment flags
