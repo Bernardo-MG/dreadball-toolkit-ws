@@ -17,7 +17,7 @@
 	<!-- ============================= CONFIGURATION ============================= -->
 
 	<!-- Default configuration -->
-	<context:property-placeholder location="classpath:spring/persistence.properties" />
+	<context:property-placeholder location="classpath:spring/persistence-h2.properties" />
 
 	<!-- Repositories -->
 	<context:component-scan
