@@ -23,6 +23,11 @@
 			<AppenderRef ref="file" />
 		</Logger>
 
+        <Logger name="org.springframework.jdbc" level="debug"
+            additivity="false" >
+            <AppenderRef ref="file" />
+        </Logger>
+
 		<Root level="error">
 			<AppenderRef ref="console" />
 		</Root>
