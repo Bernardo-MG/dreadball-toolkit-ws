@@ -1,40 +1,45 @@
-<web-app id="WebApp_ID" version="2.4"
-	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-	<display-name>Dreadball Toolkit Web Service</display-name>
-	<description>A general use web service for Dreadball, offering support for team creation and data querying.</description>
+    <display-name>Dreadball Toolkit Web Service</display-name>
+    <description>A general use web service for Dreadball, offering support for team creation and data querying.</description>
 
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/context.xml</param-value>
-	</context-param>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:/spring/context.xml</param-value>
+    </context-param>
 
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
+    <context-param>
+        <param-name>spring.profiles.active</param-name>
+        <param-value>h2</param-value>
+    </context-param>
 
-	<filter>
-		<filter-name>dreadball-servlet</filter-name>
-		<filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
-		<init-param>
-			<param-name>javax.ws.rs.Application</param-name>
-			<param-value>com.wandrell.tabletop.dreadball.ws.toolkit.endpoint.DreadballToolkitResourceConfig</param-value>
-		</init-param>
-		<init-param>
-			<param-name>jersey.config.server.mvc.templateBasePath.freemarker</param-name>
-			<param-value>freemarker</param-value>
-		</init-param>
-		<init-param>
-			<param-name>jersey.config.servlet.filter.staticContentRegex</param-name>
-			<param-value>/static/.*.(css|js)</param-value>
-		</init-param>
-	</filter>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
-	<filter-mapping>
-		<filter-name>dreadball-servlet</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+    <filter>
+        <filter-name>dreadball-servlet</filter-name>
+        <filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>com.wandrell.tabletop.dreadball.ws.toolkit.endpoint.DreadballToolkitResourceConfig</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.server.mvc.templateBasePath.freemarker</param-name>
+            <param-value>freemarker</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.servlet.filter.staticContentRegex</param-name>
+            <param-value>/static/.*.(css|js)</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>dreadball-servlet</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 </web-app>

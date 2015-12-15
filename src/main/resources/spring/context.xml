@@ -1,10 +1,29 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+	    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-	<import resource="persistence.xml" />
-	<import resource="endpoint.xml" />
-	<import resource="service.xml" />
+    <!-- Imports -->
+
+    <import resource="persistence.xml" />
+    <import resource="endpoint.xml" />
+    <import resource="service.xml" />
+
+    <!-- Profile-based configuration -->
+
+    <beans profile="h2">
+        <!-- H2 in-memory database -->
+        <!-- To be used for development -->
+        <context:property-placeholder
+            location="classpath:spring/persistence-h2.properties" />
+    </beans>
+    <beans profile="mysql">
+        <!-- MySQL database -->
+        <!-- To be used for deployment -->
+        <context:property-placeholder
+            location="classpath:spring/persistence-mysql.properties" />
+    </beans>
 
 </beans>
