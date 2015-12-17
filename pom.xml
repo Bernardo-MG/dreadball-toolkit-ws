@@ -539,7 +539,6 @@
                         <!-- Path to the integration tests suite file -->
                         <suiteXmlFile>${project.build.testOutputDirectory}/tests_maven_integration_suite.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <argLine>-Dspring.profiles.active=h2</argLine>
                 </configuration>
             </plugin>
             <plugin>
