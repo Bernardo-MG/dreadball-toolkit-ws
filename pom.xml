@@ -279,8 +279,6 @@
         <extension.wagon.version>2.9</extension.wagon.version>
         <!-- Maven Site -->
         <site.skin.version>0.2.1</site.skin.version>
-        <!-- Default Spring profile -->
-        <spring.profile>h2</spring.profile>
     </properties>
 
     <!-- ********************************************** -->
@@ -541,6 +539,7 @@
                         <!-- Path to the integration tests suite file -->
                         <suiteXmlFile>${project.build.testOutputDirectory}/tests_maven_integration_suite.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>-Dspring.profiles.active=h2</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -625,12 +624,6 @@
                 <version>${plugin.war.version}</version>
                 <configuration>
                     <warName>${project.artifactId}</warName>
-                    <webResources>
-                        <resource>
-                            <directory>src/main/webapp</directory>
-                            <filtering>true</filtering>
-                        </resource>
-                    </webResources>
                 </configuration>
             </plugin>
         </plugins>
