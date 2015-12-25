@@ -3,7 +3,7 @@ jdk:
 - oraclejdk8
 env:
   - DEPLOY=false DEPLOY_DOCS=true
-    
+
 before_install:
   # Sets the deployment flags
   - export PULL_REQUEST=$TRAVIS_PULL_REQUEST
