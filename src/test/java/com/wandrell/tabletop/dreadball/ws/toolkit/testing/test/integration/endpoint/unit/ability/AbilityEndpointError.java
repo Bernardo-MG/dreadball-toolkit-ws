@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.wandrell.tabletop.dreadball.ws.toolkit.testing.test.integration.application;
+package com.wandrell.tabletop.dreadball.ws.toolkit.testing.test.integration.endpoint.unit.ability;
 
 import java.io.IOException;
 
@@ -26,11 +26,11 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public final class ITDreadballToolkitApplicationAbilityError {
+public final class AbilityEndpointError {
 
-    private static final String PATH = "http://localhost:8080/units/abilities/12345";
+    private static final String PATH = "http://localhost:8080/dreadball-toolkit-ws/units/abilities/12345";
 
-    public ITDreadballToolkitApplicationAbilityError() {
+    public AbilityEndpointError() {
         super();
     }
 

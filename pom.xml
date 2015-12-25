@@ -136,42 +136,6 @@
             </build>
         </profile>
         <profile>
-            <!-- Local deployment profile -->
-            <!-- Prepares the project to allow local deployment for development -->
-            <!-- This will make use of the Tomcat 7 Maven plugin -->
-            <id>local_deployment</id>
-            <activation>
-                <property>
-                    <name>environment</name>
-                    <value>development</value>
-                </property>
-            </activation>
-            <properties>
-                <!-- Plugins versions -->
-                <plugin.tomcat7.version>2.2</plugin.tomcat7.version>
-                <!-- Server config -->
-                <server.test.name>tomcat-development-server</server.test.name>
-                <server.test.port>9966</server.test.port>
-                <server.test.path>/${project.artifactId}</server.test.path>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <!-- Tomcat 7 -->
-                        <!-- To allow deploying in local for testing purposes -->
-                        <groupId>org.apache.tomcat.maven</groupId>
-                        <artifactId>tomcat7-maven-plugin</artifactId>
-                        <version>${plugin.tomcat7.version}</version>
-                        <configuration>
-                            <server>${server.test.name}</server>
-                            <port>${server.test.port}</port>
-                            <path>${server.test.path}</path>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
             <!-- H2 database profile -->
             <!-- Prepares the project to make use of an H2 in-memory database -->
             <id>h2</id>
@@ -285,13 +249,17 @@
         <wandrell.persistence.version>0.1.7</wandrell.persistence.version>
         <!-- Plugins versions -->
         <plugin.changes.version>2.11</plugin.changes.version>
-        <plugin.jetty.version>9.3.4.v20151007</plugin.jetty.version>
+        <plugin.jetty.version>9.3.6.v20151106</plugin.jetty.version>
         <plugin.site.velocity.version>1.7</plugin.site.velocity.version>
         <plugin.war.version>2.6</plugin.war.version>
         <!-- Extensions versions -->
         <extension.wagon.version>2.9</extension.wagon.version>
         <!-- Maven Site -->
-        <site.skin.version>0.2.1</site.skin.version>
+        <site.skin.version>0.2.3</site.skin.version>
+        <!-- Testing server -->
+        <server.test.host>localhost</server.test.host>
+        <server.test.port>8080</server.test.port>
+        <server.test.path>/${project.artifactId}</server.test.path>
     </properties>
 
     <!-- ********************************************** -->
@@ -299,6 +267,9 @@
     <!-- ********************************************** -->
 
     <dependencies>
+        <!-- ============================================== -->
+        <!-- ================= DREADBALL ================== -->
+        <!-- ============================================== -->
         <dependency>
             <!-- Dreadball Default Model -->
             <groupId>com.wandrell.tabletop.dreadball</groupId>
@@ -317,84 +288,9 @@
             <artifactId>dreadball-model-persistence</artifactId>
             <version>${tabletop.dreadball.model.persistence.version}</version>
         </dependency>
-        <dependency>
-            <!-- Guava -->
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-        <dependency>
-            <!-- Hibernate Ehcache -->
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-ehcache</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <!-- Hibernate Entity Manager -->
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <!-- Hikari CP -->
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP-java6</artifactId>
-            <version>${hikari.version}</version>
-        </dependency>
-        <dependency>
-            <!-- Jackson Databind -->
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <!-- Jersey Spring integration module -->
-            <groupId>org.glassfish.jersey.ext</groupId>
-            <artifactId>jersey-spring3</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>
-        <dependency>
-            <!-- Jersey JSON Jackson module -->
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>
-        <dependency>
-            <!-- Jersey Entity Data Filtering module -->
-            <groupId>org.glassfish.jersey.ext</groupId>
-            <artifactId>jersey-entity-filtering</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>
-        <dependency>
-            <!-- Jersey MVC Freemarker -->
-            <groupId>org.glassfish.jersey.ext</groupId>
-            <artifactId>jersey-mvc-freemarker</artifactId>
-            <version>${jersey.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <!-- Jersey MVC Bean Validation -->
-            <groupId>org.glassfish.jersey.ext</groupId>
-            <artifactId>jersey-mvc-bean-validation</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>
-        <dependency>
-            <!-- Java Persistence Utils -->
-            <groupId>com.wandrell</groupId>
-            <artifactId>persistence-utils</artifactId>
-            <version>${wandrell.persistence.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax</groupId>
-                    <artifactId>javaee-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!-- ============================================== -->
+        <!-- ================== SPRING ==================== -->
+        <!-- ============================================== -->
         <dependency>
             <!-- Spring beans -->
             <groupId>org.springframework</groupId>
@@ -436,6 +332,93 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+        <!-- ============================================== -->
+        <!-- ================= HIBERNATE ================== -->
+        <!-- ============================================== -->
+        <dependency>
+            <!-- Hibernate Ehcache -->
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <!-- Hibernate Entity Manager -->
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <!-- Hikari CP -->
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP-java6</artifactId>
+            <version>${hikari.version}</version>
+        </dependency>
+        <!-- ============================================== -->
+        <!-- ================== JERSEY ==================== -->
+        <!-- ============================================== -->
+        <dependency>
+            <!-- Jersey Spring integration module -->
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-spring3</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <!-- Jersey JSON Jackson module -->
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <!-- Jersey Entity Data Filtering module -->
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-entity-filtering</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <!-- Jersey MVC Freemarker -->
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-mvc-freemarker</artifactId>
+            <version>${jersey.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <!-- Jersey MVC Bean Validation -->
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-mvc-bean-validation</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <!-- ============================================== -->
+        <!-- =================== OTHER ==================== -->
+        <!-- ============================================== -->
+        <dependency>
+            <!-- Guava -->
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <!-- Jackson Databind -->
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <!-- Java Persistence Utils -->
+            <groupId>com.wandrell</groupId>
+            <artifactId>persistence-utils</artifactId>
+            <version>${wandrell.persistence.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax</groupId>
+                    <artifactId>javaee-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- ============================================== -->
         <!-- ================== LOGGING =================== -->
@@ -501,12 +484,6 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 
@@ -515,7 +492,7 @@
     <!-- ********************************************** -->
 
     <build>
-        <defaultGoal>clean package install</defaultGoal>
+        <defaultGoal>clean package jetty:run-war</defaultGoal>
         <plugins>
             <plugin>
                 <!-- Changes -->
@@ -564,10 +541,16 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${plugin.jetty.version}</version>
                 <configuration>
-                    <jettyXml>${project.build.testOutputDirectory}/jetty/jetty-server.xml,${project.build.testOutputDirectory}/jetty/jetty-webapp.xml</jettyXml>
                     <stopKey>STOP</stopKey>
                     <stopPort>9999</stopPort>
                     <stopWait>5</stopWait>
+                    <webApp>
+                        <contextPath>${server.test.path}</contextPath>
+                    </webApp>
+                    <httpConnector>
+                        <host>${server.test.host}</host>
+                        <port>${server.test.port}</port>
+                    </httpConnector>
                 </configuration>
                 <executions>
                     <execution>
@@ -589,15 +572,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <dependencies>
-                    <dependency>
-                        <!-- H2 Database -->
-                        <!-- In-memory database for testing -->
-                        <groupId>com.h2database</groupId>
-                        <artifactId>h2</artifactId>
-                        <version>${h2.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
             <plugin>
                 <!-- Site -->
@@ -637,9 +611,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>${plugin.war.version}</version>
-                <configuration>
-                    <warName>${project.artifactId}</warName>
-                </configuration>
             </plugin>
         </plugins>
     </build>

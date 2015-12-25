@@ -23,7 +23,7 @@ Documentation is also generated from the latest snapshot, taken from the 'develo
 The documentation site sources come along the source code (as it is a Maven site), so it is always possible to generate them using the following Maven command:
 
 ```
-$ mvn verify site -Dspring.profiles.active=h2
+$ mvn verify site -Denvironment=development -Dspring.profiles.active=h2
 ```
 
 The verify phase is required, as otherwise some of the reports won't be created.
@@ -48,12 +48,20 @@ The project can be installed by creating the war file and deploying it into a se
 To just run the web service, useful for testing, the following command can be used:
 
 ```
-mvn tomcat7:run-war -Denvironment=development -Dspring.profiles.active=h2
+$ mvn tomcat7:run-war -Denvironment=development -Dspring.profiles.active=h2
 ```
 
 As the Tomcat 7 plugin is just to allow running the application with ease, and not really needed by the project, a profile, called *local\_deployment*, contains all the required configuration for it. By setting the *environment* variable to the *development* value this profile is set ready.
 
 The Spring profile *h2* sets up the H2 in-memory database. Also to allow running the application without needing to set up a real database.
+
+### Testing
+
+The integration tests require a database, which can be set up automatically if using the H2 profile. For this reason these tests should be run with the following command:
+
+```
+$ mvn verify -Denvironment=development -Dspring.profiles.active=h2
+```
 
 ## Collaborate
 

@@ -28,7 +28,7 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.ws.toolkit.business.service.unit.AbilityDataService;
 import com.wandrell.tabletop.dreadball.ws.toolkit.endpoint.unit.AbilityEndpoint;
 
-public final class TestAbilityResource {
+public final class TestAbilityEndpoint {
 
     private AbilityEndpoint resource;
 
@@ -40,7 +40,7 @@ public final class TestAbilityResource {
         return str1;
     }
 
-    public TestAbilityResource() {
+    public TestAbilityEndpoint() {
         super();
     }
 

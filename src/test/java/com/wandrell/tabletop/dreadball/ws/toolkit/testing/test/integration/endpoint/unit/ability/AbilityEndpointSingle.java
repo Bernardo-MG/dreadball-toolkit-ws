@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.wandrell.tabletop.dreadball.ws.toolkit.testing.test.integration.application;
+package com.wandrell.tabletop.dreadball.ws.toolkit.testing.test.integration.endpoint.unit.ability;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,11 +34,11 @@ import com.google.gson.Gson;
 import com.wandrell.tabletop.dreadball.model.persistence.unit.stats.JPAAbility;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 
-public final class ITDreadballToolkitApplicationAbility {
+public final class AbilityEndpointSingle {
 
-    private static final String PATH = "http://localhost:8080/units/abilities/1";
+    private static final String PATH = "http://localhost:8080/dreadball-toolkit-ws/units/abilities/1";
 
-    public ITDreadballToolkitApplicationAbility() {
+    public AbilityEndpointSingle() {
         super();
     }
 
