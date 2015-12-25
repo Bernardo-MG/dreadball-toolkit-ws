@@ -7,9 +7,9 @@
 
     <!-- Imports -->
 
-    <import resource="persistence.xml" />
-    <import resource="endpoint.xml" />
-    <import resource="service.xml" />
+    <import resource="classpath:context/persistence.xml" />
+    <import resource="classpath:context/endpoint.xml" />
+    <import resource="classpath:context/service.xml" />
 
     <!-- Profile-based configuration -->
 
@@ -17,13 +17,13 @@
         <!-- H2 in-memory database -->
         <!-- To be used for development -->
         <context:property-placeholder
-            location="classpath:spring/persistence-h2.properties" />
+            location="classpath:context/persistence-h2.properties" />
     </beans>
     <beans profile="mysql">
         <!-- MySQL database -->
         <!-- To be used for deployment -->
         <context:property-placeholder
-            location="classpath:spring/persistence-mysql.properties" />
+            location="classpath:context/persistence-mysql.properties" />
     </beans>
 
 </beans>

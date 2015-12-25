@@ -154,15 +154,6 @@
                 <server.test.port>9966</server.test.port>
                 <server.test.path>/${project.artifactId}</server.test.path>
             </properties>
-            <dependencies>
-                <dependency>
-                    <!-- H2 Database -->
-                    <!-- It is set to the compile scope -->
-                    <groupId>com.h2database</groupId>
-                    <artifactId>h2</artifactId>
-                    <version>${h2.version}</version>
-                </dependency>
-            </dependencies>
             <build>
                 <plugins>
                     <plugin>
@@ -179,6 +170,29 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <!-- H2 database profile -->
+            <!-- Prepares the project to make use of an H2 in-memory database -->
+            <id>h2</id>
+            <activation>
+                <property>
+                    <name>environment</name>
+                    <value>development</value>
+                </property>
+            </activation>
+            <properties>
+                <!-- Dependencies versions -->
+                <h2.version>1.4.190</h2.version>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <!-- H2 Database -->
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                    <version>${h2.version}</version>
+                </dependency>
+            </dependencies>
         </profile>
         <profile>
             <!-- Release site deployment profile -->
@@ -254,7 +268,6 @@
         <!-- Dependencies versions -->
         <gson.version>2.4</gson.version>
         <guava.version>18.0</guava.version>
-        <h2.version>1.4.190</h2.version>
         <hibernate.version>4.3.11.Final</hibernate.version>
         <hikari.version>2.3.11</hikari.version>
         <httpclient.version>4.5.1</httpclient.version>

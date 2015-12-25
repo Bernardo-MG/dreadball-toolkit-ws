@@ -7,8 +7,9 @@
     <description>A general use web service for Dreadball, offering support for team creation and data querying.</description>
 
     <context-param>
+        <!-- WS application context -->
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/spring/context.xml</param-value>
+        <param-value>classpath:/context/applicationContext.xml</param-value>
     </context-param>
 
     <listener>
@@ -19,14 +20,17 @@
         <filter-name>dreadball-servlet</filter-name>
         <filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
         <init-param>
+            <!-- WS application class -->
             <param-name>javax.ws.rs.Application</param-name>
             <param-value>com.wandrell.tabletop.dreadball.ws.toolkit.endpoint.DreadballToolkitResourceConfig</param-value>
         </init-param>
         <init-param>
+            <!-- Freemarker templates path -->
             <param-name>jersey.config.server.mvc.templateBasePath.freemarker</param-name>
             <param-value>freemarker</param-value>
         </init-param>
         <init-param>
+            <!-- Static content path -->
             <param-name>jersey.config.servlet.filter.staticContentRegex</param-name>
             <param-value>/static/.*.(css|js)</param-value>
         </init-param>
