@@ -151,10 +151,33 @@
             </properties>
             <dependencies>
                 <dependency>
-                    <!-- H2 Database -->
+                    <!-- H2 connector -->
                     <groupId>com.h2database</groupId>
                     <artifactId>h2</artifactId>
                     <version>${h2.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <!-- MySQL database profile -->
+            <!-- Prepares the project to make use of an H2 in-memory database -->
+            <id>mysql</id>
+            <activation>
+                <property>
+                    <name>environment</name>
+                    <value>production</value>
+                </property>
+            </activation>
+            <properties>
+                <!-- Dependencies versions -->
+                <mysql.version>5.1.38</mysql.version>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <!-- MySQL connector -->
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+                    <version>${mysql.version}</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -256,9 +279,7 @@
         <extension.wagon.version>2.9</extension.wagon.version>
         <!-- Maven Site -->
         <site.skin.version>0.2.3</site.skin.version>
-        <!-- Testing server -->
-        <server.test.host>localhost</server.test.host>
-        <server.test.port>8080</server.test.port>
+        <!-- Test server -->
         <server.test.path>/${project.artifactId}</server.test.path>
     </properties>
 
@@ -492,7 +513,7 @@
     <!-- ********************************************** -->
 
     <build>
-        <defaultGoal>clean package jetty:run-war</defaultGoal>
+        <defaultGoal>clean package jetty:run</defaultGoal>
         <plugins>
             <plugin>
                 <!-- Changes -->
@@ -547,10 +568,6 @@
                     <webApp>
                         <contextPath>${server.test.path}</contextPath>
                     </webApp>
-                    <httpConnector>
-                        <host>${server.test.host}</host>
-                        <port>${server.test.port}</port>
-                    </httpConnector>
                 </configuration>
                 <executions>
                     <execution>
