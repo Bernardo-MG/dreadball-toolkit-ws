@@ -48,7 +48,7 @@ The project can be installed by creating the war file and deploying it into a se
 To just run the web service, useful for testing, the following command can be used:
 
 ```
-$ mvn tomcat7:run-war -Ph2 -Dspring.profiles.active=h2
+$ mvn jetty:run-war -Ph2 -Dspring.profiles.active=h2
 ```
 
 This will set up the web service to use the H2 in-memory database.
@@ -58,7 +58,7 @@ This will set up the web service to use the H2 in-memory database.
 The integration tests require a database, which can be set up automatically if using the H2 profile. For this reason these tests should be run with the following command:
 
 ```
-$ mvn verify -Denvironment=development -Dspring.profiles.active=h2
+$ mvn verify -Ph2 -Dspring.profiles.active=h2
 ```
 
 ## Collaborate

@@ -142,6 +142,10 @@
             <properties>
                 <!-- Dependencies versions -->
                 <h2.version>1.4.190</h2.version>
+                <!-- Access data -->
+                <database.url>jdbc:h2:mem:dreadball_toolkit</database.url>
+                <database.username>sa</database.username>
+                <database.password></database.password>
             </properties>
             <dependencies>
                 <dependency>
@@ -159,6 +163,10 @@
             <properties>
                 <!-- Dependencies versions -->
                 <mysql.version>5.1.38</mysql.version>
+                <!-- Access data -->
+                <database.url>jdbc:mysql://localhost:3306/dreadball_toolkit</database.url>
+                <database.username>root</database.username>
+                <database.password></database.password>
             </properties>
             <dependencies>
                 <dependency>
@@ -559,10 +567,10 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <id>start-jetty</id>
+                        <id>start-jetty-it</id>
                         <phase>pre-integration-test</phase>
                         <goals>
-                            <goal>start</goal>
+                            <goal>run-war</goal>
                         </goals>
                         <configuration>
                             <scanIntervalSeconds>0</scanIntervalSeconds>
@@ -570,13 +578,27 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>stop-jetty</id>
+                        <id>stop-jetty-it</id>
                         <phase>post-integration-test</phase>
                         <goals>
                             <goal>stop</goal>
                         </goals>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <!-- Spring beans -->
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-beans</artifactId>
+                        <version>${spring.version}</version>
+                    </dependency>
+                    <dependency>
+                        <!-- Spring context -->
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                        <version>${spring.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <!-- Site -->
@@ -616,6 +638,18 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>${plugin.war.version}</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <filtering>true</filtering>
+                            <directory>src/filtered/context</directory>
+                            <targetPath>WEB-INF/classes/context</targetPath>
+                            <includes>
+                                <include>persistence-access.properties</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                </configuration>
             </plugin>
         </plugins>
     </build>
