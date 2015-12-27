@@ -570,11 +570,15 @@
                         <id>start-jetty-it</id>
                         <phase>pre-integration-test</phase>
                         <goals>
-                            <goal>run-war</goal>
+                            <goal>run</goal>
                         </goals>
                         <configuration>
                             <scanIntervalSeconds>0</scanIntervalSeconds>
                             <daemon>true</daemon>
+                            <baseResource
+                                implementation="org.mortbay.resource.ResourceCollection">
+                                <resourcesAsCSV>src/main/webapp,target/jettyFilteredResources</resourcesAsCSV>
+                            </baseResource>
                         </configuration>
                     </execution>
                     <execution>
@@ -644,6 +648,14 @@
                             <filtering>true</filtering>
                             <directory>src/filtered/context</directory>
                             <targetPath>WEB-INF/classes/context</targetPath>
+                            <includes>
+                                <include>persistence-access.properties</include>
+                            </includes>
+                        </resource>
+                        <resource>
+                            <filtering>true</filtering>
+                            <directory>src/filtered/context</directory>
+                            <targetPath>../jettyFilteredResources</targetPath>
                             <includes>
                                 <include>persistence-access.properties</include>
                             </includes>
