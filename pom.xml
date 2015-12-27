@@ -139,12 +139,6 @@
             <!-- H2 database profile -->
             <!-- Prepares the project to make use of an H2 in-memory database -->
             <id>h2</id>
-            <activation>
-                <property>
-                    <name>environment</name>
-                    <value>development</value>
-                </property>
-            </activation>
             <properties>
                 <!-- Dependencies versions -->
                 <h2.version>1.4.190</h2.version>
@@ -162,12 +156,6 @@
             <!-- MySQL database profile -->
             <!-- Prepares the project to make use of an H2 in-memory database -->
             <id>mysql</id>
-            <activation>
-                <property>
-                    <name>environment</name>
-                    <value>production</value>
-                </property>
-            </activation>
             <properties>
                 <!-- Dependencies versions -->
                 <mysql.version>5.1.38</mysql.version>

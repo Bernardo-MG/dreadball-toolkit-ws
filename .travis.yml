@@ -21,7 +21,7 @@ before_install:
   - ./.scripts/create-maven-settings.sh
 script:
   # Unit and integration tests are run
-  - mvn clean verify -Denvironment=development -Dspring.profiles.active=h2
+  - mvn clean verify -Ph2 -Dspring.profiles.active=h2
 after_success:
   # Documentation deployment script
   - ./.scripts/deploy-site.sh
