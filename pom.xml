@@ -146,6 +146,8 @@
                 <database.url>jdbc:h2:mem:dreadball_toolkit</database.url>
                 <database.username>sa</database.username>
                 <database.password></database.password>
+                <!-- Spring context -->
+                <spring.profile.database>h2</spring.profile.database>
             </properties>
             <dependencies>
                 <dependency>
@@ -167,6 +169,8 @@
                 <database.url>jdbc:mysql://localhost:3306/dreadball_toolkit</database.url>
                 <database.username>root</database.username>
                 <database.password></database.password>
+                <!-- Spring context -->
+                <spring.profile.database>mysql</spring.profile.database>
             </properties>
             <dependencies>
                 <dependency>
@@ -576,6 +580,9 @@
                             <scanIntervalSeconds>0</scanIntervalSeconds>
                             <daemon>true</daemon>
                             <useTestScope>true</useTestScope>
+                            <webApp>
+                                <overrideDescriptor>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/web.xml</overrideDescriptor>
+                            </webApp>
                         </configuration>
                     </execution>
                     <execution>
@@ -640,10 +647,12 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>${plugin.war.version}</version>
                 <configuration>
+                    <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
                     <webResources>
                         <resource>
+                            <!-- Persistence access data -->
                             <filtering>true</filtering>
-                            <directory>src/filtered/context</directory>
+                            <directory>${project.basedir}/src/main/resources/context</directory>
                             <targetPath>WEB-INF/classes/context</targetPath>
                             <includes>
                                 <include>persistence-access.properties</include>
