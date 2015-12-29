@@ -61,6 +61,14 @@ The integration tests require a database, which can be set up automatically if u
 $ mvn verify -P h2
 ```
 
+### Packaging the WAR
+
+When creating the WAR file the database connection credentials should be set:
+
+```
+$ mvn package -P mysql -Ddatabase.username=username -Ddatabase.password=password -Ddatabase.url=jdbc:mysql://localhost:3306/dreadball_toolkit
+```
+
 ## Collaborate
 
 Any kind of help with the project will be well received, and there are two main ways to give such help:
