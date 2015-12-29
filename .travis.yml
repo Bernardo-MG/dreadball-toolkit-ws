@@ -1,14 +1,10 @@
 language: java
 jdk:
 - oraclejdk8
-services:
-  - mysql
 env:
   - DEPLOY=false DEPLOY_DOCS=true
 
 before_install:
-  # Creates test databases
-  - mysql -e "create database IF NOT EXISTS dreadball_toolkit;" -uroot
   # Sets the deployment flags
   - export PULL_REQUEST=$TRAVIS_PULL_REQUEST
   # Default values for deployment flags
@@ -25,7 +21,7 @@ before_install:
   - ./.scripts/create-maven-settings.sh
 script:
   # Unit and integration tests are run
-  - mvn clean verify -P mysql
+  - mvn clean verify -P h2
 after_success:
   # Documentation deployment script
   - ./.scripts/deploy-site.sh
