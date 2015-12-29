@@ -67,7 +67,7 @@ public final class AbilityEndpointSingle {
         name = html.select("dd").get(1);
 
         Assert.assertEquals(header.text(), "Ability 1");
-        Assert.assertEquals(name.text(), "360_vision");
+        Assert.assertEquals(name.text(), "ability_1");
     }
 
     @Test
@@ -86,7 +86,7 @@ public final class AbilityEndpointSingle {
                 new InputStreamReader(httpResponse.getEntity().getContent()),
                 JPAAbility.class);
 
-        Assert.assertEquals(ability.getName(), "360_vision");
+        Assert.assertEquals(ability.getName(), "ability_1");
     }
 
     @Test
@@ -104,7 +104,7 @@ public final class AbilityEndpointSingle {
         result = CharStreams.toString(
                 new InputStreamReader(httpResponse.getEntity().getContent()));
 
-        Assert.assertEquals(result, "360_vision");
+        Assert.assertEquals(result, "ability_1");
     }
 
 }

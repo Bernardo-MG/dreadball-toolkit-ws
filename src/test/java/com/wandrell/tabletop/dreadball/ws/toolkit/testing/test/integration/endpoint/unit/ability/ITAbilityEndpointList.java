@@ -70,7 +70,7 @@ public final class ITAbilityEndpointList {
         cell = html.select("td").get(1);
 
         Assert.assertEquals(header.text(), "Abilities list");
-        Assert.assertEquals(cell.text(), "360_vision");
+        Assert.assertEquals(cell.text(), "ability_1");
     }
 
     @SuppressWarnings("serial")
@@ -92,7 +92,7 @@ public final class ITAbilityEndpointList {
                 new InputStreamReader(httpResponse.getEntity().getContent()),
                 token);
 
-        Assert.assertEquals("360_vision",
+        Assert.assertEquals("ability_1",
                 abilities.iterator().next().getName());
     }
 
@@ -111,7 +111,7 @@ public final class ITAbilityEndpointList {
         result = CharStreams.toString(
                 new InputStreamReader(httpResponse.getEntity().getContent()));
 
-        Assert.assertTrue(result.startsWith("360_vision\n"));
+        Assert.assertTrue(result.startsWith("ability_1\n"));
     }
 
 }

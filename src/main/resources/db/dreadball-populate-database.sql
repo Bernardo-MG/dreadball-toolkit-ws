@@ -14,6 +14,13 @@
 --  the License.
 --
 
+
+-- ****************************************
+-- This SQL script populates the tables with the latest Dreadball data, for both the
+-- original and Xtreme versions.
+-- ****************************************
+
+
 -- ****************************************
 --                ABILITIES
 -- ****************************************
