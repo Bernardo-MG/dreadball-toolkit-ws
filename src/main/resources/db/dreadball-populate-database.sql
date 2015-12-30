@@ -629,177 +629,201 @@ INSERT INTO team_type_unit_avas (id, team_type_id, unit_id, initial, max) VALUES
 
 
 -- Humans (male): 1 dice, 2 cards
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (1, 10, 8, 8, 6, 2, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (1, 1, 10, 8, 8, 6, 2, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Orx/Goblins: 1 dice, 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (2, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (2, 2, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Veer-Myn: 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (3, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (3, 3, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Forge fathers: 1 dice, 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (4, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (4, 4, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Robots: 1 dice, 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (5, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (5, 5, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Z'zor: 1 dice, 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (6, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (6, 6, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Judwan: 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (7, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (7, 7, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Humans (female): 4 dice
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (8, 10, 8, 8, 6, 0, 0, 4, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (8, 8, 10, 8, 8, 6, 0, 0, 4, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Asterians: Defensive coaching staff
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (9, 10, 8, 8, 6, 0, 0, 0, 7, 7, 7, TRUE, FALSE, FALSE);
+	VALUES (9, 9, 10, 8, 8, 6, 0, 0, 0, 7, 7, 7, TRUE, FALSE, FALSE);
 
 -- Nameless: Nothing
+INSERT INTO team_type_asset_avas (id, team_type_id,
+	cost_card, cost_cheerleader, cost_coaching, cost_dice,
+	initial_card, initial_cheerleader, initial_dice,
+	max_card, max_cheerleader, max_dice,
+	def_coach, off_coach, sup_coach)
+	VALUES (10, 10, 10, 8, 8, 6, 0, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Teratons: Nothing
+INSERT INTO team_type_asset_avas (id, team_type_id,
+	cost_card, cost_cheerleader, cost_coaching, cost_dice,
+	initial_card, initial_cheerleader, initial_dice,
+	max_card, max_cheerleader, max_dice,
+	def_coach, off_coach, sup_coach)
+	VALUES (11, 11, 10, 8, 8, 6, 0, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Zees: 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (12, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (12, 12, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Sphyr: 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (13, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (13, 13, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Brokkr: 1 dice, 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (14, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (14, 14, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Rebs: Nothing
+INSERT INTO team_type_asset_avas (id, team_type_id,
+	cost_card, cost_cheerleader, cost_coaching, cost_dice,
+	initial_card, initial_cheerleader, initial_dice,
+	max_card, max_cheerleader, max_dice,
+	def_coach, off_coach, sup_coach)
+	VALUES (15, 15, 10, 8, 8, 6, 0, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Hobgoblins: 2 dice, 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (16, 10, 8, 8, 6, 1, 0, 2, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (16, 16, 10, 8, 8, 6, 1, 0, 2, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Martians: 3 dice, 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (16, 10, 8, 8, 6, 1, 0, 3, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (17, 17, 10, 8, 8, 6, 1, 0, 3, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Convicts: Offensive Coaching Staff
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (17, 10, 8, 8, 6, 0, 0, 0, 7, 7, 7, FALSE, TRUE, FALSE);
+	VALUES (18, 18, 10, 8, 8, 6, 0, 0, 0, 7, 7, 7, FALSE, TRUE, FALSE);
 
 -- Kalyshi: Nothing
+INSERT INTO team_type_asset_avas (id, team_type_id,
+	cost_card, cost_cheerleader, cost_coaching, cost_dice,
+	initial_card, initial_cheerleader, initial_dice,
+	max_card, max_cheerleader, max_dice,
+	def_coach, off_coach, sup_coach)
+	VALUES (19, 19, 10, 8, 8, 6, 0, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Crystallans: 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (19, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (20, 20, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Tsudochan: 2 cards
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (20, 10, 8, 8, 6, 2, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (21, 21, 10, 8, 8, 6, 2, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Koris: 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (21, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (22, 22, 10, 8, 8, 6, 1, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Ada-Lorana: 1 die, 1 card
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (22, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (23, 23, 10, 8, 8, 6, 1, 0, 1, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Mutants: Nothing, costs doubled
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (23, 20, 16, 16, 12, 0, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (24, 24, 20, 16, 16, 12, 0, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
 
 -- Mechanite: Nothing
-INSERT INTO team_type_asset_avas (team_type_id,
+INSERT INTO team_type_asset_avas (id, team_type_id,
 	cost_card, cost_cheerleader, cost_coaching, cost_dice,
 	initial_card, initial_cheerleader, initial_dice,
 	max_card, max_cheerleader, max_dice,
 	def_coach, off_coach, sup_coach)
-	VALUES (24, 10, 8, 8, 6, 0, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);
+	VALUES (25, 25, 10, 8, 8, 6, 0, 0, 0, 7, 7, 7, FALSE, FALSE, FALSE);

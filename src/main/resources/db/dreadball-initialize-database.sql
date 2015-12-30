@@ -69,6 +69,7 @@ DROP TABLE IF EXISTS units;
 DROP TABLE IF EXISTS affinity_units;
 DROP TABLE IF EXISTS composite_affinity_units;
 DROP TABLE IF EXISTS advancement_units;
+DROP TABLE IF EXISTS composite_advancement_units;
 
 DROP TABLE IF EXISTS component_positions;
 DROP TABLE IF EXISTS affinity_unit_components;
@@ -135,6 +136,24 @@ CREATE TABLE component_positions (
     component_id            INTEGER,
       position                VARCHAR(30) NOT NULL DEFAULT 'JACK',
     FOREIGN KEY (component_id) REFERENCES unit_components (id) ON DELETE CASCADE
+);
+
+CREATE TABLE composite_advancement_units (
+    id                      INTEGER PRIMARY KEY,
+    template_name           VARCHAR(30) NOT NULL DEFAULT '',
+    name                    VARCHAR(30) NOT NULL DEFAULT '',
+    cost                    INTEGER NOT NULL DEFAULT 0,
+    armor                   INTEGER NOT NULL DEFAULT 0,
+    movement                INTEGER NOT NULL DEFAULT 0,
+    skill                   INTEGER NOT NULL DEFAULT 0,
+    speed                   INTEGER NOT NULL DEFAULT 0,
+    strength                INTEGER NOT NULL DEFAULT 0,
+    position                VARCHAR(30) NOT NULL DEFAULT 'JACK',
+    giant                   BOOLEAN NOT NULL DEFAULT FALSE,
+    experience              INTEGER NOT NULL DEFAULT 0,
+    rank                    INTEGER NOT NULL DEFAULT 0,
+    grafted_implant_id      INTEGER,
+    FOREIGN KEY (grafted_implant_id) REFERENCES unit_components (id) ON DELETE CASCADE
 );
 
 CREATE TABLE advancement_units (
