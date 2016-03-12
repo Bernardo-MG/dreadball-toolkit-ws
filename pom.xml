@@ -278,7 +278,7 @@
         <!-- Extensions versions -->
         <extension.wagon.version>2.9</extension.wagon.version>
         <!-- Maven Site -->
-        <site.skin.version>0.2.3</site.skin.version>
+        <site.skin.version>0.2.4</site.skin.version>
         <!-- Test server -->
         <server.test.path>/${project.artifactId}</server.test.path>
     </properties>
